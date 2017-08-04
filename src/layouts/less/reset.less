@@ -1,0 +1,35 @@
+@import './variable.less';
+@import '~antd/lib/style/mixins/index.less';
+
+// 重置placeholder颜色
+.placeholder(@input-placeholder-color);
+::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+// 全局重置样式
+.reset {
+  min-width: 1220px;
+  overflow-x: hidden;
+
+  a {
+    &:focus {
+      outline: none;
+    }
+    user-select: none;
+  }
+
+  .ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x,
+  .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+    background-color: #333;
+  }
+
+  .rdtPicker {
+    margin-top: 6px;
+  }
+
+  .ant-dropdown-menu-sub {
+    max-height: 100px;
+    overflow-y: auto;
+  }
+}

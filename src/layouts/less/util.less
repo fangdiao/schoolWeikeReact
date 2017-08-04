@@ -1,0 +1,512 @@
+@import './variable.less';
+
+// 全局通用样式
+.margin-none {
+  margin: 0 !important;
+}
+.margin,
+.margin-vertical,
+.margin-top {
+  margin-top: 16px;
+}
+.margin-sm,
+.margin-vertical-sm,
+.margin-top-sm {
+  margin-top: 8px;
+}
+.margin,
+.margin-vertical,
+.margin-bottom {
+  margin-bottom: 16px;
+}
+.margin-sm,
+.margin-vertical-sm,
+.margin-bottom-sm {
+  margin-bottom: 8px;
+}
+.margin,
+.margin-horizon,
+.margin-left {
+  margin-left: 16px;
+}
+.margin,
+.margin-horizon,
+.margin-right {
+  margin-right: 16px;
+}
+.margin-sm,
+.margin-horizon-sm,
+.margin-left-sm {
+  margin-left: 8px;
+}
+.margin-sm,
+.margin-horizon-sm,
+.margin-right-sm {
+  margin-right: 8px;
+}
+
+
+// 全局通用样式
+.padding-none {
+  padding: 0 !important;
+}
+.padding,
+.padding-vertical,
+.padding-top {
+  padding-top: 16px;
+}
+.padding-sm,
+.padding-vertical-sm,
+.padding-top-sm {
+  padding-top: 8px;
+}
+.padding,
+.padding-vertical,
+.padding-bottom {
+  padding-bottom: 16px;
+}
+.padding-sm,
+.padding-vertical-sm,
+.padding-bottom-sm {
+  padding-bottom: 8px;
+}
+.padding,
+.padding-horizon,
+.padding-left {
+  padding-left: 16px;
+}
+.padding,
+.padding-horizon,
+.padding-right {
+  padding-right: 16px;
+}
+.padding-sm,
+.padding-horizon-sm,
+.padding-left-sm {
+  padding-left: 8px;
+}
+.padding-sm,
+.padding-horizon-sm,
+.padding-right-sm {
+  padding-right: 8px;
+}
+
+.hidden {
+  display: none !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-muted {
+  color: @text-muted-color;
+}
+a.text-muted:hover {
+  color: fade(@text-muted-color, 75%);
+}
+.text-danger {
+  color: @error-color;
+}
+a.text-danger:hover {
+  color: lighten(@error-color, 10%);
+}
+a.text-danger:active {
+  color: darken(@error-color, 10%);
+}
+.text-red {
+  color: @red-color;
+}
+.text-primary {
+  color: @primary-color;
+}
+.text-success {
+  color: @success-color;
+}
+a.text-success:hover {
+  color: lighten(@success-color, 10%);
+}
+a.text-success:active {
+  color: darken(@success-color, 10%);
+}
+.text-warning {
+  color: @warning-color;
+}
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+.test-over-ellipsis {
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+
+
+.v-middle {
+  vertical-align: middle;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+// 清除浮动
+.clear-both {
+  clear: both;
+}
+.clear-left {
+  clear: left;
+}
+.clear-right {
+  clear: right;
+}
+
+// 页面加载效果
+.page-loading-wrapper {
+  bottom: 0;
+  color: #999;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9000;
+  background-color: rgba(0,0,0,0.1);
+}
+.spinner {
+  position: absolute;
+  text-align: center;
+  top: 95px;
+  left: 0;
+  width: 100%;
+}
+.spinner > div {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(31,190,106,0.85);
+  margin: 0 4px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
+}
+
+.page-content {
+  width: 1220px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.reset.no-frame {
+  min-width: 1px;
+  overflow: visible;
+}
+.no-frame {
+  #dm-ceiling {
+    display: none;
+  }
+  .page-content {
+    width: auto;
+  }
+}
+
+// 主内容区域的标题
+.page-title {
+  font-size: 20px;
+  line-height: 56px;
+  height: 56px;
+  //border-bottom: 1px solid #e7e7e7;
+  margin: 0;
+}
+
+.table-no-hover {
+  .ant-table-row {
+    &:hover {
+      background-color: inherit;
+    }
+  }
+}
+
+.btn-animate-circle {
+  .anticon {
+    transform: rotate(0deg);
+    transition: transform .3s;
+  }
+}
+
+
+.emoji {
+  margin: 0 1px;
+  vertical-align: top;
+}
+
+.modal-head-control {
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  button {
+    margin-left: 8px;
+  }
+}
+
+
+.affix-nav {
+  position: fixed;
+  z-index: 10;
+  right: -1px;
+  top: 50%;
+  margin-top: -110px;
+  border: 1px solid @border-color-split;
+  line-height: 16px;
+  width: 30px;
+  text-align: center;
+  > a {
+    &:nth-child(1) {
+      border-bottom: 1px solid @border-color-split;
+    }
+    display: inline-block;
+    padding: 15px 10px;
+    background: #fff;
+  }
+}
+
+.c-relative {
+  position: relative;
+}
+
+// grid 表格
+.c-grid {
+}
+.c-grid-head {
+  position: relative;
+  > div {
+    padding: 10px 16px;
+    background-color: @btn-default-bg;
+    border-top: 1px solid @border-color-split;
+    border-right: 1px solid @border-color-split;
+    border-bottom: 1px solid @border-color-split;
+    &:last-child {
+      border-right: none;
+    }
+    a {
+      color: inherit;
+    }
+  }
+  &-control {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 10px;
+    margin-top: -21px;
+    height: 42px;
+    line-height: 42px;
+    text-align: right;
+    > span {
+      font-weight: 300;
+    }
+    > button {
+      margin-top: -3px;
+    }
+  }
+}
+.c-grid-body {
+  > div {
+    border-right: 1px solid @border-color-split;
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+
+.drag-handle {
+  cursor: move;
+  cursor: -webkit-grabbing;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.draggable-item {
+  position: relative;
+  &&--related {
+    //box-shadow: inset 0 0 0 2px @primary-color;
+    &:after {
+      content: '';
+      position: absolute;
+      background-color: transparent;
+      border: 3px solid;
+      border-left-width: 0;
+      border-right-width: 0;
+      height: 6px;
+      width: 100%;
+      left: 0;
+
+    }
+  }
+  &&--up:after {
+    top: -8px;
+    border-top-color: darken(@primary-color, -25%);
+    border-bottom-color: darken(@primary-color, -25%);
+  }
+  &&--down:after {
+    bottom: -8px;
+    border-top-color: darken(@primary-color, -25%);
+    border-bottom-color: darken(@primary-color, -25%);
+  }
+}
+
+
+@box-bg-color: @btn-default-bg;
+
+// 清除输入框
+.input-clear {
+  position: absolute;
+  right: 4px;
+  top: 6px;
+  font-size: 20px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+// input loading
+.input-loading {
+  top: 5px;
+  position: absolute;
+  right: -25px;
+  font-size: 20px;
+  color: @primary-color;
+}
+
+// 增加独立按钮
+.ant-btn-link {
+  color: @text-color;
+  background-color: transparent;
+  border-color: transparent;
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+    outline: none;
+    color: @primary-color;
+  }
+  &.ant-btn-clicked:after {
+    display: none;
+  }
+}
+
+.reset .ant-confirm-btns .ant-btn-ghost {
+  .ant-btn-link()
+}
+
+.text-cross {
+  text-decoration: line-through;
+  > * {
+    text-decoration: line-through;
+  }
+}
+
+
+.text-capitalize{
+  text-transform: capitalize;
+}
+.text-uppercase{
+  text-transform: uppercase;
+}
+.text-lowercase{
+  text-transform: lowercase;
+}
+.fs-12{
+  font-size: 12px;
+}
+.fs-14{
+  font-size: 14px;
+}
+.fs-16{
+  font-size: 16px;
+}
+.fs-18{
+  font-size: 18px;
+}
+.fs-20{
+  font-size: 20px;
+}
+.fs-22{
+  font-size: 22px;
+}
+
+.block{
+  display: block;
+}
+.inline{
+  display: inline;
+}
+.inline-block{
+  display: inline-block;
+}
+.none{
+  display: none;
+}
+
+.c999{
+  color: #999;
+}
+
+/*dm-emoji*/
+.dm-emoji {
+  /* Emoji Sizing */
+  font-size: inherit;
+  height: 2.8ex;
+  width: 2.8ex;
+  min-height: 16px;
+  min-width: 16px;
+
+  /* Inline alignment adjust the margins  */
+  display: inline-block;
+  margin: -.2ex .15em .2ex;
+  line-height: normal;
+  vertical-align: middle;
+}
+img.dm-emoji {
+  /* prevent img stretch */
+  width: auto;
+}

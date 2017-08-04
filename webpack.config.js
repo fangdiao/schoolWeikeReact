@@ -3,7 +3,7 @@ const webpack = require("webpack");
 //HtmlWebpackPlugin是webpack生成html的插件
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 //自动添加css3样式前缀
-const autoprefixer = require("autoprefixer");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const Dashboard = require('webpack-dashboard');
@@ -30,7 +30,7 @@ module.exports = {
     compress: true,
     port:8080,
     hot:true,
-    publicPath:"/dist",
+    publicPath:"/",
   },
   module: {
     rules: [
@@ -48,23 +48,41 @@ module.exports = {
           presets: ['es2015','react']
         }
       },
+      // {
+      //   test: /\.less$/,
+      //   include: /src(\\|\/)containers/,
+      //   loader: ExtractTextPlugin.extract(
+      //     'style-loader',
+      //     'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!' +
+      //     'postcss-loader!' +
+      //     'less-loader'
+      //     , {publicPath: '../'})
+      // },
+      // {
+      //   test: /\.less$/,
+      //   include: /src(\\|\/)(layouts|components)/,
+      //   loader: ExtractTextPlugin.extract(
+      //     'style-loader',
+      //     'css-loader!' +
+      //     'postcss-loader!' +
+      //     'less-loader'
+      //     , {publicPath: '../'})
+      // },
       {
-        //less加载器
-        test:/\.less$/,
-        exclude: path.resolve(__dirname, "node_modules"),
-        loader: "style-loader!css-loader!postcss-loader!less-loader"
+        test: /\.less$/,
+        include: /src(\\|\/)containers/,
+        loader: 'style!' +
+                'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!' +
+                'postcss!' +
+                'less'
       },
       {
-        //html模板加载器
-        test: /\.html$/,
-        exclude: path.resolve(__dirname, "node_modules"),
-        use: "html-loader"
-      },
-        //ejs模板加载器
-      {
-        test: /\.ejs$/,
-        exclude: path.resolve(__dirname, "node_modules"),
-        use: "ejs-loader"
+        test: /\.less$/,
+        include: /src(\\|\/)(layouts|components)/,
+        loader: 'style-loader!' +
+                'css-loader!' +
+                'postcss-loader!' +
+                'less-loader'
       },
       {
         //图片加载器,可以将较小的图片转成base64，减少http请求
@@ -82,6 +100,7 @@ module.exports = {
     ]
   },
   plugins: [
+
     //index页面的配置
     new HtmlWebpackPlugin({
       filename: "index.html",          //index页面打包后的文件名
@@ -92,6 +111,7 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new DashboardPlugin(dashboard.setData),
+    new ExtractTextPlugin(`css/[name].[chunkhash:5].css`, {allChunks: true}),
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: function () {

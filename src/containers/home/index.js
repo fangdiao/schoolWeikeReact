@@ -8,9 +8,10 @@ class Home extends React.Component {
 
 
   render() {
-    console.log(this.props)
     return (
-      <h2>home333</h2>
+      <div>
+        <h2>home333</h2>
+      </div>
     )
   }
 }

@@ -1,73 +1,35 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import home from './home';
+import details from './details';
+import user from './user';
+import login from './login';
 
+import Frame from 'containers/Frame';
 import Home from 'containers/Home';
-import User from 'containers/User';
 
-import StudentDetails from 'containers/Details/StudentDetails'
-import TeacherDetails from 'containers/Details/TeacherDetails'
-import LoginIn from 'containers/Login/LoginIn';
-import LoginOut from 'containers/Login/LoginOut';
-import Register from 'containers/Login/Register';
-import ChangePW from 'containers/Login/ChangePW';
 
-//登录界面路由
+let weike = localStorage.weike;
 
-const loginRoutes = [
-  {
-    path: "/login/loginIn",
-    component: LoginIn,
-  },
-  {
-    path: "/login/loginOut",
-    component: LoginOut
-  },
-  {
-    path: "/login/register",
-    component: Register,
-  },
-  {
-    path: "/login/changePW",
-    component: ChangePW
+const cb = () => {};
+
+const checker = (nextState, replace, cb) => {
+  if (!weike) {
+    replace({ nextPathname: '/login/loginIn' });
   }
-];
-
-//详情填写界面路由
-
-const detailsRoutes = [
-  {
-    path: "/details/studentDetails",
-    component: StudentDetails
-  },
-  {
-    path: "/details/teacherDetails",
-    component: TeacherDetails
-  }
-];
+};
 
 const routes = {
   path: "/",
-  onEnter: () => {},
+  onEnter: checker,
+  indexRoute: {
+    component: Home
+  },
+  component: Frame,
   childRoutes: [
-    {
-      path: "/login",
-      indexRoute: {
-        component: LoginIn
-      },
-      childRoutes: loginRoutes
-    },
-    {
-      path: "/home",
-      component: Home
-    },
-    {
-      path: "/user",
-      component: User
-    },
-    {
-      path: "/details",
-      childRoutes: detailsRoutes
-    }
+    home,
+    details,
+    user,
+    login
   ]
 }
 

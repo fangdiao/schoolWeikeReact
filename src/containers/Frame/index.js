@@ -1,15 +1,19 @@
 import React from 'react';
-import FrameHeader from './FrameHeader';
-import FrameFooter from './Framefooter';
+import Header from './Header';
+import Footer from './Footer';
 export default class Frame extends React.Component {
 
 
   render() {
     return (
       <div>
-        <FrameHeader />
-        { this.props.children }
-        <FrameFooter />
+        <Header />
+        <div className="container">
+          <div className="content">
+            { this.props.children }
+            {/* <Footer /> */}
+          </div>
+        </div>
       </div>
     )
   }

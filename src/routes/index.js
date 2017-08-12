@@ -14,15 +14,17 @@ const cb = () => {};
 
 const checker = (nextState, replace, cb) => {
   if (!weike) {
-    replace({ nextPathname: '/login/loginIn' });
+    replace(`/login/loginIn`);
+  } else {
+    cb();
   }
 };
 
 const routes = {
   path: "/",
-  onEnter: checker,
   indexRoute: {
-    component: Home
+    component: Home,
+    onEnter: checker
   },
   component: Frame,
   childRoutes: [

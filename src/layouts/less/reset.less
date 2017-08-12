@@ -8,15 +8,64 @@
 }
 
 // 全局重置样式
+.gray {
+  color: #d9d9d9;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.blue {
+  color: #108ee9;
+}
+
+.red {
+  color: #f46e65;
+}
+
+.yellow {
+  color: #f56a00;
+}
+
+.green {
+  color: #3dbd7d;
+}
+
+
+body {
+  min-height: 100%;
+
+}
+.content {
+  margin-top: 50px;
+}
+
+.show {
+  display: inline-block;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
 .reset {
   min-width: 1220px;
-  overflow-x: hidden;
 
   a {
     &:focus {
       outline: none;
     }
     user-select: none;
+    &:link {text-decoration: none;}
+    &:visited {text-decoration: none;}
+    &:hover {text-decoration: none;}
+    &:active {text-decoration: none;}
   }
 
   .ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x,

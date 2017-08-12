@@ -1,6 +1,6 @@
 import Home from 'containers/Home';
 
 export default {
-  path: "/home",
+  path: "/dist",
   component: Home
 }

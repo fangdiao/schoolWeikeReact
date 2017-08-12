@@ -1,0 +1,158 @@
+@import '../../layouts/less/reset.less';
+
+
+.login {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50px;
+  bottom: 0;
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.loginIn,
+.register,
+.changePW {
+  position: absolute;
+  left: 50%;
+  width: 280px;
+  margin-left: -150px;
+  margin-top: 10vh;
+  border-radius: 4px;
+  background-color: @white;
+  box-shadow: 1px 3px 20px #ccc;
+  border: 1px solid @gray + #111;
+
+  div {
+    position: relative;
+    border-bottom: 1px solid @gray + #111;
+
+    .error,
+    .errorCode,
+    .errorPassword {
+      position: absolute;
+      right: 15px;
+      top: 16px;
+      font-size: 20px;
+      color: @red;
+    }
+
+    .errorCode {
+      right: 130px;
+    }
+
+    .errorPassword {
+      right: 50px;
+    }
+  }
+  h1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: @blue;
+  }
+
+  form {
+    .button {
+      padding: 10px 15px;
+
+      button {
+        width: 100%;
+      }
+    }
+
+    .password {
+      input {
+        width: 240px;
+      }
+      i {
+        font-size: 20px;
+        cursor: pointer;
+        vertical-align: middle;
+      }
+    }
+
+    & > div {
+
+      &:last-child {
+        border: none;
+      }
+
+      input {
+        width: 100%;
+        padding: 15px 10px;
+        line-height: 20px;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+.loginIn {
+
+  & > span {
+    display: inline-block;
+    padding: 16px 20px;
+    a {
+      display: inline-block;
+
+      &:last-child {
+        margin-left: 147px;
+      }
+    }
+  }
+}
+
+.register {
+
+  & > span {
+    display: block;
+    text-align: right;
+    padding: 16px 20px;
+    a {
+      display: inline-block;
+    }
+  }
+
+  .role {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    & > div {
+      width: 100%;
+      border: none;
+    }
+
+    label {
+      width: 50%;
+      margin: 0;
+      text-align: center;
+
+      &:first-child {
+        border-right: 1px solid @gray + #111;
+      }
+    }
+
+  }
+
+  .emailCode {
+    input {
+      width: 160px;
+    }
+    button {
+      min-width: 100px;
+      margin-right: 10px;
+    }
+  }
+}

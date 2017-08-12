@@ -28,9 +28,16 @@ module.exports = {
     contentBase: path.join(__dirname, "asstes"),
     inline:true,
     compress: true,
-    port:8080,
+    port:3000,
     hot:true,
     publicPath:"/",
+    // proxy: [{
+    //   context: ["/weike", "/Weike"],
+    //   target: "http://127.0.0.1:8081",
+    // }]
+    proxy: {
+      "/weike": "http://127.0.0.1:8081"
+    }
   },
   module: {
     rules: [
@@ -43,10 +50,7 @@ module.exports = {
       {
         test:/\.jsx?$/,
         exclude: path.resolve(__dirname, "node_modules"),
-        loader: 'babel-loader',
-        options: {
-          presets: ['es2015','react']
-        }
+        loader: 'babel-loader'
       },
       // {
       //   test: /\.less$/,
@@ -71,10 +75,10 @@ module.exports = {
       {
         test: /\.less$/,
         include: /src(\\|\/)containers/,
-        loader: 'style!' +
-                'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!' +
-                'postcss!' +
-                'less'
+        loader: 'style-loader!' +
+                'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!' +
+                'postcss-loader!' +
+                'less-loader'
       },
       {
         test: /\.less$/,
@@ -100,7 +104,6 @@ module.exports = {
     ]
   },
   plugins: [
-
     //index页面的配置
     new HtmlWebpackPlugin({
       filename: "index.html",          //index页面打包后的文件名

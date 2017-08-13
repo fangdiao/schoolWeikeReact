@@ -1,61 +1,63 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Icon, Button } from 'antd';
+import { Icon, Button, message } from 'antd';
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
+
+import NameInput from 'components/FDInput/NameInput';
+import ImgCodeInput from 'components/FDInput/ImgCodeInput';
+import PWInput from 'components/FDInput/PWInput';
 
 import STYLE from './style';
 
 class LoginIn extends React.Component {
 
-  upForm = (e) => {
-    e.preventDefault();
-    let username = this.username;
-    let password = this.password;
-    if (username && password) {
+  state = {
+    form: {
+      username: '',
+      password: '',
+      imgCode: ''
+    },
+    success: {
+      username: false,
+      password: false,
+      imgCode: false
+    }
+  }
+
+  toParent = (value, success) => {
+    let key = Object.keys(value)[0]
+    this.setState({
+      form: { ...this.state.form, ...value },
+      success: { ...this.state.success, ...success }
+    });
+  }
+
+  upForm = () => {
+    let form = this.state.form;
+    let success = this.state.success;
+    if (!_.findKey(form, (item) => item === '') && !_.findKey(success, (item) => item === false)) {
       let { actions } = this.props;
-      actions.studentLogin({
-        username,
-        password
-      })
+      actions.login(form);
+    } else {
+      message.destroy();
+      message.error('请正确填写个人信息');
     }
   }
 
   render() {
+    let { login } = this.props.data;
     return (
       <div className={STYLE.loginIn}>
         <div>
           <h1>嘿,gay</h1>
         </div>
         <form>
-          <div>
-            <input
-              ref={(ele) => {this.username = ele}}
-              type="text"
-              placeholder="用户名"
-              autoFocus
-            />
-          </div>
-          <div>
-            <input
-              ref={(ele) => {this.password = ele}}
-              type="password"
-              placeholder="密码"
-            />
-          </div>
-          <div>
-            <input
-              ref={(ele) => {this.username = ele}}
-              type="text"
-              placeholder="验证码"
-            />
-          </div>
+          <NameInput toParent={this.toParent} />
+          <PWInput toParent={this.toParent} />
+          <ImgCodeInput toParent={this.toParent} />
           <div className={STYLE.button}>
-            <Button
-              type="primary"
-              htmlType="submit"
-              onClick={this.upForm}
-            >登录</Button>
+            <Button type="primary" htmlType="submit" onClick={this.upForm}>登录</Button>
           </div>
         </form>
         <span>

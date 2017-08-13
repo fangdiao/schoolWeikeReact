@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Icon, Button, message, Radio } from 'antd';
+import _ from 'lodash';
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
+
+import NameInput from 'components/FDInput/NameInput';
+import PWInput from 'components/FDInput/PWInput';
+import MailCodeInput from 'components/FDInput/MailCodeInput';
+import MailInput from 'components/FDInput/MailInput';
+
+
 
 const RadioGroup = Radio.Group;
 
@@ -14,43 +22,27 @@ class Register extends React.Component {
     form: {
       role: 'student',
       username: '',
-      email: '',
+      mail: '',
+      mailCode: '',
       password: ''
     },
-    err: {
+    success: {
       username: false,
-      email: false,
+      mail: false,
+      mailCode: false,
       password: false
-    },
-    passwordShow: false,
-    countdown: 60,
-    canSubmit: false
-  }
-
-  getCode = () => {
-
-    if (this.state.err.email) {
-      let { actions } = this.props;
-      actions.getEmailCode({
-        email: 'ff@ds.com'
-      });
-
-      const countdown = () => {
-        this.setState((prevstate) => {
-          if (prevstate.countdown === 0) {
-            clearInterval(this.timer);
-            return { countdown: 60 }
-          } else {
-            return { countdown: -- prevstate.countdown }
-          }
-        });
-      }
-      countdown();
-      this.timer = setInterval(countdown, 1000);
-    } else {
-      message.info('请填写正确的邮箱');
     }
   }
+
+  toParent = (value, success) => {
+    let key = Object.keys(value)[0]
+    this.setState({
+      form: { ...this.state.form, ...value },
+      success: { ...this.state.success, ...success }
+    });
+  }
+
+
 
   changeRole = (e) => {
     this.setState((prevstate) => ({
@@ -61,61 +53,16 @@ class Register extends React.Component {
     }));
   }
 
-  changeUsername = (e) => {
-    let text = e.target.value;
-    this.setState({
-      form: {
-        ...this.state.form,
-        username: text
-      },
-      err: {
-        ...this.state.err,
-        username: text ? false : true
-      }
-    });
-  }
-
-  changeEmail = (e) => {
-    let text = e.target.value;
-    let reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-    this.setState({
-      form: {
-        ...this.state.form,
-        email: text
-      },
-      err: {
-        ...this.state.err,
-        email: !reg.test(text)
-      }
-    });
-  }
-
-  changeCode = (e) => {
-    let text = e.target.value;
-    this.setState({
-      form: {
-        ...this.state.form,
-        code: text
-      },
-      err: {
-        ...this.state.err,
-        code: text.length < 6 ? true : false
-      }
-    });
-  }
-
-  changePassword = (e) => {
-    let text = e.target.value;
-    this.setState({
-      form: {
-        ...this.state.form,
-        password: text
-      },
-      err: {
-        ...this.state.err,
-        password: text.length < 6 ? true : false
-      }
-    });
+  upForm = () => {
+    let form = this.state.form;
+    let success = this.state.success;
+    if (!_.findKey(form, (item) => item === '') && !_.findKey(success, (item) => item === true)) {
+      let { actions } = this.props;
+      form.role === 'student' ? actions.studentRegister(form) : actions.teacherRegister(form);
+    } else {
+      message.destroy();
+      message.error('请正确填写个人信息');
+    }
   }
 
   componentWillUnmount() {
@@ -124,6 +71,8 @@ class Register extends React.Component {
   }
 
   render() {
+    let { form, success } = this.state;
+    console.log(!!this.state.form.mail && !!this.state.success.mail)
     return (
       <div className={STYLE.register}>
         <div>
@@ -131,67 +80,21 @@ class Register extends React.Component {
         </div>
         <form>
           <div className={STYLE.role}>
-            <RadioGroup onChange={this.changeRole} value={this.state.form.role}>
+            <RadioGroup onChange={this.changeRole} value={form.role}>
               <Radio value="student">学生</Radio>
               <Radio value="teacher">老师</Radio>
             </RadioGroup>
           </div>
-          <div>
-            <input
-              type="text"
-              maxLength="12"
-              placeholder="用户名"
-              autoFocus
-              onChange={this.changeUsername}
-            />
-            {
-              this.state.err.username ? <Icon className={STYLE.error} type="close" /> : null
-            }
-          </div>
-          <div>
-            <input
-              type="email"
-              maxLength="16"
-              placeholder="邮箱"
-              onChange={this.changeEmail}
-            />
-            {
-              this.state.err.email ? <Icon className={STYLE.error} type="close" /> : null
-            }
-          </div>
-          <div className={STYLE.emailCode}>
-            <input
-              type="text"
-              maxLength="6"
-              placeholder="验证码"
-              onChange={this.changeCode}
-            />
-            {
-              this.state.err.code ? <Icon className={STYLE.errorCode} type="close" /> : null
-            }
-            {
-              this.state.countdown === 60 ? <Button type="primary" onClick={this.getCode}>获取验证码</Button> :
-              <Button type="dashed">{this.state.countdown}秒后可重发</Button>
-            }
-          </div>
-          <div className={STYLE.password}>
-            <input
-              type={this.state.passwordShow ? "text" : "password"}
-              maxLength="14"
-              placeholder="密码"
-              onChange={this.changePassword}
-            />
-            {
-              this.state.err.password ? <Icon className={STYLE.errorPassword} type="close" /> : null
-            }
-            <Icon
-              type="eye"
-              onClick={() => this.setState((prevstate) => ({passwordShow: !prevstate.passwordShow }))}
-              className={this.state.passwordShow ? "blue" : "gray"}
-            />
-          </div>
+          <NameInput toParent={this.toParent} />
+          <MailInput toParent={this.toParent} />
+          <MailCodeInput
+            mail={form.mail}
+            toParent={this.toParent}
+            height={!!form.mail && !!success.mail}
+          />
+          <PWInput toParent={this.toParent} />
           <div className={STYLE.button}>
-            <Button type="primary">注册</Button>
+            <Button type="primary" htmlType="submit" onClick={this.upForm}>注册</Button>
           </div>
         </form>
         <span>
@@ -202,4 +105,4 @@ class Register extends React.Component {
   }
 }
 
-export default connect(state => state, loginActions)(Register);
+export default connect(state => state.login, loginActions)(Register);

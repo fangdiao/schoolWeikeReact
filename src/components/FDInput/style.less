@@ -1,0 +1,103 @@
+@import '../../layouts/less/reset.less';
+
+.name,
+.mail,
+.mail-code,
+.img-code,
+.password {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid @gray + #111;
+
+  input {
+    width: 100%;
+    padding: 15px 10px;
+    line-height: 20px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+  }
+}
+
+.error {
+  position: absolute;
+  right: 15px;
+  top: 16px;
+  font-size: 20px;
+  color: @red;
+}
+
+.name {
+
+}
+
+.mail {
+
+}
+
+.height {
+  height: 50px !important;
+  border-bottom: 1px solid @gray + #111 !important;
+}
+
+.mail-code {
+  height: 0;
+  transition: height .5s;
+  border-bottom: none;
+
+  input {
+    width: 160px;
+  }
+
+  button {
+    min-width: 100px;
+    margin-right: 10px;
+  }
+
+  .mail-code-error {
+    right: 12px;
+  }
+}
+
+.img-code {
+
+  input {
+    width: 180px;
+  }
+
+  span, .loading {
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    color: @blue;
+    vertical-align: middle;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .loading {
+    border: 1px dashed @gray;
+    line-height: 26px;
+  }
+  .img-code-error {
+    right: 100px;
+  }
+}
+
+.password {
+
+  input {
+    width: 240px;
+  }
+
+  i {
+    font-size: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+
+  .password-error {
+    right: 40px;
+  }
+}

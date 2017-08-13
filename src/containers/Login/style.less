@@ -18,40 +18,18 @@
 }
 
 .loginIn,
-.register,
-.changePW {
+.register {
   position: absolute;
   left: 50%;
   width: 280px;
   margin-left: -150px;
-  margin-top: 10vh;
+  margin-top: 14vh;
   border-radius: 4px;
   background-color: @white;
   box-shadow: 1px 3px 20px #ccc;
   border: 1px solid @gray + #111;
+  user-select:none;
 
-  div {
-    position: relative;
-    border-bottom: 1px solid @gray + #111;
-
-    .error,
-    .errorCode,
-    .errorPassword {
-      position: absolute;
-      right: 15px;
-      top: 16px;
-      font-size: 20px;
-      color: @red;
-    }
-
-    .errorCode {
-      right: 130px;
-    }
-
-    .errorPassword {
-      right: 50px;
-    }
-  }
   h1 {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -69,31 +47,11 @@
       }
     }
 
-    .password {
-      input {
-        width: 240px;
-      }
-      i {
-        font-size: 20px;
-        cursor: pointer;
-        vertical-align: middle;
-      }
-    }
 
     & > div {
 
       &:last-child {
         border: none;
-      }
-
-      input {
-        width: 100%;
-        padding: 15px 10px;
-        line-height: 20px;
-        font-size: 14px;
-        border: none;
-        outline: none;
-        box-sizing: border-box;
       }
     }
   }
@@ -113,6 +71,7 @@
     }
   }
 }
+
 
 .register {
 
@@ -144,15 +103,5 @@
       }
     }
 
-  }
-
-  .emailCode {
-    input {
-      width: 160px;
-    }
-    button {
-      min-width: 100px;
-      margin-right: 10px;
-    }
   }
 }

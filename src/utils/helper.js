@@ -21,15 +21,27 @@ export const request = (url, params = '', method = 'get', token = false) => {
     { 'Content-Type': 'application/json;charset=UTF-8' } :
     { 'Content-Type': 'application/json;charset=UTF-8', 'Authorization': token };
   return new Promise((resolve, reject) => {
-    fetch(url, {
-      method: method,
-      headers: header,
-      body: params
-    }).then(response => response.json())
-    .then(responseData => {
-      resolve(responseData);
-    }).catch(err => {
-      reject(err);
-    });
+    if (method === 'post') {
+      fetch(url, {
+        method: method,
+        headers: header,
+        body: params
+      }).then(response => response.json())
+      .then(responseData => {
+        resolve(responseData);
+      }).catch(err => {
+        reject(err);
+      });
+    } else {
+      fetch(url, {
+        method: method,
+        headers: header
+      }).then(response => response.json())
+      .then(responseData => {
+        resolve(responseData);
+      }).catch(err => {
+        reject(err);
+      });
+    }
   });
 }

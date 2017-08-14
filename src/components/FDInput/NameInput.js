@@ -5,6 +5,10 @@ import STYLE from './style';
 
 export default class NameInput extends React.Component {
 
+  static defaultProps = {
+    toParent: () => {}
+  }
+
   state = {
     err: false
   }

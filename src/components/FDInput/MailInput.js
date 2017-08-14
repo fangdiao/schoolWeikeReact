@@ -5,6 +5,10 @@ import STYLE from './style';
 
 export default class MailInput extends React.Component {
 
+  static defaultProps = {
+    toParent: () => {}
+  }
+
   state = {
     err: false
   }

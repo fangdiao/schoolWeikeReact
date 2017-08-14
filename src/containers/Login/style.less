@@ -25,10 +25,14 @@
   margin-left: -150px;
   margin-top: 14vh;
   border-radius: 4px;
-  background-color: @white;
+  background-color: rgba(255,255,255,.8);
   box-shadow: 1px 3px 20px #ccc;
   border: 1px solid @gray + #111;
   user-select:none;
+
+  input {
+    background-color: rgba(255,255,255,.8);
+  }
 
   h1 {
     padding-top: 10px;
@@ -36,6 +40,7 @@
     font-size: 20px;
     text-align: center;
     color: @blue;
+    border-bottom: 1px solid @gray + #111;
   }
 
   form {
@@ -87,6 +92,7 @@
   .role {
     padding-top: 10px;
     padding-bottom: 10px;
+    border-bottom: 1px solid @gray + #111;
 
     & > div {
       width: 100%;

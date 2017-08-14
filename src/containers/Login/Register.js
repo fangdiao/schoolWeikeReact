@@ -56,7 +56,7 @@ class Register extends React.Component {
   upForm = () => {
     let form = this.state.form;
     let success = this.state.success;
-    if (!_.findKey(form, (item) => item === '') && !_.findKey(success, (item) => item === true)) {
+    if (!_.findKey(success, (item) => item === false)) {
       let { actions } = this.props;
       form.role === 'student' ? actions.studentRegister(form) : actions.teacherRegister(form);
     } else {
@@ -72,12 +72,9 @@ class Register extends React.Component {
 
   render() {
     let { form, success } = this.state;
-    console.log(!!this.state.form.mail && !!this.state.success.mail)
     return (
       <div className={STYLE.register}>
-        <div>
-          <h1>嘿,gay们</h1>
-        </div>
+        <h1>嘿,gay们</h1>
         <form>
           <div className={STYLE.role}>
             <RadioGroup onChange={this.changeRole} value={form.role}>
@@ -90,7 +87,7 @@ class Register extends React.Component {
           <MailCodeInput
             mail={form.mail}
             toParent={this.toParent}
-            height={!!form.mail && !!success.mail}
+            height={success.mail && success.username }
           />
           <PWInput toParent={this.toParent} />
           <div className={STYLE.button}>

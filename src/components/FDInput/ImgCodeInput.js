@@ -7,6 +7,10 @@ import STYLE from './style';
 
 class ImgCodeInput extends React.Component {
 
+  static defaultProps = {
+    toParent: () => {}
+  }
+
   state = {
     err: false,
   }
@@ -33,8 +37,10 @@ class ImgCodeInput extends React.Component {
   render() {
 
     let { imgCode } = this.props.data.login;
+    let className = this.props.height ? "img-code height" : "img-code";
+
     return (
-      <div className="img-code">
+      <div className={className}>
         <input
           type="text"
           maxLength="6"

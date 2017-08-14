@@ -5,6 +5,10 @@ import STYLE from './style';
 
 export default class NameInput extends React.Component {
 
+  static defaultProps = {
+    toParent: () => {}
+  }
+
   state = {
     err: false,
     passwordShow: false
@@ -21,21 +25,22 @@ export default class NameInput extends React.Component {
   }
 
   render() {
+    let { err, passwordShow } = this.state;
     return (
       <div className="password">
         <input
-          type={this.state.passwordShow ? "text" : "password"}
+          type={passwordShow ? "text" : "password"}
           maxLength="14"
           placeholder="密码"
           onChange={this.onChange}
         />
         {
-          this.state.err ? <Icon className="password-error error" type="close" /> : null
+          err ? <Icon className="password-error error" type="close" /> : null
         }
         <Icon
           type="eye"
           onClick={() => this.setState((prevstate) => ({passwordShow: !prevstate.passwordShow }))}
-          className={this.state.passwordShow ? "blue" : "gray"}
+          className={passwordShow ? "blue" : "gray"}
         />
       </div>
     )

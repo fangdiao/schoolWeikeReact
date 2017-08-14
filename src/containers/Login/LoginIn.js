@@ -34,9 +34,8 @@ class LoginIn extends React.Component {
   }
 
   upForm = () => {
-    let form = this.state.form;
-    let success = this.state.success;
-    if (!_.findKey(form, (item) => item === '') && !_.findKey(success, (item) => item === false)) {
+    let { form, success } = this.state;
+    if (!_.findKey(success, item => item === false)) {
       let { actions } = this.props;
       actions.login(form);
     } else {
@@ -45,17 +44,20 @@ class LoginIn extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    message.destroy();
+  }
+
   render() {
     let { login } = this.props.data;
+    let imgCodeShow = this.state.success.username && this.state.success.password;
     return (
       <div className={STYLE.loginIn}>
-        <div>
-          <h1>嘿,gay</h1>
-        </div>
+        <h1>嘿,gay</h1>
         <form>
           <NameInput toParent={this.toParent} />
           <PWInput toParent={this.toParent} />
-          <ImgCodeInput toParent={this.toParent} />
+          <ImgCodeInput height={imgCodeShow} toParent={this.toParent} />
           <div className={STYLE.button}>
             <Button type="primary" htmlType="submit" onClick={this.upForm}>登录</Button>
           </div>

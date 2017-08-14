@@ -2,17 +2,13 @@ import React from 'react';
 
 export default class Animate extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.TimeUpdate = this.TimeUpdate.bind(this);
-  }
-
   state = {
     speed: .7,
     counts: 150,
     mouse: { x: 0, y: 0 },
     colors: [ "#f56a00","#3dbd7d","#f46e65","#108ee9" ],
-    particles: []
+    particles: [],
+    timer: () => {}
   }
 
   componentWillMount() {
@@ -37,7 +33,8 @@ export default class Animate extends React.Component {
     let canvas = this.canvas;
 
     window.addEventListener('resize', ResizeCanvas, false);
-    setInterval( this.TimeUpdate, 40 );
+
+    this.state.timer = setInterval(this.TimeUpdate, 40);
 
     const ResizeCanvas = (e) => {
       canvas.width = window.innerWidth;
@@ -47,13 +44,13 @@ export default class Animate extends React.Component {
 
   }
 
-  DistanceBetween(p1,p2) {
+  DistanceBetween = (p1,p2) => {
 		let dx = p2.x-p1.x;
 		let dy = p2.y-p1.y;
 		return Math.sqrt(dx*dx + dy*dy);
 	}
 
-  TimeUpdate() {
+  TimeUpdate = () => {
     let { mouse, particles, speed } = this.state;
     let context = this.canvas.getContext('2d');
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
@@ -100,7 +97,7 @@ export default class Animate extends React.Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.TimeUpdate);
+    clearInterval(this.state.timer);
   }
 
   render() {

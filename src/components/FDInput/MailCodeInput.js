@@ -7,6 +7,10 @@ import STYLE from './style';
 
 class MailCodeInput extends React.Component {
 
+  static defaultProps = {
+    toParent: () => {}
+  }
+
   state = {
     err: false,
     countdown: 60
@@ -41,6 +45,7 @@ class MailCodeInput extends React.Component {
   }
 
   render() {
+    let { err, countdown } = this.state;
     let className = this.props.height ? "mail-code height" : "mail-code";
     return (
       <div className={className}>
@@ -51,11 +56,11 @@ class MailCodeInput extends React.Component {
           onChange={this.onChange}
         />
         {
-          this.state.err ? <Icon className="mail-code-error error" type="close" /> : null
+          err ? <Icon className="mail-code-error error" type="close" /> : null
         }
         {
-          this.state.countdown === 60 ? <Button type="primary" onClick={this.getCode}>获取验证码</Button> :
-          <Button type="dashed">{this.state.countdown}秒后可重发</Button>
+          countdown === 60 ? <Button type="primary" onClick={this.getCode}>获取验证码</Button> :
+          <Button type="dashed">{countdown}秒后可重发</Button>
         }
       </div>
     )

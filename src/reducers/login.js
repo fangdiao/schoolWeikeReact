@@ -13,6 +13,10 @@ export default handleActions({
       let user = action.payload.data
       localStorage.weike = JSON.stringify(user);
       state = { ...state, user };
+      message.success('登录成功');
+      const jump = () => hashHistory.push('/');
+      setTimeout(jump, 2000);
+      
       return state
     }
     return state;

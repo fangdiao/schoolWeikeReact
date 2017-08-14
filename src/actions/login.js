@@ -15,4 +15,8 @@ export default {
   'studentRegister': createAction('STUDENT_REGISTER', reqData => request('/weike/student/register', reqData, 'post'), reqData => reqData),
   //老师注册
   'teacherRegister': createAction('TEACHER_REGISTER', reqData => request('/weike/teacher/register', reqData, 'post'), reqData => reqData),
+  //修改密码邮箱验证
+  'PWMailTest': createAction('PW_MAIL_TEST', reqData => request('weike/PWMailTest', reqData, 'post'), reqData => reqData),
+  //修改密码
+  'changePW': createAction('CHANGE_PW', reqData => request('/weike/changePW', reqData, 'post'), reqData => reqData),
 }

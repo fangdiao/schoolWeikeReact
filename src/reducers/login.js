@@ -16,7 +16,7 @@ export default handleActions({
       message.success('登录成功');
       const jump = () => hashHistory.push('/');
       setTimeout(jump, 2000);
-      
+
       return state
     }
     return state;
@@ -76,6 +76,26 @@ export default handleActions({
     if (!action.error) {
       if (action.payload.data.success) {
         message.success('注册成功，请登录');
+        const jump = () => hashHistory.push('/login/loginIn');
+        setTimeout(jump, 2000);
+      }
+      return state
+    }
+    return state;
+  },
+  //修改密码邮箱验证
+  'PW_MAIL_TEST': (state, action) => {
+    if (!action.error) {
+      state = { ...state, ...{ canChange: action.payload.data.success } };
+      return state;
+    }
+    return state;
+  },
+  //修改密码
+  'CHANGE_PW': (state, action) => {
+    if (!action.error) {
+      if (action.payload.data.success) {
+        message.success('密码修改成功，请登录');
         const jump = () => hashHistory.push('/login/loginIn');
         setTimeout(jump, 2000);
       }

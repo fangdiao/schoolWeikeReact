@@ -35,7 +35,6 @@ class Register extends React.Component {
   }
 
   toParent = (value, success) => {
-    let key = Object.keys(value)[0]
     this.setState({
       form: { ...this.state.form, ...value },
       success: { ...this.state.success, ...success }

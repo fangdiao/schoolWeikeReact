@@ -19,6 +19,7 @@ message.config({
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware, promiseMiddleware));
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory} routes={routes} />

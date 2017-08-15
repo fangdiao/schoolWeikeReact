@@ -14,10 +14,10 @@ export default class Header extends React.Component {
             <Col span={3}>
               <Logo />
             </Col>
-            <Col span={9} offset={3}>
+            <Col span={6} offset={7}>
               <Search />
             </Col>
-            <Col span={8} offset={1}>
+            <Col span={8}>
               <Status />
             </Col>
           </Row>

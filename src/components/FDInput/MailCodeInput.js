@@ -44,6 +44,10 @@ class MailCodeInput extends React.Component {
 
   }
 
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
   render() {
     let { err, countdown } = this.state;
     let className = this.props.height ? "mail-code height" : "mail-code";

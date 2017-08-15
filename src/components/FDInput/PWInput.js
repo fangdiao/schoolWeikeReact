@@ -6,7 +6,9 @@ import STYLE from './style';
 export default class NameInput extends React.Component {
 
   static defaultProps = {
-    toParent: () => {}
+    toParent: () => {},
+    placeholder: '密码',
+    type: 'password'
   }
 
   state = {
@@ -16,22 +18,24 @@ export default class NameInput extends React.Component {
 
   onChange = (e) => {
     let text = e.target.value;
-    let { toParent } = this.props;
+    let { toParent, type } = this.props;
     this.setState({
       err: text.length < 6
-    }, () => toParent({ password: text }, { password: !!text && !this.state.err })
+    }, () => type === 'password' ? toParent({ password: text }, { password: !!text && !this.state.err }) :
+      toParent({ newPassword: text }, { newPassword: !!text && !this.state.err })
     );
 
   }
 
   render() {
     let { err, passwordShow } = this.state;
+    let { placeholder } = this.props;
     return (
       <div className="password">
         <input
           type={passwordShow ? "text" : "password"}
           maxLength="14"
-          placeholder="密码"
+          placeholder={placeholder}
           onChange={this.onChange}
         />
         {

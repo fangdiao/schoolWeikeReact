@@ -16,7 +16,6 @@ export default handleActions({
       message.success('登录成功');
       const jump = () => hashHistory.push('/');
       setTimeout(jump, 2000);
-
       return state
     }
     return state;

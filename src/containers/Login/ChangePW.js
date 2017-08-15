@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Button } from 'antd';
+import { Icon, Button, message } from 'antd';
 
 import MailInput from 'components/FDInput/MailInput';
 import MailCodeInput from 'components/FDInput/MailCodeInput';
@@ -20,7 +20,8 @@ class ChangePW extends React.Component {
     success: {
       mail: false,
       mailCode: false
-    }
+    },
+
   }
 
   toParent = (value, success) => {
@@ -30,7 +31,7 @@ class ChangePW extends React.Component {
     });
   }
 
-  upForm = () => {
+  getMailCode = () => {
     let { form, success } = this.state;
     if (!_.findKey(success, (item) => item === false)) {
       let { actions } = this.props;
@@ -42,13 +43,26 @@ class ChangePW extends React.Component {
   }
 
   upPW = () => {
+    let { form, success } = this.state;
+    if (!_.findKey(success, item => item === false)) {
+      if (form.password === form.newPassword) {
+        let { actions } = this.props;
+        let { mail, password } = form;
+        actions.changePW({ mail, password });
+      } else {
+        message.destroy();
+        message.error('两次密码必须相同');
+      }
+    } else {
+      message.destroy();
+      message.error('请正确填写个人信息');
+    }
 
   }
 
   render() {
     let { form, success } = this.state;
     let { canChange } = this.props.data;
-    console.log(!!canChange)
     return (
       !canChange ? (
         <div className={STYLE.changePW}>
@@ -57,7 +71,7 @@ class ChangePW extends React.Component {
             <MailInput toParent={this.toParent} />
             <MailCodeInput mail={form.mail} toParent={this.toParent} height={success.mail} />
             <div className={STYLE.button}>
-              <Button type="primary" htmlType="submit" onClick={this.upForm}>提交</Button>
+              <Button type="primary" htmlType="submit" onClick={this.getMailCode}>提交</Button>
             </div>
           </form>
         </div>
@@ -65,10 +79,10 @@ class ChangePW extends React.Component {
         <div className={STYLE.changePW}>
           <h1>设置新密码</h1>
           <form>
-            <PWInput toParent={this.toParent} />
-            <PWInput toParent={this.toParent} />
+            <PWInput type="password" ref={ele => this.password = ele} toParent={this.toParent} />
+            <PWInput type="newPassword" ref={ele => this.newPassword = ele} placeholder="新密码" toParent={this.toParent} />
             <div className={STYLE.button}>
-              <Button type="primary" htmlType="submit" onClick={this.upForm}>提交</Button>
+              <Button type="primary" htmlType="submit" onClick={this.upPW}>提交</Button>
             </div>
           </form>
         </div>

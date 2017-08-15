@@ -55,7 +55,7 @@ class Register extends React.Component {
   upForm = () => {
     let form = this.state.form;
     let success = this.state.success;
-    if (!_.findKey(success, (item) => item === false)) {
+    if (!_.findKey(success, item => item === false)) {
       let { actions } = this.props;
       form.role === 'student' ? actions.studentRegister(form) : actions.teacherRegister(form);
     } else {

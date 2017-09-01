@@ -73,7 +73,7 @@ class Register extends React.Component {
     let { form, success } = this.state;
     return (
       <div className={STYLE.register}>
-        <h1>嘿,gay们</h1>
+        <h1>皇冠给你戴</h1>
         <form>
           <div className={STYLE.role}>
             <RadioGroup onChange={this.changeRole} value={form.role}>

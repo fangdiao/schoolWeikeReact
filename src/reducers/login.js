@@ -35,6 +35,7 @@ export default handleActions({
       localStorage.removeItem('weike');
       let user = {};
       state = { ...state, user };
+      hashHistory.push('/login/loginIn');
       return state
     }
     return state;
@@ -101,5 +102,6 @@ export default handleActions({
       return state
     }
     return state;
-  }
+  },
+
 }, initialState)

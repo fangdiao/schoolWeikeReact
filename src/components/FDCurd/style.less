@@ -1,0 +1,128 @@
+@import '../../layouts/less/variable.less';
+@import '../../layouts/less/reset.less';
+
+@prefix: FDCurd;
+
+.@{prefix}-nav {
+  position: fixed;
+  top: 60px;
+  user-select: none;
+  & > ul {
+    border-radius: 3px;
+    border: 1px solid @gray;
+    box-shadow: 0 2px 6px #ddd;
+    background-color: @white;
+    &:nth-child(n + 2) {
+      margin-top: 10px;
+    }
+  }
+
+  .@{prefix}-user {
+    font-size: 14px;
+    padding: 15px 10px;
+    .clearfix;
+
+    & > li {
+      width: 33%;
+      float: left;
+      cursor: pointer;
+      & > a {
+        & > span {
+          text-align: center;
+          display: block;
+
+          &:first-child {
+            i {
+              font-size: 22px;
+            }
+          }
+
+          &:last-child {
+            color: @dark + #111;
+            padding-bottom:15px;
+            padding-top: 10px;
+          }
+        }
+      }
+      &:first-child {
+        a {
+          & > span:first-child {
+            color: @blue;
+          }
+          & > span:last-child:hover {
+            color: @blue;
+          }
+        }
+      }
+      &:nth-child(2) {
+        a {
+          & > span:first-child {
+            color: @yellow;
+          }
+          & > span:last-child:hover {
+            color: @yellow;
+          }
+        }
+      }
+      &:nth-child(3) {
+        a {
+          & > span:first-child {
+            color: @green;
+          }
+          & > span:last-child:hover {
+            color: @green;
+          }
+        }
+      }
+      &:nth-child(4) {
+        a {
+          & > span:first-child {
+            color: @red;
+          }
+          & > span:last-child:hover {
+            color: @red;
+          }
+        }
+      }
+      &:nth-child(5) {
+        a {
+          & > span:first-child {
+            color: @blue;
+          }
+          & > span:last-child:hover {
+            color: @blue;
+          }
+        }
+      }
+    }
+  }
+
+  .@{prefix}-range {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    & > li {
+      padding: 6px 0 6px 10px;
+      color: @dark + #111;
+      font-size: 14px;
+      cursor: pointer;
+
+      i {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        background-color: @hoverColor;
+      }
+    }
+
+    & > li:first-child {
+      h3 {
+        color: @blue;
+      }
+      &:hover {
+        background-color: @white;
+      }
+    }
+  }
+}

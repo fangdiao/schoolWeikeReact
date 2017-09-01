@@ -32,14 +32,14 @@ class LoginStatus extends React.Component {
     );
 
     return (
-      <div ref="icon">
+      <div className={STYLE.LoginStatus} ref="icon">
         <Popover content="123" title="系统消息" getPopupContainer={() => this.refs.icon}>
           <span className={STYLE.icon}><Icon type="mail" />系统消息</span>
         </Popover>
         <Popover content="123" title="站内信" getPopupContainer={() => this.refs.icon}>
           <span className={STYLE.icon}><Icon type="message" />站内信</span>
         </Popover>
-        <Dropdown overlay={menu} placement="bottomCenter" getPopupContainer={() => this.refs.icon}>
+        <Dropdown overlay={menu} placement="bottomRight" getPopupContainer={() => this.refs.icon}>
           <span className={STYLE.icon}><Avatar size="middle" src={user.info.image} /></span>
         </Dropdown>
       </div>

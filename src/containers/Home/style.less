@@ -2,29 +2,15 @@
 
 .home {
   position: relative;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .projects {
-  padding-right: 20px;
+  position: relative;
+  padding-right: 10px;
+  overflow-x: hidden;
+  
   & > div:first-child {
     margin-top: 0;
   }
-}
-
-.nav {
-  position: fixed;
-  top: 70px;
-
-  & > div {
-    height: 240px;
-    border-radius: 2px;
-    border: 1px solid @gray;
-    box-shadow: 0px 2px 6px #ddd;
-
-    &:nth-child(2) {
-      margin-top: 20px;
-    }
-  }
-
 }

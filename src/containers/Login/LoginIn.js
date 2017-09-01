@@ -53,7 +53,7 @@ class LoginIn extends React.Component {
     let imgCodeShow = this.state.success.username && this.state.success.password;
     return (
       <div className={STYLE.loginIn}>
-        <h1>嘿,gay</h1>
+        <h1>我的小可爱</h1>
         <form>
           <NameInput toParent={this.toParent} />
           <PWInput toParent={this.toParent} />

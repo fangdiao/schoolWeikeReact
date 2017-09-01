@@ -1,0 +1,140 @@
+@import '../../layouts/less/variable.less';
+
+@prefix: FDImageEditor;
+
+.@{prefix}-preview {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 4px;
+
+  & > input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .text {
+    position: absolute;
+    top: 20px;
+    left: 32px;
+    text-align: center;
+
+    i {
+      color: @white;
+      font-size: 28px;
+      z-index: 1;
+    }
+
+    h5 {
+      padding-top: 6px;
+      font-size: 14px;
+      color: @white;
+    }
+  }
+
+  .mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .4);
+  }
+
+
+  & > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+  }
+
+}
+
+.@{prefix}-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, .5);
+
+  & > div {
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: 12vh;
+    padding: 40px 80px 60px 80px;
+    width: 400px;
+    border-radius: 4px;
+    background-color: @white;
+
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding-right: 10px;
+      cursor: pointer;
+
+      i {
+        font-size: 26px;
+        color: @dark;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 26px;
+      padding-bottom: 20px;
+      color: @dark;
+    }
+
+    .range {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      input {
+        display: inline-block;
+        height: 4px;
+        color: @dark;
+        border-radius: 10px;
+        outline: none;
+        background-color: @dark + #222222;
+        vertical-align: middle;
+        appearance: none;
+        cursor: pointer;
+        &::-webkit-slider-thumb {
+          appearance: none;
+          width: 12px;
+          height: 12px;
+          border-radius: 100%;
+          background-color: @dark;
+        }
+      }
+    }
+
+    .rotate {
+      padding-top: 10px;
+      button {
+        padding-left: 40px;
+        padding-right: 40px;
+        color: @blue;
+
+        &:first-child {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .submit {
+      padding-top: 20px;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

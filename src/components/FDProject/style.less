@@ -1,10 +1,126 @@
 @import '../../layouts/less/variable.less';
 
-.project {
+@prefix: FDProject;
+
+.@{prefix}-project {
   width: 100%;
-  height: 240px;
-  margin-top: 20px;
-  border-radius: 2px;
+  margin-top: 10px;
+  padding: 15px 10px;
+  border-radius: 3px;
   border: 1px solid @gray;
   box-shadow: 0px 2px 6px #ddd;
+  background-color: @white;
+
+  h3 {
+    color: @grayDark;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.7em;
+    color: @dark;
+
+    & > span:nth-child(2) {
+      color: @grayDark;
+      cursor: pointer;
+    }
+  }
+}
+
+.@{prefix}-publisher {
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  & > span {
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  & > span:nth-child(n+1) {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  & > span:nth-child(2) {
+    color: @blue;
+  }
+  & > span:nth-child(3) {
+    color: @dark + #111;
+  }
+
+}
+
+.@{prefix}-need {
+  padding-top: 10px;
+  user-select: none;
+  span {
+    padding: 4px 14px;
+    background-color: @hoverColor;
+    font-size: 14px;
+    border-radius: 3px;
+    margin-right: 10px;
+    color: @blue;
+  }
+}
+
+.@{prefix}-time {
+  padding-top: 4px;
+  span {
+    font-size: 12px;
+    margin-right: 10px;
+    color: @grayDark;
+    i {
+      font-size: 14px;
+    }
+  }
+}
+
+.@{prefix}-joined {
+  padding-top: 10px;
+  vertical-align: middle;
+  & > span {
+    margin-right: 10px;
+  }
+}
+
+.@{prefix}-join-attention {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  & > button {
+    display: inline;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: @white;
+    border-radius: 3px;
+    color: @blue;
+    border: 1px solid @blue;
+    cursor: pointer;
+    user-select: none;
+
+    &:first-child {
+      margin-right: 20px;
+    }
+
+    & > span:first-child {
+      padding-right: 10px;
+      border-right: 2px solid @blue;
+      i {
+        font-size: 14px;
+        margin-right: 6px;
+      }
+    }
+
+    & > span:last-child {
+      padding-left: 10px;
+    }
+  }
+}
+
+.@{prefix}-join {
+
+}
+
+.@{prefix}-attention {
+
+
 }

@@ -5,6 +5,7 @@ import _ from 'lodash';
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
 
+import RoleInput from 'components/FDInput/RoleInput';
 import NameInput from 'components/FDInput/NameInput';
 import PWInput from 'components/FDInput/PWInput';
 import MailCodeInput from 'components/FDInput/MailCodeInput';
@@ -20,44 +21,46 @@ class Register extends React.Component {
 
   state = {
     form: {
-      role: 'student',
       username: '',
-      mail: '',
-      mailCode: '',
+      email: '',
+      verifyCode: '',
       password: ''
     },
     success: {
       username: false,
-      mail: false,
-      mailCode: false,
+      email: false,
+      verifyCode: false,
       password: false
-    }
+    },
+    role: 'student',
   }
 
   toParent = (value, success) => {
-    this.setState({
-      form: { ...this.state.form, ...value },
-      success: { ...this.state.success, ...success }
-    });
+    let key = Object.keys(value)[0]
+    if (key !== 'role') {
+      this.setState({
+        form: { ...this.state.form, ...value },
+        success: { ...this.state.success, ...success }
+      });
+    } else {
+      this.setState({ ...this.state, ...value });
+    }
   }
 
-
-
-  changeRole = (e) => {
-    this.setState((prevstate) => ({
-      form: {
-        ...this.state.form,
-        role: prevstate.form.role === 'student' ? 'teacher' : 'student'
-      }
-    }));
-  }
 
   upForm = () => {
-    let form = this.state.form;
-    let success = this.state.success;
+    let { form: { username, password, verifyCode, email }, success, role } = this.state;
     if (!_.findKey(success, item => item === false)) {
       let { actions } = this.props;
-      form.role === 'student' ? actions.studentRegister(form) : actions.teacherRegister(form);
+      if (role === 'student') {
+        let studentInfo = { username, password, email };
+        let form = { verifyCode, studentInfo };
+        actions.studentRegister(form)
+      } else {
+        let teacherInfo = { username, password, email };
+        let form = { verifyCode, teacherInfo };
+        actions.teacherRegister(form);
+      }
     } else {
       message.destroy();
       message.error('请正确填写个人信息');
@@ -70,23 +73,20 @@ class Register extends React.Component {
   }
 
   render() {
-    let { form, success } = this.state;
+    let { form, success, role } = this.state;
     return (
       <div className={STYLE.register}>
         <h1>皇冠给你戴</h1>
         <form>
-          <div className={STYLE.role}>
-            <RadioGroup onChange={this.changeRole} value={form.role}>
-              <Radio value="student">学生</Radio>
-              <Radio value="teacher">老师</Radio>
-            </RadioGroup>
-          </div>
+          <RoleInput role={role} toParent={this.toParent} />
           <NameInput toParent={this.toParent} />
           <MailInput toParent={this.toParent} />
           <MailCodeInput
-            mail={form.mail}
+            role={form.role}
+            username={form.username}
+            email={form.email}
             toParent={this.toParent}
-            height={success.mail && success.username }
+            height={success.email && success.username }
           />
           <PWInput toParent={this.toParent} />
           <div className={STYLE.button}>

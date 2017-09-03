@@ -20,36 +20,13 @@ header {
 }
 
 .logo {
-  display: inline-block;
+  display: block;
+  width: 89px;
+  height: 50px;
   font-size: 26px;
   font-weight: bold;
-  margin-top: 6px;
-  span {
-    position: relative;
-    top: 0;
-    display: inline-block;
-    margin-right: 2px;
-  }
-
-  span:nth-child(1) {
-    color: #108ee9;
-    //animation: upDown 1s linear infinite alternate;
-  }
-
-  span:nth-child(2) {
-    color: #f56a00;
-    // animation: upDown 4s linear infinite alternate;
-  }
-
-  span:nth-child(3) {
-    color: #3dbd7d;
-    animation: upDown 4s linear infinite alternate;
-  }
-
-  span:nth-child(4) {
-    color: #f46e65;
-    // animation: upDown 1s linear .9s infinite alternate;
-  }
+  background-size: cover;
+  background-image: url('../../../layouts/img/logo.png');
 }
 
 .search {
@@ -61,13 +38,10 @@ header {
     background-color: @white;
     box-shadow: 1px 3px 3px #dadada inset;
     input {
-      width: 200px;
+      width: 84%;
       transition: all .3s;
       border: none;
       outline: none;
-      &:focus {
-        width: 86%;
-      }
     }
 
     i {

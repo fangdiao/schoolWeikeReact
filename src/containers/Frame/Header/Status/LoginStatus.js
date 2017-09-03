@@ -7,9 +7,6 @@ import loginActions from 'actions/login';
 import STYLE from './style';
 
 class LoginStatus extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   logOut = () => {
     let { actions } = this.props;
@@ -20,11 +17,6 @@ class LoginStatus extends React.Component {
     let { user } = this.props;
     const menu = (
       <Menu className={STYLE.user}>
-        <Menu.Item>
-          <Link to="/user">
-            <span><Icon type="user" />用户中心</span>
-          </Link>
-        </Menu.Item>
         <Menu.Item>
           <span onClick={this.logOut}><Icon type="logout" />退出</span>
         </Menu.Item>
@@ -40,7 +32,7 @@ class LoginStatus extends React.Component {
           <span className={STYLE.icon}><Icon type="message" />站内信</span>
         </Popover>
         <Dropdown overlay={menu} placement="bottomRight" getPopupContainer={() => this.refs.icon}>
-          <span className={STYLE.icon}><Avatar size="middle" src={user.info.image} /></span>
+          <span className={STYLE.icon}><Avatar size="middle" src={user.image} /></span>
         </Dropdown>
       </div>
     )

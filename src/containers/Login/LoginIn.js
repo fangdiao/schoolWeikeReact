@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Icon, Button, message } from 'antd';
+import { Icon, Button, message, Radio } from 'antd';
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
 
+import RoleInput from 'components/FDInput/RoleInput';
 import NameInput from 'components/FDInput/NameInput';
 import ImgCodeInput from 'components/FDInput/ImgCodeInput';
 import PWInput from 'components/FDInput/PWInput';
 
 import STYLE from './style';
+
+const RadioGroup = Radio.Group;
 
 class LoginIn extends React.Component {
 
@@ -16,32 +19,42 @@ class LoginIn extends React.Component {
     form: {
       username: '',
       password: '',
-      imgCode: ''
+      verifyCode: ''
     },
     success: {
       username: false,
       password: false,
-      imgCode: false
-    }
+      verifyCode: false
+    },
+    role: 'student'
   }
 
   toParent = (value, success) => {
     let key = Object.keys(value)[0]
-    this.setState({
-      form: { ...this.state.form, ...value },
-      success: { ...this.state.success, ...success }
-    });
+    if (key !== 'role') {
+      this.setState({
+        form: { ...this.state.form, ...value },
+        success: { ...this.state.success, ...success }
+      });
+    } else {
+      this.setState({ ...this.state, ...value });
+    }
   }
 
   upForm = () => {
-    let { form, success } = this.state;
+    let { form, success, role } = this.state;
     if (!_.findKey(success, item => item === false)) {
+      let { captchaCode } = this.props.data.login;
       let { actions } = this.props;
-      actions.login(form);
+      role === 'student' ? actions.studentLogin({ form ,captchaCode }) : actions.teacherLogin({ form ,captchaCode });
     } else {
       message.destroy();
       message.error('请正确填写个人信息');
     }
+  }
+
+  onChange = (e) => {
+    this.setState({ role: e.target.value });
   }
 
   componentWillUnmount() {
@@ -49,12 +62,14 @@ class LoginIn extends React.Component {
   }
 
   render() {
+    let { role } = this.state;
     let { login } = this.props.data;
     let imgCodeShow = this.state.success.username && this.state.success.password;
     return (
       <div className={STYLE.loginIn}>
         <h1>我的小可爱</h1>
         <form>
+          <RoleInput role={role} toParent={this.toParent} />
           <NameInput toParent={this.toParent} />
           <PWInput toParent={this.toParent} />
           <ImgCodeInput height={imgCodeShow} toParent={this.toParent} />

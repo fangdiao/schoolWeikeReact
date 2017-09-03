@@ -7,7 +7,7 @@ import TeacherInfo from './TeacherInfo';
 import StudentInfo from './StudentInfo';
 import STYLE from './style';
 
-class Info extends React.Component {
+class Release extends React.Component {
 
   render() {
     let { role } = this.props.data.user;
@@ -21,4 +21,4 @@ class Info extends React.Component {
   }
 }
 
-export default connect(state => state.login, loginActions)(Info);
+export default connect(state => state.login, loginActions)(Release);

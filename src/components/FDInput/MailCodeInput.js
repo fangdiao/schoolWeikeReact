@@ -17,8 +17,14 @@ class MailCodeInput extends React.Component {
   }
 
   getCode = () => {
-    let { actions, mail } = this.props;
-    actions.getEmailCode({ mail });
+    let { actions, email, role, username, type } = this.props;
+    let form = { username, email };
+    if (type === 'password') {
+      console.log(role)
+      role === 'student' ? actions.studentChangePWEmailCode(form) : actions.teacherChangePWEmailCode(form);
+    } else {
+      role === 'student' ? actions.studentEmailCode(form) :  actions.teacherEmailCode(form);
+    }
 
     const countdown = () => {
       this.setState((prevstate) => {
@@ -38,8 +44,8 @@ class MailCodeInput extends React.Component {
     let text = e.target.value;
     let { toParent } = this.props;
     this.setState({
-      err: text.length < 6
-    }, () => toParent({ mailCode: text }, { mailCode: !!text && !this.state.err })
+      err: text.length < 4
+    }, () => toParent({ verifyCode: text }, { verifyCode: !!text && !this.state.err })
     );
 
   }
@@ -55,7 +61,7 @@ class MailCodeInput extends React.Component {
       <div className={className}>
         <input
           type="text"
-          maxLength="6"
+          maxLength="4"
           placeholder="验证码"
           onChange={this.onChange}
         />

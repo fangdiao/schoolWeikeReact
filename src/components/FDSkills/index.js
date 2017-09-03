@@ -85,10 +85,12 @@ export default class FDSkills extends React.Component {
 
   remove = (e) => {
     e.stopPropagation ? window.event.cancelBubble = true : e.stopPropagation();
+    let { toParent } = this.props;
     let { skills } = this.state;
     let skill = e.target.dataset.skill;
     skills = skills.filter(o => o !== skill);
-    this.setState({ skills });
+    let skillsSuccess = skills.length ? true : false;
+    this.setState({ skills }, () => (toParent({ skills }, { skillsSuccess })));
   }
 
   show = () => {
@@ -96,6 +98,7 @@ export default class FDSkills extends React.Component {
   }
 
   clickLanguage = (e) => {
+    let { toParent } = this.props;
     let { skills } = this.state;
     let language = e.target.dataset.language;
     if (skills.filter(o => o === language).length) {
@@ -108,7 +111,7 @@ export default class FDSkills extends React.Component {
         message.error('最多选取九个');
       }
     }
-    this.setState({ skills });
+    this.setState({ skills }, () => (toParent({ skills }, { skillsSuccess: true })));
   }
 
   render() {

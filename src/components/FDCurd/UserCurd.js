@@ -4,7 +4,10 @@ import { Link } from 'react-router';
 import './style';
 
 export default class UserCurd extends React.Component {
+
   render() {
+
+    let { completed } = this.props;
     return (
       <ul className="FDCurd-user">
         <li>

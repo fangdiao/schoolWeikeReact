@@ -53,10 +53,20 @@ module.exports = {
     compress: true,
     port:3000,
     hot:true,
-    proxy: [{
-      context: ["/weike", "/Weike"],
-      target: "http://127.0.0.1:8081",
-    }]
+    // proxy: {
+    //   "/weike": {
+    //     target: "http://localhost:8081",
+    //   }
+    // }
+    proxy: {
+      "*": {
+        target: "http://182.150.37.74:88",
+      }
+    }
+    // proxy: [{
+    //   context: ["/weike", "/Weike"],
+    //   target: "http://182.150.37.74:88",
+    // }]
   },
   module: {
     rules: [

@@ -32,7 +32,7 @@ export default class Wrapper extends React.Component {
     imgCanvas.width = 150;
     imgCanvas.height = 150;
     imgCanvas.getContext('2d').drawImage(canvas, 80, 80, 320, 320, 0, 0, 150, 150);
-    let imagePreview = imgCanvas.toDataURL('image/png');
+    let imagePreview = imgCanvas.toDataURL('image/png', 0.5);
     getImage(imagePreview);
   }
 

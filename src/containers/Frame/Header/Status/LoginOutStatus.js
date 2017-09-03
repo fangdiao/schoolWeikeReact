@@ -7,9 +7,14 @@ import STYLE from './style';
 export default class LoginOutStatus extends React.Component {
   render() {
     return (
-      <Link className={STYLE.loginIcon} to="/login/loginIn">
-        <span><Icon type="login" />登录</span>
-      </Link>
+      <div className={STYLE.loginIcon}>
+        <Link to="/login/loginIn">
+          <span><Icon type="login" />登录</span>
+        </Link>
+        <Link to="/login/register">
+          <span><Icon type="user" />注册</span>
+        </Link>
+      </div>
     )
   }
 }

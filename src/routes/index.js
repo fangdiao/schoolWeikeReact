@@ -1,4 +1,6 @@
 import React from 'react';
+// import { checker } from 'utils/helper';
+
 import home from './home';
 import details from './details';
 import user from './user';
@@ -7,12 +9,10 @@ import login from './login';
 import Frame from 'containers/Frame';
 import Home from 'containers/Home';
 
-
 let weike = localStorage.weike;
+const checker = (nextState, replace, cb = () => {}) => {
 
-const cb = () => {};
-
-const checker = (nextState, replace, cb) => {
+  console.log(nextState)
   if (!weike) {
     replace(`/login/loginIn`);
   } else {
@@ -24,7 +24,7 @@ const routes = {
   path: "/",
   indexRoute: {
     component: Home,
-    // onEnter: checker
+    onEnter: checker,
   },
   component: Frame,
   childRoutes: [

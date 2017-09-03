@@ -9,10 +9,11 @@ const Option = Select.Option;
 export default class University extends React.Component {
 
   render() {
+    let { university } = this.props;
     return (
       <div className={classnames(STYLE.university, STYLE.item)} ref={ele => this.university = ele}>
         <span>院校</span>
-        <Select defaultValue="西南石油大学" getPopupContainer={() => this.university}>
+        <Select defaultValue={university} getPopupContainer={() => this.university}>
           <Option value="西南石油大学">西南石油大学</Option>
         </Select>
       </div>

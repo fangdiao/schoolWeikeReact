@@ -18,8 +18,10 @@ export default class FDImageEditor extends React.Component {
   }
 
   getImage = (imagePreview) => {
+    console.log(imagePreview.length)
+    let { toParent } = this.props;
     this.fileInput.value = '';
-    this.setState({ imageFile: '', imagePreview, visible: false });
+    this.setState({ imageFile: '', imagePreview, visible: false }, () => toParent({ image: imagePreview }));
   }
 
   onChange = (e) => {

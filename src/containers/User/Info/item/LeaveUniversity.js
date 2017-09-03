@@ -11,15 +11,24 @@ const monthFormat = 'YYYY/MM';
 
 export default class LeaveUniversity extends React.Component {
 
+  onChange = (value) => {
+    let { toParent } = this.props;
+    toParent({ leaveUniversity: value.valueOf() });
+  }
+
   render() {
+    let { leaveUniversity } = this.props;
+    leaveUniversity = moment(leaveUniversity).format(monthFormat);
     return (
       <div className={classnames(STYLE.date, STYLE.item)} ref={ele => this.leaveUniversity = ele}>
         <span>毕业时间</span>
         <MonthPicker
-          style={{"width": "140px"}}
-          defaultValue={moment('2015/01', monthFormat)}
+          onChange={this.onChange}
+          style={{"width": "160px"}}
+          defaultValue={moment(leaveUniversity, monthFormat)}
           format={monthFormat}
           getCalendarContainer={() => this.leaveUniversity}
+          allowClear={false}
         />
       </div>
     )

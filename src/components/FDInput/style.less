@@ -71,7 +71,7 @@
     width: 180px;
   }
 
-  span, .loading {
+  img, .loading {
     display: inline-block;
     width: 80px;
     height: 30px;
@@ -82,8 +82,11 @@
   }
 
   .loading {
+    position: absolute;
     border: 1px dashed @gray;
     line-height: 26px;
+    right: 0;
+    top: 10px;
   }
   .img-code-error {
     right: 100px;
@@ -105,4 +108,26 @@
   .password-error {
     right: 40px;
   }
+}
+
+.role {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid @gray + #111;
+
+  & > div {
+    width: 100%;
+    border: none;
+  }
+
+  label {
+    width: 50%;
+    margin: 0;
+    text-align: center;
+
+    &:first-child {
+      border-right: 1px solid @gray + #111;
+    }
+  }
+
 }

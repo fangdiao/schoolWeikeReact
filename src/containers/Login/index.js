@@ -1,6 +1,7 @@
 import React from 'react';
-import Animate from './animate';
 import { Icon, Button } from 'antd';
+
+import FDAnimate from 'components/FDAnimate';
 
 import STYLE from './style';
 
@@ -8,7 +9,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <div className={STYLE.login}>
-        <Animate />
+        <FDAnimate />
         { this.props.children }
       </div>
     )

@@ -28,22 +28,22 @@ class ImgCodeInput extends React.Component {
     let text = e.target.value;
     let { toParent } = this.props;
     this.setState({
-      err: text.length < 6
-    }, () => toParent({ imgCode: text }, { imgCode: !!text && !this.state.err })
+      err: text.length < 5
+    }, () => toParent({ verifyCode: text }, { verifyCode: !!text && !this.state.err })
     );
 
   }
 
   render() {
 
-    let { imgCode } = this.props.data.login;
+    let { msg } = this.props.data.login;
     let className = this.props.height ? "img-code height" : "img-code";
 
     return (
       <div className={className}>
         <input
           type="text"
-          maxLength="6"
+          maxLength="5"
           placeholder="验证码"
           onChange={this.onChange}
         />
@@ -51,7 +51,7 @@ class ImgCodeInput extends React.Component {
           this.state.err ? <Icon className="img-code-error error" type="close" /> : null
         }
         {
-          imgCode ? <span onClick={this.getImgCode} style={{"backgroundImage": `url(${imgCode})`}}></span> :
+          msg ? <img onClick={this.getImgCode} src={`data:image/jpg;base64,${msg}`} /> :
           <Icon type="loading" className="loading" />
         }
       </div>

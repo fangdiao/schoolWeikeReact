@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './style';
+
 export default class Animate extends React.Component {
 
   state = {
@@ -102,7 +104,7 @@ export default class Animate extends React.Component {
 
   render() {
     return (
-      <canvas ref={(element) => {this.canvas = element}}></canvas>
+      <canvas className="FDAnimate" ref={(element) => {this.canvas = element}}></canvas>
     )
   }
 

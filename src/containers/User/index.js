@@ -3,10 +3,15 @@ import { Row, Col } from 'antd';
 import CurdBox from 'components/FDCurd/CurdBox';
 import UserCurd from 'components/FDCurd/UserCurd';
 
+import { connect } from 'utils/helper';
+import loginActions from 'actions/login';
+
 import STYLE from './style';
 
-export default class User extends React.Component {
+class User extends React.Component {
+
   render() {
+    let { completed } = this.props.data.user;
     return (
       <div className={STYLE.user}>
         <Row>
@@ -17,7 +22,7 @@ export default class User extends React.Component {
           </Col>
           <Col span={6}>
             <CurdBox>
-              <UserCurd />
+              <UserCurd completed={completed} />
             </CurdBox>
           </Col>
         </Row>
@@ -25,3 +30,4 @@ export default class User extends React.Component {
     )
   }
 }
+export default connect(state => state.login, loginActions)(User);

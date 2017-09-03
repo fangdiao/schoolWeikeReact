@@ -19,7 +19,7 @@ export default class MailInput extends React.Component {
     let { toParent } = this.props;
     this.setState({
       err: !reg.test(text)
-    }, () => toParent({ mail: text }, { mail: !!text && !this.state.err })
+    }, () => toParent({ email: text }, { email: !!text && !this.state.err })
     );
 
   }

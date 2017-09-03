@@ -19,7 +19,7 @@ class Status extends React.Component {
     return (
       <div>
         {
-          user.info ? <LoginStatus user={user}/> : <LoginOutStatus />
+          user.username ? <LoginStatus user={user}/> : <LoginOutStatus />
         }
       </div>
     )

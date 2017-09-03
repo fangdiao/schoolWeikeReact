@@ -3,7 +3,7 @@ import { request } from 'utils/helper';
 
 export default {
   //获取首页项目
-  'indexProjects': createAction('INDEX_PROJECTS', reqData => request('/Weike/index', reqData, 'get', true), reqData => reqData),
+  'indexProjects': createAction('INDEX_PROJECTS', reqData => request('/WeiKe/index', reqData, 'get', true), reqData => reqData),
   //关注项目
   'attention': createAction('ATTENTION', reqData => request('/Weike/attention', reqData, 'post', true), reqData => reqData),
   //取消关注

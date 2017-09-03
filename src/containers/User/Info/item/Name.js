@@ -5,18 +5,11 @@ import STYLE from './style';
 
 export default class Name extends React.Component {
 
-  onChange = (e) => {
-    let name = e.target.value;
-    let nameSuccess = name ? true : false;
-    let { toParent } = this.props;
-    toParent({ name }, { nameSuccess });
-  }
-
   render() {
+    let { username } = this.props;
     return (
       <div className={classnames(STYLE.item, STYLE.name)}>
-        <span>姓名</span>
-        <input onChange={this.onChange} type="text" />
+        <span>{username}</span>
       </div>
     )
   }

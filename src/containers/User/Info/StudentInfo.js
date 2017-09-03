@@ -57,6 +57,7 @@ export default class StudentInfo extends React.Component {
   }
 
   render() {
+    let { username } = this.props;
     let { form, success } = this.state;
     let { sex, eduBackgroud, university, majorAndGrade, entryUniversity, leaveUniversity } = form;
     return (
@@ -67,6 +68,7 @@ export default class StudentInfo extends React.Component {
           </Col>
           <Col span={20}>
             <div className={STYLE.text}>
+              <Name username={username} />
               <Sex toParent={this.toParent} sex={sex} />
               <EduBackground toParent={this.toParent} eduBackgroud={eduBackgroud} />
               <University toParent={this.toParent} university={university} />

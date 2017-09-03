@@ -31,9 +31,8 @@ export default class FDImageEditor extends React.Component {
 
   render() {
     let { imageFile, visible, imagePreview } = this.state;
-    let backgroundImage = imagePreview ? imagePreview : '';
     return (
-      <div className="FDImageEditor-preview" style={{backgroundImage}}>
+      <div className="FDImageEditor-preview">
         {
           imagePreview ? <img src={imagePreview} /> : null
         }

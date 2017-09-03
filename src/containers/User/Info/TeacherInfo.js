@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 
+import Name from './item/Name';
 import Sex from './item/Sex';
 import University from './item/University';
 import Qq from './item/Qq';
@@ -43,6 +44,7 @@ export default class StudentInfo extends React.Component {
   }
 
   render() {
+    let { username } = this.props;
     let { form, success } = this.state;
     let { academy, sex, eduBackgroud, university, majorAndGrade, entryUniversity, leaveUniversity, rank } = form;
     return (
@@ -53,6 +55,7 @@ export default class StudentInfo extends React.Component {
           </Col>
           <Col span={20}>
             <div className={STYLE.text}>
+              <Name username={username} />
               <Sex toParent={this.toParent} sex={sex} />
               <Rank toParent={this.toParent} rank={rank} />
               <University toParent={this.toParent} university={university} />

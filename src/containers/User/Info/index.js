@@ -10,11 +10,11 @@ import STYLE from './style';
 class Info extends React.Component {
 
   render() {
-    let { role, username } = this.props.data.user;
+    let { user } = this.props.data;
     return (
       <div className={STYLE.info}>
       {
-        role === 'ROLE_STUDENT' ? <StudentInfo username={username} /> : <TeacherInfo username={username}/>
+        user.role === 'ROLE_STUDENT' ? <StudentInfo /> : <TeacherInfo/>
       }
       </div>
     )

@@ -1,5 +1,6 @@
 import User from 'containers/User';
 import Info from 'containers/User/Info';
+import Release from 'containers/User/Release';
 
 export default {
   path: "/user",
@@ -8,6 +9,10 @@ export default {
     {
       path: "/user/info",
       component: Info,
+    },
+    {
+      path: "/user/release",
+      component: Release,
     },
   ]
 }

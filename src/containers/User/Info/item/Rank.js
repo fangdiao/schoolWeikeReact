@@ -18,7 +18,7 @@ export default class Rank extends React.Component {
     return (
       <div className={classnames(STYLE.major, STYLE.item)} ref={ele => this.rank = ele}>
         <span>职称</span>
-        <Select onChange={this.onChange} defaultValue={rank} getPopupContainer={() => this.rank}>
+        <Select onChange={this.onChange} value={rank} getPopupContainer={() => this.rank}>
           <Option value="助教">助教</Option>
           <Option value="讲师">讲师</Option>
           <Option value="副教授">副教授</Option>

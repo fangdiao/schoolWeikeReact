@@ -10,10 +10,11 @@ import Rank from './item/Rank';
 import Academy from './item/Academy';
 import FDImageEditor from 'components/FDImageEditor';
 
-
+import { connect } from 'utils/helper';
+import loginActions from 'actions/login';
 import STYLE from './style';
 
-export default class StudentInfo extends React.Component {
+class TeacherInfo extends React.Component {
 
   //默认值
   state = {
@@ -30,6 +31,19 @@ export default class StudentInfo extends React.Component {
     }
   }
 
+  componentWillMount() {
+    let { actions } = this.props;
+    let { completed, role } = this.props.data.user;
+    if (completed) {
+      role === 'ROLE_STUDENT' ? actions.studentPersonalData() : actions.teacherPersonalData();
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    let { rank, sex, qq, completed } = nextProps.data.user;
+    this.setState({ form: { ...this.state.form, rank, sex, qq } });
+  }
+
   toParent = (value, success) => {
     if (success) {
       this.setState({
@@ -44,9 +58,9 @@ export default class StudentInfo extends React.Component {
   }
 
   render() {
-    let { username } = this.props;
+    let { username } = this.props.data.user;
     let { form, success } = this.state;
-    let { academy, sex, eduBackgroud, university, majorAndGrade, entryUniversity, leaveUniversity, rank } = form;
+    let { qq, academy, sex, eduBackgroud, university, majorAndGrade, entryUniversity, leaveUniversity, rank } = form;
     return (
       <form>
         <Row>
@@ -60,7 +74,7 @@ export default class StudentInfo extends React.Component {
               <Rank toParent={this.toParent} rank={rank} />
               <University toParent={this.toParent} university={university} />
               <Academy toParent={this.toParent} academy={academy} />
-              <Qq toParent={this.toParent} />
+              <Qq qq={qq} toParent={this.toParent} />
               <Submit toParent={this.toParent} success={success} form={form} />
             </div>
           </Col>
@@ -69,3 +83,5 @@ export default class StudentInfo extends React.Component {
     )
   }
 }
+
+export default connect(state => state.login, loginActions)(TeacherInfo);

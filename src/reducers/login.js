@@ -147,8 +147,8 @@ export default handleActions({
     }
     return state;
   },
-  //学生填写相信信息
-  'STUDENT_INFO': (state, action) => {
+  //学生老师填写详细信息
+  'INFO': (state, action) => {
     if (!action.error) {
       let { ifSuccess, msg } = action.payload;
       if (ifSuccess) {
@@ -168,29 +168,8 @@ export default handleActions({
     }
     return state;
   },
-  //老师填写详细信息
-  'TEACHER_INFO': (state, action) => {
-    if (!action.error) {
-      let { ifSuccess, msg } = action.payload;
-      if (ifSuccess) {
-        let { image, skills } = action.meta;
-        let completed = true;
-        let { user } = state;
-        user = { ...user, image, skills, completed };
-        localStorage.weike = JSON.stringify(user);
-        state = { ...state, user };
-        jump('/', '信息填写成功，即将跳转到首页');
-        return state;
-      } else {
-        message.destroy();
-        message.error(msg);
-      }
-      return state
-    }
-    return state;
-  },
-  //学生修改详细信息
-  'STUDENT_CHANGE_INFO': (state, action) => {
+  //学生老师修改详细信息
+  'CHANGE_INFO': (state, action) => {
     if (!action.error) {
       let { ifSuccess, msg } = action.payload;
       if (ifSuccess) {
@@ -209,24 +188,19 @@ export default handleActions({
     }
     return state;
   },
-  //老师修改详细信息
-  'TEACHER_CHANGE_INFO': (state, action) => {
-    console.log(action)
+  //老师学生获取个人信息
+  'PERSONAL_DATA': (state, action) => {
     if (!action.error) {
-      let { ifSuccess, msg } = action.payload;
+      let { ifSuccess, msg, data } = action.payload;
       if (ifSuccess) {
-        let { image, skills } = action.meta;
         let { user } = state;
-        user = { ...user, image, skills };
-        localStorage.weike = JSON.stringify(user);
+        user = { ...user, ...data };
         state = { ...state, user };
-        jump('/', '信息修改成功，即将跳转到首页');
         return state;
       } else {
         message.destroy();
         message.error(msg);
       }
-      return state
     }
     return state;
   },

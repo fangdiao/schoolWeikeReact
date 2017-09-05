@@ -31,11 +31,15 @@ export default {
   //老师修改密码
   'teacherChangePW': createAction('STUDENT_CHANGE_PW', reqData => request('/weike/teacher/FindPassword', reqData, 'post'), reqData => reqData),
   //学生提交详细信息
-  'studentInfo': createAction('STUDENT_INFO', reqData => request('/WeiKe/student/addPersonalDeail', reqData, 'post', true), reqData => reqData),
+  'studentInfo': createAction('INFO', reqData => request('/WeiKe/student/addPersonalDeail', reqData, 'post', true), reqData => reqData),
   //老师提交详细信息
-  'teacherInfo': createAction('TEACHER_INFO', reqData => request('/WeiKe/teacher/addPersonal', reqData, 'post', true), reqData => reqData),
+  'teacherInfo': createAction('INFO', reqData => request('/WeiKe/teacher/addPersonal', reqData, 'post', true), reqData => reqData),
   //学生修改详细信息
-  'studentChangeInfo': createAction('STUDENT_CHANGE_INFO', reqData => request('/WeiKe/student/updateInfo', reqData, 'post', true), reqData => reqData),
+  'studentChangeInfo': createAction('CHANGE_INFO', reqData => request('/WeiKe/student/updateInfo', reqData, 'post', true), reqData => reqData),
   //老师修改详细信息
-  'teacherChangeInfo': createAction('TEACHER_CHANGE_INFO', reqData => request('/WeiKe/teacher/updateInfo', reqData, 'post', true), reqData => reqData),
+  'teacherChangeInfo': createAction('CHANGE_INFO', reqData => request('/WeiKe/teacher/updateInfo', reqData, 'post', true), reqData => reqData),
+  //老师获取个人信息
+  'teacherPersonalData': createAction('PERSONAL_DATA', reqData => request('/WeiKe/teacher/personalData', reqData, 'get', true), reqData => reqData),
+  //学生获取个人信息
+  'studentPersonalData': createAction('PERSONAL_DATA', reqData => request('/WeiKe/teacher/personalData', reqData, 'get', true), reqData => reqData),
 }

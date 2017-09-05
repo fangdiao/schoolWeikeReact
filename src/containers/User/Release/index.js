@@ -2,20 +2,34 @@ import React from 'react';
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
 
-import FDImageEditor from 'components/FDImageEditor';
-import TeacherInfo from './TeacherInfo';
-import StudentInfo from './StudentInfo';
 import STYLE from './style';
 
 class Release extends React.Component {
 
+  state = {
+    form: {
+      projectName: '',
+      projectKind: '',
+      projectStart: '',
+      projectEnd: '',
+      numNeed: 5,
+      projectNeed: '',
+      projectProfile: '',
+    },
+    success: {
+      projectName: false,
+      projectKind: false,
+      projectStart: false,
+      projectEnd: false,
+      projectNeed: false,
+      projectProfile: false,
+    }
+  }
+
   render() {
-    let { role } = this.props.data.user;
     return (
-      <div className={STYLE.info}>
-      {
-        role === 'ROLE_STUDENT' ? <StudentInfo /> : <TeacherInfo />
-      }
+      <div className={STYLE.release}>
+        release
       </div>
     )
   }

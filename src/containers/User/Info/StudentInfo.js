@@ -16,6 +16,7 @@ import SelfFeel from './item/SelfFeel';
 import Submit from './item/Submit';
 import FDImageEditor from 'components/FDImageEditor';
 
+import FDLoadingWrapper from 'components/FDLoadingWrapper';
 
 import STYLE from './style';
 
@@ -84,6 +85,7 @@ export default class StudentInfo extends React.Component {
             </div>
           </Col>
         </Row>
+        {/* <FDLoadingWrapper tip="正在提交"/> */}
       </form>
     )
   }

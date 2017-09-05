@@ -9,11 +9,6 @@ export default class Qq extends React.Component {
     value: ''
   }
 
-  componentWillReceiveProps(nextProps) {
-    let { qq } = nextProps;
-    this.setState({ value: qq });
-  }
-
   onChange = (e) => {
     let { toParent } = this.props;
     let qq = e.target.value.replace(/\D*/g, '');

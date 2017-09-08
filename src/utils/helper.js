@@ -9,15 +9,13 @@ import { hashHistory } from 'react-router';
 //页面跳转
 export const jump = (path, text) => {
   message.success(text);
-  const timer = () =>hashHistory.push(path);
-  setTimeout(timer, 2000);
+  const timer = () => hashHistory.push(path);
+  setTimeout(timer, 1500);
 }
 
 //用户信息检查
 let weike = localStorage.weike;
 export const checker = (nextState, replace, cb = () => {}) => {
-
-  console.log(nextState)
   if (!weike) {
     replace(`/login/loginIn`);
   } else {

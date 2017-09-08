@@ -10,8 +10,7 @@ import NameInput from 'components/FDInput/NameInput';
 import PWInput from 'components/FDInput/PWInput';
 import MailCodeInput from 'components/FDInput/MailCodeInput';
 import MailInput from 'components/FDInput/MailInput';
-
-
+import FDLoadingWrapper from 'components/FDLoadingWrapper';
 
 const RadioGroup = Radio.Group;
 
@@ -32,6 +31,7 @@ class Register extends React.Component {
       verifyCode: false,
       password: false
     },
+    ifSuccess: false,
     role: 'student',
   }
 
@@ -52,14 +52,15 @@ class Register extends React.Component {
     let { form: { username, password, verifyCode, email }, success, role } = this.state;
     if (!_.findKey(success, item => item === false)) {
       let { actions } = this.props;
+      this.setState({ ifSuccess: true });
       if (role === 'student') {
         let studentInfo = { username, password, email };
         let form = { verifyCode, studentInfo };
-        actions.studentRegister(form)
+        actions.studentRegister(form).then(() => this.setState({ ifSuccess: false }));
       } else {
         let teacherInfo = { username, password, email };
         let form = { verifyCode, teacherInfo };
-        actions.teacherRegister(form);
+        actions.teacherRegister(form).then(() => this.setState({ ifSuccess: false }));
       }
     } else {
       message.destroy();
@@ -73,7 +74,7 @@ class Register extends React.Component {
   }
 
   render() {
-    let { form, success, role } = this.state;
+    let { form, success, role, ifSuccess } = this.state;
     return (
       <div className={STYLE.register}>
         <h1>皇冠给你戴</h1>
@@ -96,6 +97,9 @@ class Register extends React.Component {
         <span>
           <Link to="/login/loginIn">已有账号？去登录</Link>
         </span>
+        {
+          ifSuccess ? <FDLoadingWrapper tip="正在提交..."/> : null
+        }
       </div>
     )
   }

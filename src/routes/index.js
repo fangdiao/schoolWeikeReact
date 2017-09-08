@@ -11,8 +11,6 @@ import Home from 'containers/Home';
 
 let weike = localStorage.weike;
 const checker = (nextState, replace, cb = () => {}) => {
-
-  console.log(nextState)
   if (!weike) {
     replace(`/login/loginIn`);
   } else {

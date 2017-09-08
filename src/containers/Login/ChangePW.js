@@ -7,6 +7,7 @@ import NameInput from 'components/FDInput/NameInput';
 import MailInput from 'components/FDInput/MailInput';
 import MailCodeInput from 'components/FDInput/MailCodeInput';
 import PWInput from 'components/FDInput/PWInput';
+import FDLoadingWrapper from 'components/FDLoadingWrapper';
 
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
@@ -30,7 +31,8 @@ class ChangePW extends React.Component {
       password: false,
       newPassword: false,
     },
-    role: 'student'
+    role: 'student',
+    ifSuccess: false,
   }
 
   toParent = (value, success) => {
@@ -49,13 +51,13 @@ class ChangePW extends React.Component {
     let { form: { password, newPassword, username, verifyCode }, success, role } = this.state;
     if (!_.filter(success, item => item === false).length) {
       if (password === newPassword) {
+        this.setState({ ifSuccess: true });
         let { actions } = this.props;
         let form = { password, username, verifyCode };
-        console.log(role)
         if (role === 'student') {
-          actions.studentChangePW(form);
+          actions.studentChangePW(form).then(() => this.setState({ ifSuccess: false }));
         } else {
-          actions.teacherChangePW(form);
+          actions.teacherChangePW(form).then(() => this.setState({ ifSuccess: false }));
         }
       } else {
         message.destroy();
@@ -69,7 +71,7 @@ class ChangePW extends React.Component {
   }
 
   render() {
-    let { form, success: { username, email, verifyCode }, role } = this.state;
+    let { form, success: { username, email, verifyCode }, role, ifSuccess } = this.state;
     let style = username && email && verifyCode ? {"height": "120px"} : {"height": "0","overflow": "hidden"};
     return (
       <div className={STYLE.changePW}>
@@ -94,6 +96,9 @@ class ChangePW extends React.Component {
             <Button type="primary" htmlType="submit" onClick={this.upPW}>提交</Button>
           </div>
         </form>
+        {
+          ifSuccess ? <FDLoadingWrapper tip="正在提交..."/> : null
+        }
       </div>
     )
   }

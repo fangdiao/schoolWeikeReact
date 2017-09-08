@@ -67,7 +67,6 @@ export default class FDSkills extends React.Component {
     firstUl: '', //第一列选中的词条
     secondUl: [], //第二列真个数组
     thridUl: {}, //第三列对象
-    skills: []  //选中的数组
   }
 
   clickDrect = (e) => {
@@ -85,22 +84,17 @@ export default class FDSkills extends React.Component {
 
   remove = (e) => {
     e.stopPropagation ? window.event.cancelBubble = true : e.stopPropagation();
-    let { toParent } = this.props;
-    let { skills } = this.state;
+    let { toParent, skills } = this.props;
     let skill = e.target.dataset.skill;
     skills = skills.filter(o => o !== skill);
-    let skillsSuccess = skills.length ? true : false;
-    this.setState({ skills }, () => (toParent({ skills }, { skillsSuccess })));
+    toParent({ skills });
   }
 
-  show = () => {
-    this.setState(previousState => ({ visible: !previousState.visible }));
-  }
+  show = () => this.setState(previousState => ({ visible: !previousState.visible }));
 
   clickLanguage = (e) => {
-    let { toParent } = this.props;
-    let { skills } = this.state;
-    let language = e.target.dataset.language;
+    let { toParent, skills } = this.props;
+    let { language } = e.target.dataset;
     if (skills.filter(o => o === language).length) {
       skills = skills.filter(o => o !== language);
     } else {
@@ -111,36 +105,26 @@ export default class FDSkills extends React.Component {
         message.error('最多选取九个');
       }
     }
-    this.setState({ skills }, () => (toParent({ skills }, { skillsSuccess: true })));
+    toParent({ skills });
   }
 
   render() {
-    let { visible, firstUl, secondUl, thridUl, skills } = this.state;
-    let { width } = this.props;
+    let { visible, firstUl, secondUl, thridUl } = this.state;
+    let { width, skills } = this.props;
     let classNameHover = 'background-hover';
     let classNameSelect = 'background-white';
     return (
       <span className="FDSkills" style={{"width": width}}>
         <div className="show" onClick={this.show}>
-          {/* <input type="text" /> */}
           {
             !skills.length ? null : (
               <ul>
                 {
-                  skills.map(o =>
-                    (
-                      <li key={o}>{o}<i data-skill={o} onClick={this.remove} className="iconfont icon-close"></i></li>
-                    )
-                  )
+                  skills.map(o => <li key={o}>{o}<i data-skill={o} onClick={this.remove} className="iconfont icon-close"></i></li>)
                 }
               </ul>
             )
           }
-          {/* {
-            !skills.length ? null: (
-              skills.map(o => <span key={o}>{o}<i data-skill={o} onClick={this.remove} className="iconfont icon-close"></i></span>)
-            )
-          } */}
         </div>
         {
           !visible ? null : (

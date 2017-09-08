@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, Button } from 'antd';
+import { Icon, Button, message } from 'antd';
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
 
@@ -20,24 +20,35 @@ class MailCodeInput extends React.Component {
     let { actions, email, role, username, type } = this.props;
     let form = { username, email };
     if (type === 'password') {
-      console.log(role)
-      role === 'student' ? actions.studentChangePWEmailCode(form) : actions.teacherChangePWEmailCode(form);
+      role === 'student' ?
+      actions.studentChangePWEmailCode(form).then(r => callback(r)) :
+      actions.teacherChangePWEmailCode(form).then(r => callback(r));
     } else {
-      role === 'student' ? actions.studentEmailCode(form) :  actions.teacherEmailCode(form);
+      role === 'student' ?
+      actions.studentEmailCode(form).then(r => callback(r)) :
+      actions.teacherEmailCode(form).then(r => callback(r));
     }
 
-    const countdown = () => {
-      this.setState((prevstate) => {
-        if (prevstate.countdown === 0) {
-          clearInterval(this.timer);
-          return { countdown: 60 }
-        } else {
-          return { countdown: -- prevstate.countdown }
+    const callback = (r) => {
+      let { ifSuccess, msg } = r.payload;
+      if (ifSuccess) {
+        const countdown = () => {
+          this.setState((prevstate) => {
+            if (prevstate.countdown === 0) {
+              clearInterval(this.timer);
+              return { countdown: 60 }
+            } else {
+              return { countdown: -- prevstate.countdown }
+            }
+          });
         }
-      });
+        countdown();
+        this.timer = setInterval(countdown, 1000);
+      } else {
+        message.destroy();
+        message.error(msg);
+      }
     }
-    countdown();
-    this.timer = setInterval(countdown, 1000);
   }
 
   onChange = (e) => {

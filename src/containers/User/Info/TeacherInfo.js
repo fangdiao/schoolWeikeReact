@@ -1,14 +1,14 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 
+import Qq from 'components/FDInfo/Qq';
+import Sex from 'components/FDInfo/Sex';
+import DropDown from 'components/FDInfo/DropDown';
 import Name from './item/Name';
-import Sex from './item/Sex';
-import University from './item/University';
-import Qq from './item/Qq';
 import Submit from './item/Submit';
-import Rank from './item/Rank';
-import Academy from './item/Academy';
 import FDImageEditor from 'components/FDImageEditor';
+
+import FDLoadingWrapper from 'components/FDLoadingWrapper';
 
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
@@ -19,48 +19,39 @@ class TeacherInfo extends React.Component {
   //默认值
   state = {
     form: {
-      image: '',
+      image: '11',
       sex: '男',
       university: '西南石油大学',
       academy: '计算机科学与技术学院',
       rank: '讲师',
       qq: '',
     },
-    success: {
-      qqSuccess: false,
-    }
+    loading: false
   }
 
   componentWillMount() {
     let { actions } = this.props;
     let { completed, role } = this.props.data.user;
     if (completed) {
-      role === 'ROLE_STUDENT' ? actions.studentPersonalData() : actions.teacherPersonalData();
+      this.setState({ loading: true });
+      const callback = (r) => {
+        let { ifSuccess, data } = r.payload;
+        if (ifSuccess) {
+          let omit = ['id', 'username', 'role', 'email'];
+          let form = _.omit(data, omit);
+          let loading = false;
+          this.setState({ ...this.state, form, loading });
+        }
+      };
+    actions.teacherPersonalData().then(r => callback(r));
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    let { rank, sex, qq, completed } = nextProps.data.user;
-    this.setState({ form: { ...this.state.form, rank, sex, qq } });
-  }
-
-  toParent = (value, success) => {
-    if (success) {
-      this.setState({
-        form: { ...this.state.form, ...value },
-        success: { ...this.state.success, ...success }
-      });
-    } else {
-      this.setState({
-        form: { ...this.state.form, ...value }
-      });
-    }
-  }
+  toParent = (value) => this.setState({ form: { ...this.state.form, ...value } })
 
   render() {
     let { username } = this.props.data.user;
-    let { form, success } = this.state;
-    let { qq, academy, sex, eduBackgroud, university, majorAndGrade, entryUniversity, leaveUniversity, rank } = form;
+    let { qq, academy, sex, eduBackgroud, university, rank } = this.state.form;
     return (
       <form>
         <Row>
@@ -70,15 +61,18 @@ class TeacherInfo extends React.Component {
           <Col span={20}>
             <div className={STYLE.text}>
               <Name username={username} />
-              <Sex toParent={this.toParent} sex={sex} />
-              <Rank toParent={this.toParent} rank={rank} />
-              <University toParent={this.toParent} university={university} />
-              <Academy toParent={this.toParent} academy={academy} />
-              <Qq qq={qq} toParent={this.toParent} />
-              <Submit toParent={this.toParent} success={success} form={form} />
+              <Sex toParent={this.toParent} sex={{sex}} />
+              <DropDown type={{rank}} title="学历" toParent={this.toParent} />
+              <DropDown type={{university}} title="学校" toParent={this.toParent} />
+              <DropDown type={{academy}} title="学历" toParent={this.toParent} />
+              <Qq qq={qq} toParent={this.toParent} title="QQ" />
+              <Submit toParent={this.toParent} form={this.state.form} />
             </div>
           </Col>
         </Row>
+        {
+          this.state.loading ? <FDLoadingWrapper tip="正在加载个人信息"/> : null
+        }
       </form>
     )
   }

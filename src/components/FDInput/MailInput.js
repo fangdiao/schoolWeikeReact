@@ -29,7 +29,7 @@ export default class MailInput extends React.Component {
       <div className="mail">
         <input
           type="text"
-          maxLength="16"
+          maxLength="20"
           placeholder="邮箱"
           onChange={this.onChange}
         />

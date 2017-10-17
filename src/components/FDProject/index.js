@@ -3,11 +3,11 @@ import UserHead from './userHead';
 import Publisher from './Publisher';
 import ProjectProfile from './ProjectProfile';
 import NeedSkill from './NeedSkill';
-import { Icon } from 'antd';
 import Join from './Join';
+import Details from './Details';
 import Attention from './Attention';
 
-import {getFormat,getMoment,getTimestamp} from 'utils/helper';
+import { getFormat } from 'utils/helper';
 
 
 import './style';
@@ -15,30 +15,47 @@ import './style';
 export default class Home extends React.Component {
   render() {
 
-    let { projectId, publisher, projectKind, projectName ,projectProfile, projectNeed } = this.props;
-    let { projectStart, projectEnd, clickNum, attention, joinSuccess, joining } = this.props;
-    let attentionNum = attention.length;
+    let {
+      personData,
+      projectDetails,
+      applySuccessNum,
+      followNum,
+      followPros,
+      applySuccessPerson,
+      proApplyingPerson,
+    } = this.props;
+    let {
+      projectName,
+      projectNeed,
+      projectKind,
+      projectProfile,
+      projectStart,
+      projectEnd,
+      projectConnector,
+      proHits,
+    } = projectDetails;
     return (
       <div className="FDProject-project">
         <h3>{projectKind}</h3>
-        <Publisher {...publisher} />
+        <Publisher {...personData} />
         <h1>{projectName}</h1>
         <ProjectProfile projectProfile={projectProfile} />
         <NeedSkill projectNeed={projectNeed} />
         <div className="FDProject-joined">
           {
-            joinSuccess.map((item, index) => <UserHead key={index} {...item}/>)
+            applySuccessPerson.map((item, index) => <UserHead key={index} {...item}/>)
           }
         </div>
         <div className="FDProject-join-attention">
-          <Attention projectName={projectName} attention={attention} />
-          <Join projectName={projectName} joining={joining}  />
+          <Attention projectConnector={projectConnector} projectName={projectName} followPros={followPros} />
+          <Join applySuccessPerson={applySuccessPerson} proApplyingPerson={proApplyingPerson} projectName={projectName} />
+          <Details projectName={projectName}/>
         </div>
         <div className="FDProject-time">
           <span>
             <i className="iconfont icon-history"></i> {getFormat(projectStart, 'YYYY/MM/DD')} 至 {getFormat(projectEnd, 'YYYY/MM/DD')}
           </span>
-          <span><i className="iconfont icon-caret-up"></i> {clickNum}</span>
+          <span><i className="iconfont icon-caret-up"></i> {proHits}</span>
         </div>
       </div>
     )

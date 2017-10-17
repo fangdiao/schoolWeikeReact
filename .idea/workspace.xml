@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ddbc8ebb-20ce-445b-b5a2-cbf20dbf14bd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/iconfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/iconfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/iconfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/schoolWeikeReact.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/fonts/iconfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/index.075d5d7911325d76c2d3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/index.0d4e1de7573d3d9d5aa7.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/index.12e073e5e528de7b9ca1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/index.13dde427b72ee49cc520.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/index.27604eae17267ab41843.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/index.34f426265d7c2dd547a5.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/index.4b45eedbe237571d01a4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/index.7ef403ae8e9d25177fd9.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/index.da880d9f0d65b2cba04c.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/index.f88cf6733987be55b247.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendors.075d5d7911325d76c2d3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendors.0d4e1de7573d3d9d5aa7.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendors.12e073e5e528de7b9ca1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendors.13dde427b72ee49cc520.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendors.27604eae17267ab41843.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendors.34f426265d7c2dd547a5.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendors.4b45eedbe237571d01a4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendors.7ef403ae8e9d25177fd9.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendors.da880d9f0d65b2cba04c.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/js/vendors.f88cf6733987be55b247.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/userProjects.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/FDProject/JoinAttention/Join.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/Details/StudentDetails.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/Details/TeacherDetails.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/Frame/Footer/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/User/Release/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/User/Release/item/ProjectText.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/User/Release/item/ProjectTime.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/User/Release/item/style.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/User/Release/style.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/User/style.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/reducers/user.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.eot" afterPath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.ttf" afterPath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.woff" afterPath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/layouts/img/1.png" afterPath="$PROJECT_DIR$/src/layouts/img/1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/layouts/img/logo.png" afterPath="$PROJECT_DIR$/src/layouts/img/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.babelrc" afterPath="$PROJECT_DIR$/.babelrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/home.js" afterPath="$PROJECT_DIR$/src/actions/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/login.js" afterPath="$PROJECT_DIR$/src/actions/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDCurd/RangeCurd.js" afterPath="$PROJECT_DIR$/src/components/FDCurd/RangeCurd.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDCurd/UserCurd.js" afterPath="$PROJECT_DIR$/src/components/FDCurd/UserCurd.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDInfo/DropDown.js" afterPath="$PROJECT_DIR$/src/components/FDInfo/DropDown.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDInfo/Sex.js" afterPath="$PROJECT_DIR$/src/components/FDInfo/Sex.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDInfo/SortInput.js" afterPath="$PROJECT_DIR$/src/components/FDInfo/SortInput.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDInfo/Textarea.js" afterPath="$PROJECT_DIR$/src/components/FDInfo/Textarea.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDInfo/Time.js" afterPath="$PROJECT_DIR$/src/components/FDInfo/Time.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDInput/ImgCodeInput.js" afterPath="$PROJECT_DIR$/src/components/FDInput/ImgCodeInput.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDInput/MailCodeInput.js" afterPath="$PROJECT_DIR$/src/components/FDInput/MailCodeInput.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDProject/Attention.js" afterPath="$PROJECT_DIR$/src/components/FDProject/Attention.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDProject/Join.js" afterPath="$PROJECT_DIR$/src/components/FDProject/Join.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDProject/NeedSkill.js" afterPath="$PROJECT_DIR$/src/components/FDProject/NeedSkill.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDProject/Publisher.js" afterPath="$PROJECT_DIR$/src/components/FDProject/Publisher.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDProject/index.js" afterPath="$PROJECT_DIR$/src/components/FDProject/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDProject/style.less" afterPath="$PROJECT_DIR$/src/components/FDProject/style.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDProject/userHead/index.js" afterPath="$PROJECT_DIR$/src/components/FDProject/userHead/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDSkills/style.less" afterPath="$PROJECT_DIR$/src/components/FDSkills/style.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Frame/Header/Logo.js" afterPath="$PROJECT_DIR$/src/containers/Frame/Header/Logo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Frame/Header/Search.js" afterPath="$PROJECT_DIR$/src/containers/Frame/Header/Search.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Frame/index.js" afterPath="$PROJECT_DIR$/src/containers/Frame/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Home/Projects.js" afterPath="$PROJECT_DIR$/src/containers/Home/Projects.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Home/style.less" afterPath="$PROJECT_DIR$/src/containers/Home/style.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Login/ChangePW.js" afterPath="$PROJECT_DIR$/src/containers/Login/ChangePW.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Login/LoginIn.js" afterPath="$PROJECT_DIR$/src/containers/Login/LoginIn.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Login/Register.js" afterPath="$PROJECT_DIR$/src/containers/Login/Register.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Login/index.js" afterPath="$PROJECT_DIR$/src/containers/Login/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Info/TeacherInfo.js" afterPath="$PROJECT_DIR$/src/containers/User/Info/TeacherInfo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Info/item/Name.js" afterPath="$PROJECT_DIR$/src/containers/User/Info/item/Name.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Info/item/Submit.js" afterPath="$PROJECT_DIR$/src/containers/User/Info/item/Submit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Info/item/style.less" afterPath="$PROJECT_DIR$/src/containers/User/Info/item/style.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Info/style.less" afterPath="$PROJECT_DIR$/src/containers/User/Info/style.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/index.js" afterPath="$PROJECT_DIR$/src/containers/User/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/home/index.js" afterPath="$PROJECT_DIR$/src/containers/home/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.js" afterPath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.less" afterPath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.svg" afterPath="$PROJECT_DIR$/src/layouts/iconfont/iconfont.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/layouts/less/reset.less" afterPath="$PROJECT_DIR$/src/layouts/less/reset.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/home.js" afterPath="$PROJECT_DIR$/src/reducers/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/login.js" afterPath="$PROJECT_DIR$/src/reducers/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/details.js" afterPath="$PROJECT_DIR$/src/routes/details.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/home.js" afterPath="$PROJECT_DIR$/src/routes/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/index.js" afterPath="$PROJECT_DIR$/src/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/user.js" afterPath="$PROJECT_DIR$/src/routes/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/helper.js" afterPath="$PROJECT_DIR$/src/utils/helper.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="schoolWeikeReact" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="helper.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/utils/helper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="94" column="7" lean-forward="true" selection-start-line="94" selection-start-column="7" selection-end-line="94" selection-end-column="7" />
+              <folding>
+                <element signature="e#1#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>jump</find>
+      <find>margin</find>
+      <find>border-right</find>
+      <find>FDProDetails</find>
+      <find>Link</find>
+      <find>right</find>
+      <find>projectName</find>
+      <find>attentionTip</find>
+      <find>item</find>
+      <find>atten</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src</dir>
+      <dir>$PROJECT_DIR$/src/containers</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/containers/Frame/Header/Logo.js" />
+        <option value="$PROJECT_DIR$/src/routes/home.js" />
+        <option value="$PROJECT_DIR$/src/components/FDProject/index.js" />
+        <option value="$PROJECT_DIR$/src/components/FDProject/Join.js" />
+        <option value="$PROJECT_DIR$/src/components/FDProDetails/index.js" />
+        <option value="$PROJECT_DIR$/src/containers/Home/index.js" />
+        <option value="$PROJECT_DIR$/src/reducers/home.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Join.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Release.js" />
+        <option value="$PROJECT_DIR$/src/reducers/userProjects.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/ProItem.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/ProUser.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Joing/item.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Attention/item.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Release/item.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/index.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Attention/index.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Joing/index.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Joing/ItemBox.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Joing/style.less" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/style.less" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Release/index.js" />
+        <option value="$PROJECT_DIR$/src/components/FDProject/Details.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Joing/Item.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Release/Item.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Release/SeeUser.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Release/style.less" />
+        <option value="$PROJECT_DIR$/src/actions/userProjects.js" />
+        <option value="$PROJECT_DIR$/src/containers/Login/ChangePW.js" />
+        <option value="$PROJECT_DIR$/src/containers/UserDetails/index.js" />
+        <option value="$PROJECT_DIR$/src/routes/details.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Release/UserItem.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Release/UserDetailsItem.js" />
+        <option value="$PROJECT_DIR$/src/containers/UserDetails/Item.js" />
+        <option value="$PROJECT_DIR$/src/containers/UserDetails/SkillItem.js" />
+        <option value="$PROJECT_DIR$/src/actions/login.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/ReleaseChange/index.js" />
+        <option value="$PROJECT_DIR$/src/actions/home.js" />
+        <option value="$PROJECT_DIR$/src/layouts/less/reset.less" />
+        <option value="$PROJECT_DIR$/src/containers/UserDetails/style.less" />
+        <option value="$PROJECT_DIR$/src/containers/User/Info/TeacherInfo.js" />
+        <option value="$PROJECT_DIR$/src/containers/UserDetails/Teacher.js" />
+        <option value="$PROJECT_DIR$/src/containers/UserDetails/Student.js" />
+        <option value="$PROJECT_DIR$/src/components/FDProject/userHead/index.js" />
+        <option value="$PROJECT_DIR$/src/components/FDProject/Publisher.js" />
+        <option value="$PROJECT_DIR$/src/reducers/login.js" />
+        <option value="$PROJECT_DIR$/src/containers/Login/Register.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Attention/Item.js" />
+        <option value="$PROJECT_DIR$/src/containers/User/Projects/Attention/style.less" />
+        <option value="$PROJECT_DIR$/src/utils/helper.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="actions" type="cbb8eebc:String" user="actions" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="components" type="cbb8eebc:String" user="components" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="components" type="cbb8eebc:String" user="components" />
+              <item name="FDProject" type="cbb8eebc:String" user="FDProject" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="containers" type="cbb8eebc:String" user="containers" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="containers" type="cbb8eebc:String" user="containers" />
+              <item name="Frame" type="cbb8eebc:String" user="Frame" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="containers" type="cbb8eebc:String" user="containers" />
+              <item name="Frame" type="cbb8eebc:String" user="Frame" />
+              <item name="Header" type="cbb8eebc:String" user="Header" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="containers" type="cbb8eebc:String" user="containers" />
+              <item name="Home" type="cbb8eebc:String" user="Home" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="containers" type="cbb8eebc:String" user="containers" />
+              <item name="User" type="cbb8eebc:String" user="User" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="layouts" type="cbb8eebc:String" user="layouts" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="layouts" type="cbb8eebc:String" user="layouts" />
+              <item name="less" type="cbb8eebc:String" user="less" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="reducers" type="cbb8eebc:String" user="reducers" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="routes" type="cbb8eebc:String" user="routes" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="schoolWeikeReact" type="cbb8eebc:String" user="schoolWeikeReact" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="utils" type="cbb8eebc:String" user="utils" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="schoolWeikeReact" type="b2602c69:ProjectViewProjectNode" />
+              <item name="schoolWeikeReact" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Node.js.Search.js">
+    <configuration name="Search.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="Search.js" working-dir="$PROJECT_DIR$/src/containers/Frame/Header" />
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.Search.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ddbc8ebb-20ce-445b-b5a2-cbf20dbf14bd" name="Default" comment="" />
+      <created>1507817855924</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1507817855924</updated>
+      <workItem from="1507817860054" duration="1915000" />
+      <workItem from="1507859471993" duration="319000" />
+      <workItem from="1507861669666" duration="230000" />
+      <workItem from="1507861916094" duration="41000" />
+      <workItem from="1507907068065" duration="57361000" />
+      <workItem from="1508133019633" duration="41781000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="101647000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15362932" sideWeight="0.70979446" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947146" sideWeight="0.49093106" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15362932" sideWeight="0.29020557" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39903265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/utils/helper.js</url>
+          <line>1</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="9" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/components/FDProject/Details.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="37" lean-forward="false" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/Joing/Item.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/userProjects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1206">
+          <caret line="71" column="33" lean-forward="true" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/Release/style.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Login/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/style.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="27" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Home/style.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Home/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-376">
+          <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/Release/SeeUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="77" column="44" lean-forward="false" selection-start-line="77" selection-start-column="44" selection-end-line="77" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/UserDetails/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="28" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/Release/Item.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="14" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/Release/UserItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/details.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/Release/UserDetailsItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/FDProject/NeedSkill.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/UserDetails/Item.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" lean-forward="true" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/userProjects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/ReleaseChange/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/less/variable.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/less/util.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/less/common.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/less/mixin.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#45#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="30" column="10" lean-forward="false" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/less/reset.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/ReleaseChange/Submit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Info/TeacherInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="66" column="50" lean-forward="false" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/FDProject/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/FDProject/Publisher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/FDProject/userHead/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="66" column="39" lean-forward="true" selection-start-line="65" selection-start-column="8" selection-end-line="66" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/Release/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/UserDetails/Student.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="12" lean-forward="false" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/UserDetails/SkillItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="49" lean-forward="false" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/UserDetails/style.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="39" column="17" lean-forward="false" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/FDProject/style.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="865">
+          <caret line="65" column="17" lean-forward="true" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/UserDetails/Teacher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/FDProDetails/style.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/style.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/Joing/style.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/Joing/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/Attention/style.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Login/ChangePW.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Login/Register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="733">
+          <caret line="54" column="36" lean-forward="true" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/User/Projects/Attention/Item.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="35" column="49" lean-forward="false" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/helper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="94" column="7" lean-forward="true" selection-start-line="94" selection-start-column="7" selection-end-line="94" selection-end-column="7" />
+          <folding>
+            <element signature="e#1#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

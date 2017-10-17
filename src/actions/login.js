@@ -42,4 +42,6 @@ export default {
   'teacherPersonalData': createAction('PERSONAL_DATA', reqData => request('/WeiKe/teacher/personalData', reqData, 'get', true), reqData => reqData),
   //学生获取个人信息
   'studentPersonalData': createAction('PERSONAL_DATA', reqData => request('/WeiKe/student/personalData', reqData, 'get', true), reqData => reqData),
+  //获取项目详情
+  'projectsDetails': createAction('PROJECTS_DETAILS', reqData => request('/WeiKe/projectName', reqData, 'get', true), reqData => reqData),
 }

@@ -54,7 +54,7 @@ module.exports = {
     port:3000,
     hot:true,
     // proxy: {
-    //   "/weike": {
+    //   "/WeiKe": {
     //     target: "http://localhost:8081",
     //   }
     // }

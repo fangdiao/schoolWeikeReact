@@ -1,13 +1,10 @@
 import React from 'react';
-
-import classnames from 'classnames';
 import { DatePicker } from 'antd';
 import moment from 'moment';
 
 import './style';
 
-const { MonthPicker } = DatePicker;
-const monthFormat = 'YYYY/MM';
+const dateFormat = 'YYYY/MM/DD';
 
 export default class extends React.Component {
 
@@ -20,15 +17,15 @@ export default class extends React.Component {
   render() {
     let { type, title } = this.props;
     let time = type[Object.keys(type)[0]]
-    time = moment(time).format(monthFormat);
+    time = moment(time).format(dateFormat);
     return (
       <div className="FDInfo" ref={ele => this.timeBox = ele}>
         <span className="title">{title}</span>
-        <MonthPicker
+        <DatePicker
           onChange={this.onChange}
           style={{"width": "160px"}}
-          value={moment(time, monthFormat)}
-          format={monthFormat}
+          value={moment(time, dateFormat)}
+          format={dateFormat}
           getCalendarContainer={() => this.timeBox}
           allowClear={false}
         />

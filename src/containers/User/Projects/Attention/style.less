@@ -1,0 +1,36 @@
+@import '../../../../layouts/less/variable.less';
+
+
+.card {
+  margin-top: 20px;
+  padding: 20px;
+  min-height: 183px;
+  border: 1px solid @gray;
+  border-radius: 3px;
+  transition: all 1s;
+  &:hover {
+    box-shadow: 2px 2px 20px #ddd;
+    border-color: @white;
+  }
+}
+
+.skills {
+  > span {
+    display: inline-block;
+    padding: 4px 14px;
+    margin-top: 10px;
+    background-color: @hoverColor;
+    font-size: 14px;
+    border-radius: 3px;
+    margin-right: 10px;
+    color: @blue;
+  }
+}
+
+.AttentionButton {
+  margin-top: 20px;
+  > button {
+    color: @blue;
+    border: 1px solid @blue;
+  }
+}

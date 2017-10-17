@@ -14,10 +14,9 @@ export default class UserHead extends React.Component {
       </div>
     );
     return (
-
-      <Popover placement="bottomLeft" content={content} title={username}>
+      // <Popover placement="bottomLeft" content={content} title={username}>
         <Avatar shape="square" size="middle" icon="user" src={image} />
-      </Popover>
+      // </Popover>
     )
   }
 }

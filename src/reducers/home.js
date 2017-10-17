@@ -1,5 +1,4 @@
 import { handleActions } from 'redux-actions';
-import _ from 'lodash';
 import { range } from 'utils/helper';
 
 const initialState = {
@@ -9,57 +8,9 @@ const initialState = {
 export default handleActions({
   'INDEX_PROJECTS': (state, action) => {
     if (!action.error) {
-      let { projects } = action.payload.data;
+      let projects = action.payload.data;
       state = { ...state, projects };
       return state;
-    }
-    return state;
-  },
-  //关注项目
-  'ATTENTION': (state, action) => {
-    if (!action.error && action.payload.data.success) {
-      let newState = state;
-      let { projectName, username } = action.meta;
-      let projects = newState.projects.filter(item => {
-        if (item.projectName === projectName) {
-          item.attention = [ ...item.attention, username ]
-        }
-        return item;
-      });
-      newState = { ...newState, projects };
-      return newState;
-    }
-    return state;
-  },
-  //取消关注项目
-  'CANCLE_ATTENTION': (state, action) => {
-    if (!action.error && action.payload.data.success) {
-      let newState = state;
-      let { projectName, username } = action.meta;
-      let projects = newState.projects.filter(item => {
-        if (item.projectName === projectName) {
-          item.attention = _.remove(item.attention, n => n !== username);
-        }
-        return item;
-      });
-      newState = { ...newState, projects };
-      return newState;
-    }
-    return state;
-  },
-  //申请项目
-  'JOIN': (state, action) => {
-    if (!action.error && action.payload.data.success) {
-      let newState = state;
-      let { projectName, username } = action.meta;
-      let projects = newState.projects.filter(item => {
-        if (item.projectName === projectName) {
-          item.joining = [ ...item.joining, username ]
-        }
-        return item;
-      });
-      newState = { ...newState, projects };
-      return newState;
     }
     return state;
   },
@@ -71,6 +22,20 @@ export default handleActions({
       projects = skills ? range(projects, type, skills) : range(projects, type);
       state = { ...state, projects }
       return state;
+    }
+    return state;
+  },
+  //搜索和推荐
+  'SEARCH_RECOMMEND': (state, action) => {
+    if (!action.error) {
+      let { data } = action.payload;
+      if (data) {
+        let newState = state;
+        let { projects } = newState;
+        projects = [ ...data ];
+        newState = { ...newState, projects };
+        return newState;
+      }
     }
     return state;
   },

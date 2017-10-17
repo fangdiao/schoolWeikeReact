@@ -8,12 +8,12 @@ import STYLE from './style';
 class ImgCodeInput extends React.Component {
 
   static defaultProps = {
-    toParent: () => {}
-  }
+    toParent: () => {},
+  };
 
   state = {
     err: false,
-  }
+  };
 
   componentWillMount() {
     this.getImgCode();
@@ -22,22 +22,22 @@ class ImgCodeInput extends React.Component {
   getImgCode = () => {
     let { actions } = this.props;
     actions.getImgCode();
-  }
+  };
 
   onChange = (e) => {
     let text = e.target.value;
     let { toParent } = this.props;
     this.setState({
-      err: text.length < 5
+      err: text.length < 5,
     }, () => toParent({ verifyCode: text }, { verifyCode: !!text && !this.state.err })
     );
 
-  }
+  };
 
   render() {
 
     let { msg } = this.props.data.login;
-    let className = this.props.height ? "img-code height" : "img-code";
+    let className = this.props.height ? 'img-code height' : 'img-code';
 
     return (
       <div className={className}>
@@ -55,7 +55,7 @@ class ImgCodeInput extends React.Component {
           <Icon type="loading" className="loading" />
         }
       </div>
-    )
+    );
   }
 }
 

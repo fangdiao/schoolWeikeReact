@@ -1,6 +1,8 @@
 import User from 'containers/User';
 import Info from 'containers/User/Info';
-import Release from 'containers/User/Release';
+import ReleaseChange from 'containers/User/ReleaseChange';
+import Projects from 'containers/User/Projects';
+import Message from 'containers/User/Message';
 
 export default {
   path: "/user",
@@ -12,7 +14,19 @@ export default {
     },
     {
       path: "/user/release",
-      component: Release,
+      component: ReleaseChange,
+    },
+    {
+      path: "/user/changePro/:query",
+      component: ReleaseChange,
+    },
+    {
+      path: "/user/projects",
+      component: Projects,
+    },
+    {
+      path: "/user/message",
+      component: Message,
     },
   ]
 }

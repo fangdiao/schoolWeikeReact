@@ -11,22 +11,21 @@ import STYLE from './style';
 class User extends React.Component {
 
   render() {
-    let { completed } = this.props.data.user;
     return (
-      <div className={STYLE.user}>
-        <Row>
-          <Col span={18}>
+      <Row>
+        <Col span={18}>
+          <div className={STYLE.box}>
             {
               this.props.children
             }
-          </Col>
-          <Col span={6}>
-            <CurdBox>
-              <UserCurd completed={completed} />
-            </CurdBox>
-          </Col>
-        </Row>
-      </div>
+          </div>
+        </Col>
+        <Col span={6}>
+          <CurdBox>
+            <UserCurd/>
+          </CurdBox>
+        </Col>
+      </Row>
     )
   }
 }

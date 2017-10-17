@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Icon, Button, message } from 'antd';
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
@@ -8,13 +8,13 @@ import STYLE from './style';
 class MailCodeInput extends React.Component {
 
   static defaultProps = {
-    toParent: () => {}
-  }
+    toParent: () => {},
+  };
 
   state = {
     err: false,
-    countdown: 60
-  }
+    countdown: 60,
+  };
 
   getCode = () => {
     let { actions, email, role, username, type } = this.props;
@@ -32,34 +32,37 @@ class MailCodeInput extends React.Component {
     const callback = (r) => {
       let { ifSuccess, msg } = r.payload;
       if (ifSuccess) {
+        message.destroy();
+        message.info('验证码已发送到您的邮箱，请您注意查收');
         const countdown = () => {
           this.setState((prevstate) => {
             if (prevstate.countdown === 0) {
               clearInterval(this.timer);
-              return { countdown: 60 }
+              return { countdown: 60 };
             } else {
-              return { countdown: -- prevstate.countdown }
+              return { countdown: --prevstate.countdown };
             }
           });
-        }
+        };
+
         countdown();
         this.timer = setInterval(countdown, 1000);
       } else {
         message.destroy();
         message.error(msg);
       }
-    }
-  }
+    };
+  };
 
   onChange = (e) => {
     let text = e.target.value;
     let { toParent } = this.props;
     this.setState({
-      err: text.length < 4
+      err: text.length < 4,
     }, () => toParent({ verifyCode: text }, { verifyCode: !!text && !this.state.err })
     );
 
-  }
+  };
 
   componentWillUnmount() {
     clearInterval(this.timer);
@@ -67,7 +70,7 @@ class MailCodeInput extends React.Component {
 
   render() {
     let { err, countdown } = this.state;
-    let className = this.props.height ? "mail-code height" : "mail-code";
+    let className = this.props.height ? 'mail-code height' : 'mail-code';
     return (
       <div className={className}>
         <input
@@ -84,7 +87,7 @@ class MailCodeInput extends React.Component {
           <Button type="dashed">{countdown}秒后可重发</Button>
         }
       </div>
-    )
+    );
   }
 }
 export default connect(state => state.login, loginActions)(MailCodeInput);

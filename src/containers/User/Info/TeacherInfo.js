@@ -62,9 +62,9 @@ class TeacherInfo extends React.Component {
             <div className={STYLE.text}>
               <Name username={username} />
               <Sex toParent={this.toParent} sex={{sex}} />
-              <DropDown type={{rank}} title="学历" toParent={this.toParent} />
+              <DropDown type={{rank}} title="职称" toParent={this.toParent} />
               <DropDown type={{university}} title="学校" toParent={this.toParent} />
-              <DropDown type={{academy}} title="学历" toParent={this.toParent} />
+              <DropDown type={{academy}} title="学院" toParent={this.toParent} />
               <Qq qq={qq} toParent={this.toParent} title="QQ" />
               <Submit toParent={this.toParent} form={this.state.form} />
             </div>

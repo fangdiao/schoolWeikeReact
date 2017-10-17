@@ -11,11 +11,10 @@ class Range extends React.Component {
   }
 
   range = (e) => {
-    let { skills } = this.props.data.user.info;
     let type = e.target.dataset.range;
     this.setState({ type },() => {
       let { actions } = this.props;
-      type !== 'projectNeed' ? actions.range({ type }) : actions.range({ type, skills });
+      actions.range({ type });
     });
   }
 
@@ -25,19 +24,16 @@ class Range extends React.Component {
     return (
       <ul className="FDCurd-range" onClick={this.range}>
         <li><h3>排序</h3></li>
-        <li data-range="projectNeed" className={type === "projectNeed" ? className : ''}>
-          <i className="iconfont icon-heart"></i>相关程度
-        </li>
         <li data-range="projectStart" className={type === "projectStart" ? className : ''}>
           <i className="iconfont icon-history"></i>最新
         </li>
-        <li data-range="attention" className={type === "attention" ? className : ''}>
+        <li data-range="followPros" className={type === "followPros" ? className : ''}>
           <i className="iconfont icon-star"></i>关注度
         </li>
-        <li data-range="clickNum" className={type === "clickNum" ? className : ''}>
+        <li data-range="proHits" className={type === "proHits" ? className : ''}>
           <i className="iconfont icon-caret-up"></i>点击数
         </li>
-        <li data-range="joinSuccess" className={type === "joinSuccess" ? className : ''}>
+        <li data-range="applySuccessPerson" className={type === "applySuccessPerson" ? className : ''}>
           <i className="iconfont icon-user-plus"></i>参与人数
         </li>
       </ul>

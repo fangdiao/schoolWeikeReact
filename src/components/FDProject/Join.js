@@ -1,33 +1,60 @@
 import React from 'react';
 import { connect } from 'utils/helper';
 import homeActions from 'actions/home';
-import { Button, Popconfirm } from 'antd';
+import { Popconfirm } from 'antd';
 
 import './style';
 
 class Join extends React.Component {
 
-  join = () => {
-    let { projectName, actions, data: { user: { username } } } = this.props;
-    actions.join({ username, projectName });
+  state = {
+    join: '',
   }
 
+  join = () => {
+    let { projectName, actions } = this.props;
+    actions.join({ projectName, content: '11' }).then(r => {
+      let { ifSuccess } = r.payload;
+      if (ifSuccess) {
+        this.setState({ join: '已申请' });
+      }
+    });
+  }
+
+  componentWillMount() {
+    let {data: {user: {username, joinProject: {joinFailed}}}, proApplyingPerson, applySuccessPerson, projectName} = this.props;
+    let isJoin = proApplyingPerson.filter(item => item === username).length > 0;
+    let isJoinSuccess = applySuccessPerson.filter(item => item === username).length > 0;
+    let isJoinFail = joinFailed.filter(item => item === projectName).length > 0;
+    let join = '';
+    switch (true) {
+      case isJoin:
+        join = '已申请';
+        break;
+      case isJoinSuccess:
+        join = '成功申请';
+        break;
+      case isJoinFail:
+        join = '申请失败';
+        break;
+    }
+    this.setState({ join });
+  }
+
+
   render() {
-    let { joining, projectName, data: { user }, joinEle } = this.props;
-    let isJoining = joining.filter(item => item === user.username).length > 0;
+    let { join } = this.state;
     return (
-      !isJoining ? (
+      !join ? (
         <Popconfirm onConfirm={this.join} title="申请后无法取消，确认继续" getPopupContainer={() => document.querySelector('.content')}>
-          <Button className="FDProject-join" >
-            <span><i className="iconfont icon-user-plus"></i>申请</span>
-            <span>{joining.length}</span>
-          </Button>
+          <span className="FDProject-button" >
+            <span><i className="iconfont icon-user-plus"></i>参加</span>
+          </span>
         </Popconfirm>
       ) : (
-        <Button className="FDProject-join">
-          <span><i className="iconfont icon-user-plus red"></i>已申请</span>
-          <span>{joining.length}</span>
-        </Button>
+        <span className="FDProject-button">
+          <span><i className="iconfont icon-user-plus red"></i>{join}</span>
+        </span>
       )
     )
   }

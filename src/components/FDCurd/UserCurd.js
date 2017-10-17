@@ -7,23 +7,22 @@ export default class UserCurd extends React.Component {
 
   render() {
 
-    let { completed } = this.props;
     return (
       <ul className="FDCurd-user">
         <li>
-          <Link to="/user/attention">
-            <span><i className="iconfont icon-star"></i></span>
-            <span>我的关注</span>
+          <Link to="/user/message">
+            <span><i className="iconfont icon-bullhorn"></i></span>
+            <span>我的消息</span>
           </Link>
         </li>
         <li>
-          <Link to="/user/recommend">
+          <Link to="/dist/recommend">
             <span><i className="iconfont icon-child"></i></span>
             <span>个性推荐</span>
           </Link>
         </li>
         <li>
-          <Link to="/user/project">
+          <Link to="/user/projects">
             <span><i className="iconfont icon-drupal"></i></span>
             <span>我的项目</span>
           </Link>

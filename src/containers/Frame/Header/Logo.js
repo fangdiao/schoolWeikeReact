@@ -6,7 +6,7 @@ export default class Logo extends React.Component {
 
   render() {
     return (
-      <Link to="/" className={STYLE.logo}></Link>
+      <Link to="/dist" className={STYLE.logo}></Link>
     )
   }
 }

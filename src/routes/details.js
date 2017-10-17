@@ -1,16 +1,21 @@
-import StudentDetails from 'containers/Details/StudentDetails'
-import TeacherDetails from 'containers/Details/TeacherDetails'
+import ProDetails from 'components/FDProDetails';
+import Student from 'containers/UserDetails/Student';
+import Teacher from 'containers/UserDetails/Teacher';
 
 export default {
   path: "/details",
   childRoutes: [
     {
-      path: "/details/studentDetails",
-      component: StudentDetails
+      path: "/details/project/:query",
+      component: ProDetails,
     },
     {
-      path: "/details/teacherDetails",
-      component: TeacherDetails
+      path: "/details/teacher/:query",
+      component: Teacher,
+    },
+    {
+      path: "/details/student/:query",
+      component: Student,
     }
   ]
 }

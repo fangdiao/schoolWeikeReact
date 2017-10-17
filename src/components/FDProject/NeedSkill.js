@@ -9,7 +9,7 @@ class NeedSkill extends React.Component {
 
   render() {
     let { projectNeed, data: { user } } = this.props;
-    let common = _.intersection(projectNeed, user.info.skills);
+    let common = _.intersection(projectNeed, []);
     return (
       <div className="FDProject-need">
         {

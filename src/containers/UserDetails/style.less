@@ -1,0 +1,53 @@
+@import '../../layouts/less/variable.less';
+
+.userBox {
+  padding: 10px 100px 10px 100px;
+}
+
+.userDetails {
+  min-height: 600px;
+  padding: 30px 30px 100px 30px;
+  border-radius: 3px;
+  border: 1px solid @gray;
+  box-shadow: 0 2px 6px #ddd;
+  background-color: @white;
+}
+
+.userHead {
+  :global {
+    .ant-avatar-icon {
+      font-size: 100px !important;
+    }
+    .ant-avatar-lg {
+      width: 150px !important;
+      height: 150px !important;
+      line-height: 150px !important;
+    }
+  }
+}
+
+.userDetItem {
+  border-bottom: 1px solid @gray;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  h3 {
+    font-size: 20px;
+  }
+  p {
+    padding-right: 10px;
+    word-wrap: break-word;
+    word-break: normal;
+    font-size: 16px;
+    > span {
+      display: inline-block;
+      padding-top: 10px;
+      user-select: none;
+      padding: 4px 14px;
+      background-color: @hoverColor;
+      font-size: 14px;
+      border-radius: 3px;
+      margin-right: 10px;
+      color: @blue;
+    }
+  }
+}

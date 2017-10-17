@@ -1,34 +1,32 @@
 import React from 'react';
-import FDProject from 'components/FDProject';
-import { connect } from 'utils/helper';
 import _ from 'lodash';
-import homeActions from 'actions/home';
-import { Spin } from 'antd';
+
+import FDProject from 'components/FDProject';
 
 import STYLE from './style';
 
-class Projects extends React.Component {
+export default class Projects extends React.Component {
 
   state = {
     minHeight: window.innerHeight
   }
 
-  componentWillMount() {
-    let { actions } = this.props;
-    actions.indexProjects();
-  }
-
   render() {
-    let { projects, user } = this.props.data;
+    let { projects, hasResult } = this.props;
     return (
       <div className={STYLE.projects} style={this.state}>
         {
-          _.isEmpty(projects) ? <Spin className="loading" size="large" tip="Loading..." /> :
-          projects.map(item => <FDProject user={user} {...item} key={item.projectStart} />)
+          !hasResult ? (
+            <div className={STYLE.noRusult}>
+              <i className="iconfont icon-frown-o"></i>
+              <span>很遗憾，没有为您找到合适的项目!</span>
+            </div>
+          ) : (
+            _.isEmpty(projects) ? null :
+              projects.map((item, index) => <FDProject {...item} key={index} />)
+          )
         }
       </div>
     )
   }
 }
-
-export default connect(state => state.home, homeActions)(Projects);

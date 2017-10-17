@@ -8,7 +8,6 @@ import RoleInput from 'components/FDInput/RoleInput';
 import NameInput from 'components/FDInput/NameInput';
 import ImgCodeInput from 'components/FDInput/ImgCodeInput';
 import PWInput from 'components/FDInput/PWInput';
-import FDLoadingWrapper from 'components/FDLoadingWrapper';
 import STYLE from './style';
 
 const RadioGroup = Radio.Group;
@@ -19,59 +18,56 @@ class LoginIn extends React.Component {
     form: {
       username: '',
       password: '',
-      verifyCode: ''
+      verifyCode: '',
     },
     success: {
       username: false,
       password: false,
-      verifyCode: false
+      verifyCode: false,
     },
     role: 'student',
-    ifSuccess: false
-  }
+  };
 
   toParent = (value, success) => {
-    let key = Object.keys(value)[0]
+    let key = Object.keys(value)[0];
     if (key !== 'role') {
       this.setState({
         form: { ...this.state.form, ...value },
-        success: { ...this.state.success, ...success }
+        success: { ...this.state.success, ...success },
       });
     } else {
       this.setState({ ...this.state, ...value });
     }
-  }
+  };
 
   upForm = () => {
     let { form, success, role } = this.state;
     if (!_.findKey(success, item => item === false)) {
-      this.setState({ ifSuccess: true });
-      let { actions, data } = this.props;
+      let { actions: { studentLogin, teacherLogin }, data } = this.props;
       let { captchaCode } = data.login;
-      role === 'student' ?
-      actions.studentLogin({ form ,captchaCode }).then(() => this.setState({ ifSuccess: false })) :
-      actions.teacherLogin({ form ,captchaCode }).then(() => this.setState({ ifSuccess: false }));
+      let login = role === 'student' ? studentLogin : teacherLogin;
+      login({ form, captchaCode });
     } else {
       message.destroy();
       message.error('请正确填写个人信息');
     }
-  }
+  };
 
   onChange = (e) => {
     this.setState({ role: e.target.value });
-  }
+  };
 
   componentWillUnmount() {
     message.destroy();
   }
 
   render() {
-    let { role, ifSuccess } = this.state;
+    let { role } = this.state;
     let { login } = this.props.data;
     let imgCodeShow = this.state.success.username && this.state.success.password;
     return (
       <div className={STYLE.loginIn}>
-        <h1>我的小可爱</h1>
+        <h1>登录校园威客</h1>
         <form>
           <RoleInput role={role} toParent={this.toParent} />
           <NameInput toParent={this.toParent} />
@@ -85,11 +81,8 @@ class LoginIn extends React.Component {
           <Link to="/login/changePW">忘记密码?</Link>
           <Link to="/login/register">去注册</Link>
         </span>
-        {
-          ifSuccess ? <FDLoadingWrapper tip="正在登录..."/> : null
-        }
       </div>
-    )
+    );
   }
 }
 

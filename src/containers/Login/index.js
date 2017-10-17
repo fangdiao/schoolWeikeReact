@@ -12,6 +12,6 @@ export default class Login extends React.Component {
         <FDAnimate />
         { this.props.children }
       </div>
-    )
+    );
   }
 }

@@ -22,7 +22,7 @@ const routes = {
   path: "/",
   indexRoute: {
     component: Home,
-    onEnter: checker,
+    // onEnter: checker,
   },
   component: Frame,
   childRoutes: [

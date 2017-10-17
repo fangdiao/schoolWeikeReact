@@ -1,0 +1,62 @@
+@import '../../layouts/less/variable.less';
+
+@prefix: FDProDetails;
+
+.@{prefix} {
+  padding: 20px 50px;
+  .details {
+    min-height: 600px;
+    padding: 40px;
+    border-radius: 3px;
+    border: 1px solid @gray;
+    box-shadow: 0 2px 6px #ddd;
+    background-color: @white;
+    > h1 {
+      padding-bottom: 20px;
+      color: @blue;
+    }
+  }
+}
+.@{prefix}-item {
+  border-top: 1px solid @gray;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  h3 {
+    font-size: 18px;
+    color: @grayDark;
+  }
+  p {
+    font-size: 16px;
+  }
+}
+
+.@{prefix}-button {
+  > div {
+    width: 100%;
+    box-shadow: -2px 2px 10px #ddd;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: @white;
+    border-radius: 2px;
+    border-top: 1px solid @gray;
+    cursor: pointer;
+    &:nth-child(n+2) {
+      margin-top: 10px;
+    }
+    > span {
+      width: 100%;
+      font-size: 12px;
+      border: none;
+      color: @blue;
+      > span:first-child {
+        padding-right: 8px;
+        >i {
+          margin-right: 8px;
+        }
+      }
+      > span:last-child {
+        margin-left: 8px;
+      }
+    }
+  }
+}

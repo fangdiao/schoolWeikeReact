@@ -1,6 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
-import { Row, Col } from 'antd';
 import STYLE from './style';
 
 export default class extends React.Component {

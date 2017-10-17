@@ -86,7 +86,7 @@
 .@{prefix}-join-attention {
   padding-top: 6px;
   padding-bottom: 6px;
-  & > button {
+  & > span {
     display: inline;
     font-size: 12px;
     font-weight: bold;
@@ -97,13 +97,12 @@
     cursor: pointer;
     user-select: none;
 
-    &:first-child {
+    &:nth-child(n+1) {
       margin-right: 20px;
     }
 
     & > span:first-child {
       padding-right: 10px;
-      border-right: 2px solid @blue;
       i {
         font-size: 14px;
         margin-right: 6px;
@@ -116,11 +115,12 @@
   }
 }
 
-.@{prefix}-join {
-
+.@{prefix}-button {
+  padding: 4px 10px;
 }
 
 .@{prefix}-attention {
-
-
+  > span:first-child {
+    border-right: 2px solid @blue;
+  }
 }

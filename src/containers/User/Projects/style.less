@@ -1,0 +1,20 @@
+@import '../../../layouts/less/variable.less';
+
+.userProject {
+  overflow: hidden;
+  padding: 10px 10px 100px 10px;
+  > div {
+    padding: 10px;
+  }
+  & > img {
+    width: 100%;
+  }
+  :global {
+    .ant-spin-spinning {
+      display: block;
+    }
+    .ant-tabs {
+      overflow: inherit;
+    }
+  }
+}

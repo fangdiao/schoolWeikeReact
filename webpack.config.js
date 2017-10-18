@@ -81,43 +81,44 @@ module.exports = {
         exclude: path.resolve(__dirname, "node_modules"),
         loader: 'babel-loader'
       },
-      // {
-      //   test: /\.less$/,
-      //   include: /src(\\|\/)containers/,
-      //   loader: ExtractTextPlugin.extract(
-      //     'style-loader',
-      //     'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!' +
-      //     'postcss-loader!' +
-      //     'less-loader'
-      //     , {publicPath: '../'})
-      // },
-      // {
-      //   test: /\.less$/,
-      //   include: /src(\\|\/)(layouts|components)/,
-      //   loader: ExtractTextPlugin.extract(
-      //     'style-loader',
-      //     'css-loader!' +
-      //     'postcss-loader!' +
-      //     'less-loader'
-      //     , {publicPath: '../'})
-      // },
       {
         test: /\.less$/,
         include: /src(\\|\/)containers/,
-        loader: 'style-loader!' +
-                'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!' +
-                'postcss-loader!' +
-                'less-loader'
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!' +
+          'postcss-loader!' +
+          'less-loader',
+          publicPath: '../'
+        }),
       },
-
       {
         test: /\.less$/,
         include: /src(\\|\/)(layouts|components)/,
-        loader: 'style-loader!' +
-                'css-loader!' +
-                'postcss-loader!' +
-                'less-loader'
+        loader: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: 'css-loader!' +
+          'postcss-loader!' +
+          'less-loader',
+          publicPath: '../'})
       },
+      // {
+      //   test: /\.less$/,
+      //   include: /src(\\|\/)containers/,
+      //   loader: 'style-loader!' +
+      //           'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!' +
+      //           'postcss-loader!' +
+      //           'less-loader'
+      // },
+      //
+      // {
+      //   test: /\.less$/,
+      //   include: /src(\\|\/)(layouts|components)/,
+      //   loader: 'style-loader!' +
+      //           'css-loader!' +
+      //           'postcss-loader!' +
+      //           'less-loader'
+      // },
       {
         //图片加载器,可以将较小的图片转成base64，减少http请求
         //如下配置，将小于8192byte的图片转成base64码
@@ -149,6 +150,10 @@ module.exports = {
     }),
     // new webpack.HotModuleReplacementPlugin(),
     // new DashboardPlugin(dashboard.setData),
+    new webpack.optimize.UglifyJsPlugin({
+      comments: false,
+      warnings: false
+    }),
     new ExtractTextPlugin(`css/[name].[chunkhash:5].css`, {allChunks: true}),
     new webpack.LoaderOptionsPlugin({
       options: {

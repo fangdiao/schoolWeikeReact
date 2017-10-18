@@ -1,5 +1,5 @@
 @import '../../../../layouts/less/variable.less';
-
+@import '../../../../layouts/less/mixin.less';
 .wrapper {
   padding-left: 10px;
   padding-right: 10px;
@@ -21,17 +21,21 @@
   }
 }
 
+.userProName{
+  .ellipsis();
+}
+
 .proIcon {
-  margin-left: 10px;
   color: @blue;
   font-size: 16px;
+  margin-top: 4px;
   > a {
-    margin-right: 10px;
+    margin-right: 20px;
   }
   > i {
     cursor: pointer;
     font-size: 16px;
-    margin-right: 10px;
+    margin-right: 20px;
     &:last-child:hover {
       color: @red;
     }

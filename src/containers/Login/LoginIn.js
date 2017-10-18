@@ -48,7 +48,12 @@ class LoginIn extends React.Component {
       let { actions: { studentLogin, teacherLogin }, data } = this.props;
       let { captchaCode } = data.login;
       let login = role === 'student' ? studentLogin : teacherLogin;
-      login({ form, captchaCode }).then(r => this.setState({ loading: false }));
+      login({ form, captchaCode }).then(r => {
+        let { ifSuccess } = r.payload;
+        if (!ifSuccess) {
+          this.setState({ loading: false });
+        }
+      });
     } else {
       message.destroy();
       message.error('请正确填写个人信息');
@@ -64,8 +69,8 @@ class LoginIn extends React.Component {
   }
 
   render() {
-    let { role, loading } = this.state;
-    let imgCodeShow = this.state.success.username && this.state.success.password;
+    let { role, loading, success: { username, password } } = this.state;
+    let imgCodeShow = username && password;
     return (
      <Spin spinning={loading}>
        <div className={STYLE.loginIn}>

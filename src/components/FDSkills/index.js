@@ -1,7 +1,7 @@
 import React from 'react';
-import { TreeSelect, message } from 'antd';
+import { TreeSelect, message, Popover } from 'antd';
 
-import STYLE from './style';
+import './style';
 
 const TreeNode = TreeSelect.TreeNode;
 
@@ -63,7 +63,6 @@ const data = [{
 export default class FDSkills extends React.Component {
 
   state = {
-    visible: false,
     firstUl: '', //第一列选中的词条
     secondUl: [], //第二列真个数组
     thridUl: {}, //第三列对象
@@ -90,8 +89,6 @@ export default class FDSkills extends React.Component {
     toParent({ skills });
   }
 
-  show = () => this.setState(previousState => ({ visible: !previousState.visible }));
-
   clickLanguage = (e) => {
     let { toParent, skills } = this.props;
     let { language } = e.target.dataset;
@@ -109,77 +106,86 @@ export default class FDSkills extends React.Component {
   }
 
   render() {
-    let { visible, firstUl, secondUl, thridUl } = this.state;
+    let { firstUl, secondUl, thridUl } = this.state;
     let { width, skills } = this.props;
     let classNameHover = 'background-hover';
     let classNameSelect = 'background-white';
-    return (
-      <span className="FDSkills" style={{"width": width}}>
-        <div className="show" onClick={this.show}>
+
+
+    const content = (
+      <div className="select">
+        <ul>
           {
-            !skills.length ? null : (
-              <ul>
-                {
-                  skills.map(o => <li key={o}>{o}<i data-skill={o} onClick={this.remove} className="iconfont icon-close"></i></li>)
-                }
-              </ul>
+            data.map(item => (
+                <li
+                  className={firstUl === item.value ? classNameSelect : classNameHover}
+                  data-subject={item.value}
+                  key={item.value}
+                  onClick={this.clickSubject}
+                >{item.value}</li>
+              )
             )
           }
-        </div>
+        </ul>
         {
-          !visible ? null : (
-            <div className="select">
-              <ul>
-                {
-                  data.map(item => (
-                      <li
-                        className={firstUl === item.value ? classNameSelect : classNameHover}
-                        data-subject={item.value}
-                        key={item.value}
-                        onClick={this.clickSubject}
-                      >{item.value}</li>
-                    )
+          !secondUl.length ? null: (
+            <ul>
+              {
+                secondUl.map(item =>
+                  (
+                    <li
+                      className={thridUl.value === item.value ? classNameSelect : classNameHover}
+                      onClick={this.clickDrect}
+                      data-direct={item.value}
+                      key={item.value}
+                    >{item.value}</li>
                   )
-                }
-              </ul>
-              {
-                !secondUl.length ? null: (
-                  <ul>
-                    {
-                      secondUl.map(item =>
-                        (
-                          <li
-                            className={thridUl.value === item.value ? classNameSelect : classNameHover}
-                            onClick={this.clickDrect}
-                            data-direct={item.value}
-                            key={item.value}
-                          >{item.value}</li>
-                        )
-                      )
-                    }
-                  </ul>
                 )
               }
-              {
-                !thridUl.value ? null: (
-                  <ul>
-                    {
-                      thridUl.children.map(item => (
-                          <li
-                            className={skills.filter(o => o === item.value).length ? classNameSelect : classNameHover}
-                            data-language={item.value}
-                            onClick={this.clickLanguage}
-                            key={item.value}
-                          >{item.value}</li>
-                        )
-                      )
-                    }
-                  </ul>
-                )
-              }
-            </div>
+            </ul>
           )
         }
+        {
+          !thridUl.value ? null: (
+            <ul>
+              {
+                thridUl.children.map(item => (
+                    <li
+                      className={skills.filter(o => o === item.value).length ? classNameSelect : classNameHover}
+                      data-language={item.value}
+                      onClick={this.clickLanguage}
+                      key={item.value}
+                    >{item.value}</li>
+                  )
+                )
+              }
+            </ul>
+          )
+        }
+      </div>
+    );
+
+
+    return (
+      <span className="FDSkills" style={{"width": width}} ref="skills">
+        <Popover
+          trigger="click"
+          content={content}
+          getPopupContainer={() => this.refs.skills}
+          overlayStyle={{"width": "100%"}}
+        >
+          <div className="show">
+            {
+              !skills.length ? null : (
+                <ul>
+                  {
+                    skills.map(o => <li key={o}>{o}<i data-skill={o} onClick={this.remove} className="iconfont icon-close"></i></li>)
+                  }
+                </ul>
+              )
+            }
+          </div>
+        </Popover>
       </span>
     )
   }

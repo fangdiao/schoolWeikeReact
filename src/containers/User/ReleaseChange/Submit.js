@@ -4,7 +4,7 @@ import { Button, message } from 'antd';
 import _ from 'lodash';
 
 import { connect } from 'utils/helper';
-import loginActions from 'actions/login';
+import userProActions from 'actions/userProjects';
 
 import STYLE from './style';
 
@@ -23,53 +23,51 @@ class Submit extends React.Component {
 
   //提交
   onClick = () => {
-    let { form, actions, data } = this.props;
-    let { completed, role } = data.user;
+    let { form, actions, projectName, data } = this.props;
+    let { completed, role } = data.login.user;
     role = role === 'ROLE_STUDENT';
-    let error = _.findKey(form, (o) => o.length === 0);
+    let error = _.findKey(form, item => item.length === 0);
     if (error) {
       message.destroy();
       return message.info(INFO_ERROR[error]);
-    } else {
+    } else if(completed) {
       this.setState({ loading: true });
 
       const result = r => {
         let { ifSuccess, msg } = r.payload;
-        const success = () => this.setState({ loading: false }, () => message.success('修改信息成功'));
+        const success = () => this.setState({ loading: false }, () => message.success('操作成功'));
         const error = (msg) => { message.destroy(); return message.error(msg); };
         return ifSuccess ? success() : error(msg);
       };
-
+      let { changePro, studentRePro, teacherRePro } = actions;
       switch(true) {
-        //学生修改信息
-        case(completed && role):
-          actions.studentChangeInfo(form).then(r => result(r));
+        //修改项目
+        case(!!projectName):
+          changePro({ projectName, projectInfo: { ...form } }).then(r => result(r));
           break;
-        //学生提交信息
-        case(!completed && role):
-          actions.studentInfo(form).then(r => result(r));
+        //学生发布项目
+        case(role):
+          studentRePro(form).then(r => result(r));
           break;
-        //老师修改信息
-        case(completed && !role):
-          actions.teacherChangeInfo(form).then(r => result(r));
-          break;
-        //老师提交信息
-        case(!completed && !role):
-          actions.teacherInfo(form).then(r => result(r));
+        //老师发布项目
+        case(role):
+          teacherRePro(form).then(r => result(r));
           break;
       }
+    } else {
+      message.destroy();
+      message.error('您还没有填写个人信息');
     }
-
   }
 
   render() {
-    let { isChange } = this.props;
+    let { projectName } = this.props;
     return (
       <div className={classnames(STYLE.submit, STYLE.item)}>
-        <Button onClick={this.onClick} type="primary">{isChange?'保存修改':'发布项目'}</Button>
+        <Button onClick={this.onClick} type="primary">{projectName?'保存修改':'发布项目'}</Button>
       </div>
     )
   }
 }
 
-export default connect(state => state, loginActions)(Submit);
+export default connect(state => state, userProActions)(Submit);

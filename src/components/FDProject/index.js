@@ -20,7 +20,6 @@ export default class Home extends React.Component {
       personData,
       projectDetails,
       applySuccessNum,
-      followNum,
       followPros,
       applySuccessPerson,
       proApplyingPerson,
@@ -57,6 +56,7 @@ export default class Home extends React.Component {
             <i className="iconfont icon-history"></i> {moment(projectStart).format(dateFormat)} 至 {moment(projectEnd).format(dateFormat)}
           </span>
           <span><i className="iconfont icon-caret-up"></i> {proHits}</span>
+          <span><i className="iconfont icon-user"> {applySuccessNum+proApplyingPerson.length}</i></span>
         </div>
       </div>
     )

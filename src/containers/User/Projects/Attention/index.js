@@ -4,7 +4,7 @@ import Item from './Item';
 
 export default class extends React.Component {
   render() {
-    let { items } = this.props;
+    let { items = [] } = this.props;
     return (
       <div>
         {

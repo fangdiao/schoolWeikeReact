@@ -26,14 +26,15 @@ class ReleaseChange extends React.Component {
       projectProfile: '',
     },
     loading: false,
-    isChange: false,
+    oldProjectName: '',
+    role: '',
   }
 
   toParent = (value) => {
     if (Object.keys(value)[0] === 'skills') {
-      return this.setState({ form: { projectNeed: value['skills'] } });
+      return this.setState({ form: { ...this.state.form, projectNeed: value['skills'] } });
     }
-    return this.setState({ form: { ...this.state.form, ...value } });
+    this.setState({ form: { ...this.state.form, ...value } });
   }
 
   componentWillMount() {
@@ -61,7 +62,7 @@ class ReleaseChange extends React.Component {
             projectNeed,
             projectProfile,
           };
-          this.setState({ loading: false, form });
+          this.setState({ loading: false, form, oldProjectName: projectName });
         });
       }
     }
@@ -79,7 +80,7 @@ class ReleaseChange extends React.Component {
         projectProfile,
       },
       loading,
-      isChange,
+      oldProjectName,
     } = this.state;
     return (
       <Spin spinning={loading}>
@@ -91,11 +92,11 @@ class ReleaseChange extends React.Component {
           <Skills skills={projectNeed} title="技能" toParent={this.toParent} />
           <DropDown type={{numNeed}} title="人数" toParent={this.toParent} />
           <Textarea title="项目简介" type={{projectProfile}} toParent={this.toParent} />
-          <Submit isChange={isChange} form={this.state.form} />
+          <Submit projectName={oldProjectName} form={this.state.form} />
         </form>
       </Spin>
     )
   }
 }
 
-export default connect(state => state.login, userProActions)(ReleaseChange);
+export default connect(state => state.userProjects, userProActions)(ReleaseChange);

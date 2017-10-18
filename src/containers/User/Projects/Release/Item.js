@@ -18,11 +18,13 @@ class ProItem extends React.Component {
     let { projectName, getUser } = this.props;
     return (
       <div className={STYLE.myPro}>
-        <Link to={`/details/project/${projectName}`} target="_blank">
-          <i className="iconfont icon-file-text-o"></i>
-          <span className="margin-sm">{projectName}</span>
-        </Link>
-        <span className={STYLE.proIcon}>
+        <div className={STYLE.userProName}>
+          <Link to={`/details/project/${projectName}`} target="_blank">
+            <i className="iconfont icon-file-text-o"></i>
+            <span className="margin-sm">{projectName}</span>
+          </Link>
+        </div>
+        <div className={STYLE.proIcon}>
           <i onClick={() => getUser(projectName)} className="iconfont icon-user"></i>
           <Link to={`/user/changePro/${projectName}`} target="_blank">
             <i className="iconfont icon-wrench"></i>
@@ -30,7 +32,7 @@ class ProItem extends React.Component {
           <Popconfirm onConfirm={this.delete} title="删除后无法回退，确认继续?">
             <i className="iconfont icon-cut"></i>
           </Popconfirm>
-        </span>
+        </div>
       </div>
     );
   }

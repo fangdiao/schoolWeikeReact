@@ -28,37 +28,35 @@ class Project extends React.Component {
     let { followPros, studentAllProject, teacherAllProject, joinProject } = actions;
     let allProject = user.role === 'ROLE_STUDENT' ?  studentAllProject : teacherAllProject;
     allProject().then(r => {
-      let { data, ifSuccess } = r.payload;
-      if (ifSuccess) {
-        if (isEmpty(data)) {
-          this.setState({ hasRelease: null });
-        }
+      let { data } = r.payload;
+      if (isEmpty(data)) {
+        this.setState({ hasRelease: null });
+      } else {
+        this.setState({ hasRelease: false });
       }
-      this.setState({ hasRelease: false });
     });
     followPros().then(r => {
-      let { data, ifSuccess } = r.payload;
-      if (ifSuccess) {
-        if (isEmpty(data)) {
-          this.setState({ hasAttention: null });
-        }
+      let { data } = r.payload;
+      if (isEmpty(data)) {
+        this.setState({ hasAttention: null });
+      } else {
+        this.setState({ hasAttention: false });
       }
-      this.setState({ hasAttention: false });
     });
     joinProject().then(r => {
-      let { data, ifSuccess } = r.payload;
-      if (ifSuccess) {
-        if (isEmpty(data)) {
-          this.setState({ hasJoin: null });
-        }
+      let { data } = r.payload;
+      if (isEmpty(data)) {
+        this.setState({ hasJoin: null });
+      } else {
+        this.setState({ hasJoin: false, join: data });
       }
-      this.setState({ hasJoin: false, join: data });
     });
   }
 
   render() {
     let { attention = [], release = [] } = this.props.data;
     let { hasAttention, hasJoin, hasRelease, join } = this.state;
+    console.log(hasAttention,hasAttention === null)
     return (
      <div className={STYLE.userProject}>
        <div>

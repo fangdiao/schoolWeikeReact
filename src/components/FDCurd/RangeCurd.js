@@ -33,7 +33,7 @@ class Range extends React.Component {
         <li data-range="proHits" className={type === "proHits" ? className : ''}>
           <i className="iconfont icon-caret-up"></i>点击数
         </li>
-        <li data-range="applySuccessPerson" className={type === "applySuccessPerson" ? className : ''}>
+        <li data-range="person" className={type === "person" ? className : ''}>
           <i className="iconfont icon-user-plus"></i>参与人数
         </li>
       </ul>

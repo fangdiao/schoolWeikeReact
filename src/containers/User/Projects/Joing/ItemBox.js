@@ -8,7 +8,7 @@ import STYLE from './style';
 
 export default class Join extends React.Component {
   render() {
-    let { items } = this.props;
+    let { items = [] } = this.props;
     return (
       <Row>
         {

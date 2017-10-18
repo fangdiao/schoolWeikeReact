@@ -101,11 +101,27 @@ export const requestImg = (url) => {
   */
 
 export const range = (array, type) => {
-  if (type === 'projectStart') {
-    return array.sort((a, b) => a.projectDetails[type] > b.projectDetails[type]);
+  switch(type) {
+    case('proHits'):
+      array = array.sort((a, b) => a.projectDetails[type] < b.projectDetails[type]);
+      break;
+    case('projectStart'):
+      array = array.sort((a, b) => a.projectDetails[type] > b.projectDetails[type]);
+      break;
+    case('person'):
+      array = array.sort((a, b) => {
+        let aNum = a.applySuccessNum + a.proApplyingPerson.length;
+        let bNum = b.applySuccessNum + b.proApplyingPerson.length;
+        return bNum > aNum;
+      });
+      break;
+    case('followPros'):
+      array = array.sort((a, b) => {
+        console.log( a[type].length, b[type].length)
+        return a[type].length < b[type].length;
+      });
+      break;
   }
-  if (type === 'followPros' || type === 'joinSuccess') {
-    return array.sort((a, b) => a[type].length < b[type].length);
-  }
-  return array.sort((a, b) => a[type] < b[type])
+  console.log(array)
+  return array;
 }

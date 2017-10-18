@@ -16,8 +16,6 @@ export default {
   'message': createAction('MESSAGE', reqData => request('/WeiKe/messageList', reqData, 'get', true), reqData => reqData),
   //删除站内信
   'deleteMessage': createAction('DELETE_MESSAGE', reqData => request('/WeiKe/deleteMessage', reqData, 'post', true), reqData => reqData),
-  //修改项目
-  'changeProject': createAction('CHANGE_PROJECT', reqData => request('/WeiKe/update/', reqData, 'post', true), reqData => reqData),
   //删除项目
   'deleteProject': createAction('DELETE_PROJECT', reqData => request('/WeiKe/deletePro/', reqData, 'post', true), reqData => reqData),
   //查看项目人员
@@ -28,4 +26,10 @@ export default {
   'refuse': createAction('REFUSE', reqData => request('/WeiKe/refuseApply', reqData, 'post', true), reqData => reqData),
   //获取项目详情
   'projectsDetails': createAction('PROJECTS_DETAILS', reqData => request('/WeiKe/projectName', reqData, 'get', true), reqData => reqData),
+  //老师发布项目
+  'teacherRePro': createAction('RE_PRO', reqData => request('/WeiKe/teacher/addProject', reqData, 'post', true), reqData => reqData),
+  //学生发布项目
+  'studentRePro': createAction('RE_PRO', reqData => request('/WeiKe/student/addProject', reqData, 'post', true), reqData => reqData),
+  //修改项目
+  'changePro': createAction('CHANGE_PRO', reqData => request('/WeiKe/updatePro', reqData, 'post', true), reqData => reqData),
 };

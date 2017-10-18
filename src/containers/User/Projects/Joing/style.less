@@ -1,4 +1,5 @@
 @import '../../../../layouts/less/variable.less';
+@import '../../../../layouts/less/mixin.less';
 
 .itemPro {
   text-align: center;
@@ -7,6 +8,8 @@
   border-radius: 3px;
   transition: all 1s;
   font-size: 16px;
+  padding-right: 10px;
+  padding-left: 10px;
   &:hover {
     box-shadow: 2px 2px 20px #ddd;
     border-color: @white;
@@ -15,6 +18,7 @@
     display: block;
     padding-bottom: 20px;
     padding-top: 20px;
+    .ellipsis();
     i > {
       font-size: 20px;
     }

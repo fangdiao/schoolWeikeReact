@@ -26,7 +26,7 @@ class MessageItem extends  React.Component {
            <p>
              <span><i className="iconfont icon-calendar"></i>{moment(createDate).format(dateFormat)}</span>
              <span>
-               <Link to={`/details/${projectAbout}`} target="_blank">
+               <Link to={`/details/project/${projectAbout}`} target="_blank">
                  <i className="iconfont icon-file-text-o"></i>{projectAbout}
                </Link>
              </span>

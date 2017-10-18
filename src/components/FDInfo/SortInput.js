@@ -1,6 +1,6 @@
 import React from 'react';
 
-import STYLE from './style';
+import './style';
 
 export default class extends React.Component {
 
@@ -15,7 +15,7 @@ export default class extends React.Component {
     return (
       <div className="FDInfo">
         <span className="title">{title}</span>
-      <input className="input" value={type[Object.keys(type)[0]]} onChange={this.onChange} type="text" />
+        <input className="input" value={type[Object.keys(type)[0]]} onChange={this.onChange} type="text" />
       </div>
     )
   }

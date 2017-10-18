@@ -1,4 +1,6 @@
 import React from 'react';
+import moment from 'moment';
+
 import UserHead from './userHead';
 import Publisher from './Publisher';
 import ProjectProfile from './ProjectProfile';
@@ -7,10 +9,9 @@ import Join from './Join';
 import Details from './Details';
 import Attention from './Attention';
 
-import { getFormat } from 'utils/helper';
-
-
 import './style';
+
+const dateFormat = 'YYYY-MM-DD';
 
 export default class Home extends React.Component {
   render() {
@@ -42,9 +43,9 @@ export default class Home extends React.Component {
         <ProjectProfile projectProfile={projectProfile} />
         <NeedSkill projectNeed={projectNeed} />
         <div className="FDProject-joined">
-          {
-            applySuccessPerson.map((item, index) => <UserHead key={index} {...item}/>)
-          }
+          {/*{*/}
+            {/*applySuccessPerson.map((item, index) => <UserHead key={index} {...item}/>)*/}
+          {/*}*/}
         </div>
         <div className="FDProject-join-attention">
           <Attention projectConnector={projectConnector} projectName={projectName} followPros={followPros} />
@@ -53,7 +54,7 @@ export default class Home extends React.Component {
         </div>
         <div className="FDProject-time">
           <span>
-            <i className="iconfont icon-history"></i> {getFormat(projectStart, 'YYYY/MM/DD')} 至 {getFormat(projectEnd, 'YYYY/MM/DD')}
+            <i className="iconfont icon-history"></i> {moment(projectStart).format(dateFormat)} 至 {moment(projectEnd).format(dateFormat)}
           </span>
           <span><i className="iconfont icon-caret-up"></i> {proHits}</span>
         </div>

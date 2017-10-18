@@ -1,4 +1,5 @@
 import React from 'react';
+import { isEmpty } from 'lodash';
 
 import LoginOutStatus from './LoginOutStatus';
 import { connect } from 'utils/helper';
@@ -10,9 +11,11 @@ class Status extends React.Component {
 
   componentWillMount() {
     let token = '';
+    let { user } = this.props.data;
+    console.log(user)
     if (localStorage.weike) {
       token = JSON.parse(localStorage.weike).token;
-      if (token) {
+      if (token && isEmpty(user)) {
         let { loginWithToken } = this.props.actions;
         loginWithToken();
       }

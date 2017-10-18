@@ -41,6 +41,7 @@ export default handleActions({
         let user = action.payload.data;
         state = { ...state, user };
         hashHistory.push(path);
+        console.log(state)
         return state;
       }
     }

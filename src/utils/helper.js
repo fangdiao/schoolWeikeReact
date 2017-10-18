@@ -2,11 +2,10 @@
 import React from 'react';
 import { connect as rrConnect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import moment from 'moment';
 import qs from 'query-string';
 import { hashHistory } from 'react-router';
 
-const ADDRESS = '182.150.37.74:88';
+const ADDRESS = 'http://182.150.37.74:88';
 // const ADDRESS = '';
 
 //页面跳转
@@ -84,65 +83,15 @@ export const requestImg = (url) => {
     fetch(ADDRESS + url, params).then(response => {
       captchaCode = response.headers.get('captcha-code');
       return response;
-    })
-    .then(response => response.json())
-    .then(responseData => {
-      resolve({ ...responseData, captchaCode });
+    }).then(response => response.json())
+      .then(responseData => {
+        resolve({ ...responseData, captchaCode });
     }).catch(err => {
       console.log(err)
       reject(err);
     });
   });
 }
-
-
-/**
- * 获取moment对象，可以传 moment对象 Date对象 字符串 或 时间戳
- * @param obj {moment | Date | String | Number}
- * @param format 格式化方式，如果obj是一个字符串，那么按format转换后处理
- * @returns {moment}
- */
-export const getMoment = (obj) => {
-  if(obj === undefined || obj === null) {
-    return moment();
-  }
-  if(/^\d{9,14}$/.test(obj)) {
-    return moment(obj * 1);
-  }
-  if(obj instanceof moment) {
-    return obj;
-  }
-  if(obj instanceof Date) {
-    return moment(obj);
-  }
-  if(typeof obj === 'string') {
-    return moment(obj);
-  }
-  return obj;
-};
-
-/**
- * 获取格式化时间，可以传 moment对象 Date对象 或时间戳
- * @param obj {moment | Date | String | Number}
- * @param formatTo 将要转换格式
- * @returns string
- */
-export const getFormat = (obj, format = 'YYYY-MM-DD') => {
-  let momentObj = getMoment(obj);
-  return momentObj.format ? momentObj.format(format) : obj;
-};
-
-/**
- * 获取时间戳，可以传 moment对象 Date对象 字符串 或 时间戳
- * @param obj {moment | Date | String | Number}
- * @param fixed 忽略毫秒
- * @returns Number
- */
-export const getTimestamp = (obj, fixed = false) => {
-  let timestamp = getMoment(obj).format('x') * 1;
-  return fixed ? Math.floor(timestamp / 1000) * 1000 : timestamp;
-};
-
 
 /**
   *

@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import './style';
 
-const dateFormat = 'YYYY/MM/DD';
+const dateFormat = 'YYYY-MM-DD';
 
 export default class extends React.Component {
 

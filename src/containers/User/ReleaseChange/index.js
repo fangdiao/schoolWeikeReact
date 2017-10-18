@@ -1,9 +1,8 @@
 import React from 'react';
 import { Spin } from 'antd';
-import { isEmpty } from 'lodash';
 
 import { connect } from 'utils/helper';
-import loginActions from 'actions/login';
+import userProActions from 'actions/userProjects';
 
 import Skills from 'components/FDInfo/Skills';
 import SortInput from 'components/FDInfo/SortInput';
@@ -26,8 +25,8 @@ class ReleaseChange extends React.Component {
       projectNeed: [],
       projectProfile: '',
     },
-    defaultData: {},
-    loading: false
+    loading: false,
+    isChange: false,
   }
 
   toParent = (value) => {
@@ -41,10 +40,28 @@ class ReleaseChange extends React.Component {
     let { actions: { projectsDetails }, location: { pathname }, params: { query } } = this.props;
     if (/\/changePro/g.test(pathname)) {
       if (query) {
-        this.setState({ loading: true });
+        this.setState({ loading: true, isChange: true });
         projectsDetails({ projectName: query }).then(r => {
-          let { data } = r.payload;
-          this.setState({ loading: false, defaultData: data });
+          let { projectDetails } = r.payload.data;
+          let {
+            projectName,
+            projectKind,
+            projectStart,
+            projectEnd,
+            numNeed,
+            projectNeed,
+            projectProfile,
+          } = projectDetails;
+          let form = {
+            projectName,
+            projectKind,
+            projectStart,
+            projectEnd,
+            numNeed,
+            projectNeed,
+            projectProfile,
+          };
+          this.setState({ loading: false, form });
         });
       }
     }
@@ -52,15 +69,18 @@ class ReleaseChange extends React.Component {
 
   render() {
     let {
-      form: { projectName, projectKind, projectStart, projectEnd, numNeed, projectNeed, projectProfile },
+      form: {
+        projectName,
+        projectKind,
+        projectStart,
+        projectEnd,
+        numNeed,
+        projectNeed,
+        projectProfile,
+      },
       loading,
-      defaultData
+      isChange,
     } = this.state;
-    if (!isEmpty(defaultData)) {
-      let {
-
-      } = defaultData;
-    }
     return (
       <Spin spinning={loading}>
         <form className={STYLE.release}>
@@ -71,11 +91,11 @@ class ReleaseChange extends React.Component {
           <Skills skills={projectNeed} title="技能" toParent={this.toParent} />
           <DropDown type={{numNeed}} title="人数" toParent={this.toParent} />
           <Textarea title="项目简介" type={{projectProfile}} toParent={this.toParent} />
-          <Submit toParent={this.toParent} form={this.state.form} />
+          <Submit isChange={isChange} form={this.state.form} />
         </form>
       </Spin>
     )
   }
 }
 
-export default connect(state => state.login, loginActions)(ReleaseChange);
+export default connect(state => state.login, userProActions)(ReleaseChange);

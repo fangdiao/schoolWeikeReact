@@ -26,4 +26,6 @@ export default {
   'agree': createAction('AGREE', reqData => request('/WeiKe/acceptApply', reqData, 'post', true), reqData => reqData),
   //拒绝申请
   'refuse': createAction('REFUSE', reqData => request('/WeiKe/refuseApply', reqData, 'post', true), reqData => reqData),
+  //获取项目详情
+  'projectsDetails': createAction('PROJECTS_DETAILS', reqData => request('/WeiKe/projectName', reqData, 'get', true), reqData => reqData),
 };

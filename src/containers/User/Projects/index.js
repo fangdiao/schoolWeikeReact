@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs, Spin } from 'antd';
+import { Tabs, Spin, message } from 'antd';
 import { isEmpty } from 'lodash';
 
 
@@ -27,7 +27,6 @@ class Project extends React.Component {
     let { data: { user }, actions } = this.props;
     let { followPros, studentAllProject, teacherAllProject, joinProject } = actions;
     let allProject = user.role === 'ROLE_STUDENT' ?  studentAllProject : teacherAllProject;
-
     allProject().then(r => {
       let { data, ifSuccess } = r.payload;
       if (ifSuccess) {

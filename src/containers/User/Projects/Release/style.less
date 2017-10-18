@@ -10,25 +10,28 @@
   border: 1px solid @gray;
   border-radius: 3px;
   transition: all 1s;
-  font-size: 16px;
   padding: 10px;
   cursor: pointer;
   &:hover {
     box-shadow: 2px 2px 20px #ddd;
     border-color: @white;
   }
+  > span {
+    font-size: 16px;
+  }
 }
 
 .proIcon {
   margin-left: 10px;
   color: @blue;
+  font-size: 16px;
   > a {
-    margin-right: 20px;
+    margin-right: 10px;
   }
   > i {
     cursor: pointer;
     font-size: 16px;
-    margin-right: 20px;
+    margin-right: 10px;
     &:last-child:hover {
       color: @red;
     }
@@ -51,8 +54,8 @@
 .handleUser {
   > span {
     cursor: pointer;
-    padding-right: 8px;
-    padding-left: 8px;
+    padding-right: 4px;
+    padding-left: 4px;
     > i {
       font-size: 20px;
       color: @blue;

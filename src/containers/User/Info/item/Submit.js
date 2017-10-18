@@ -1,11 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Button, message } from 'antd';
+import { Button, message, Spin } from 'antd';
 import _ from 'lodash';
+
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
-import FDLoadingWrapper from 'components/FDLoadingWrapper';
-import { jump } from 'utils/helper';
+
 import STYLE from './style';
 
 const INFO_ERROR = {
@@ -27,6 +27,7 @@ class Submit extends React.Component {
     let { completed, role } = data.user;
     role = role === 'ROLE_STUDENT';
     let error = _.findKey(form, (o) => o.length === 0);
+    console.log(error)
     if (error) {
       message.destroy();
       return message.info(INFO_ERROR[error]);
@@ -35,7 +36,7 @@ class Submit extends React.Component {
 
       const result = r => {
         let { ifSuccess, msg } = r.payload;
-        const success = () => this.setState({ loading: false }, () => jump('/', '修改信息成功'));
+        const success = () => this.setState({ loading: false }, () => message.success('修改信息成功'));
         const error = (msg) => { message.destroy(); return message.error(msg); };
         return ifSuccess ? success() : error(msg);
       };
@@ -63,14 +64,14 @@ class Submit extends React.Component {
   }
 
   render() {
+    let { loading } = this.state;
     let { completed } = this.props.data.user;
     return (
-      <div className={classnames(STYLE.submit, STYLE.item)}>
-        <Button onClick={this.onClick} type="primary">{completed?'保存修改':'提交表单'}</Button>
-        {
-          this.state.loading ? <FDLoadingWrapper tip="正在提交表单" /> : null
-        }
-      </div>
+      <Spin spinning={loading}>
+        <div className={classnames(STYLE.submit, STYLE.item)}>
+          <Button onClick={this.onClick} type="primary">{completed?'保存修改':'提交表单'}</Button>
+        </div>
+      </Spin>
     )
   }
 }

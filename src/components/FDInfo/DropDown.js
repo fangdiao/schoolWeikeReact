@@ -9,7 +9,7 @@ const DROP_DONW = {
   majorAndGrade: ['网络工程', '软件工程', '物理网工程', '计算机科学与技术', '信息管理'],
   rank: ['助教', '讲师', '副教授', '教授', '博士生导师'],
   academy: ['计算机科学与技术学院'],
-  numNeed: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  numNeed: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
 }
 
 export default class extends React.Component {

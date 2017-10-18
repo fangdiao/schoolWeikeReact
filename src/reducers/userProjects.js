@@ -46,7 +46,6 @@ export default handleActions({
       let newState = state;
       let { message } = newState;
       let { fromMessages, toMessages } = message;
-      console.log(fromMessages,toMessages )
       fromMessages = fromMessages.filter(item => item.id !== id);
       toMessages = toMessages.filter(item => item.id !== id);
       message = { fromMessages, toMessages };

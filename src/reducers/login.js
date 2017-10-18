@@ -15,9 +15,9 @@ export default handleActions({
         message.destroy();
         message.error(msg);
       } else {
-        let { completed } = action.payload.data;
-        let path = completed ? '/dist' : '/user/info';
         let user = action.payload.data;
+        let { completed } = user;
+        let path = completed ? '/dist' : '/user/info';
         let { token } = user
         localStorage.weike = JSON.stringify({ token });
         state = { ...state, user };
@@ -36,12 +36,12 @@ export default handleActions({
         message.destroy();
         message.error(msg);
       } else {
-        let { completed } = action.payload.data;
-        let path = completed ? '/dist' : '/user/info';
         let user = action.payload.data;
+        let { completed } = user;
+        if (!completed) {
+          hashHistory.push('/user/info');
+        }
         state = { ...state, user };
-        hashHistory.push(path);
-        console.log(state)
         return state;
       }
     }

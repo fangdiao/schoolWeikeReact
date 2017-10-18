@@ -9,10 +9,9 @@ import loginActions from 'actions/login';
 
 class Status extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     let token = '';
     let { user } = this.props.data;
-    console.log(user)
     if (localStorage.weike) {
       token = JSON.parse(localStorage.weike).token;
       if (token && isEmpty(user)) {

@@ -1,16 +1,21 @@
 import React from 'react';
+
 import LoginOutStatus from './LoginOutStatus';
 import { connect } from 'utils/helper';
+
 import LoginStatus from './LoginStatus'
 import loginActions from 'actions/login';
 
 class Status extends React.Component {
 
   componentWillMount() {
-    let weike = localStorage.weike ? JSON.parse(localStorage.weike) : null;
-    if (weike) {
-      let { actions } = this.props;
-      actions.loginWithStorage(weike);
+    let token = '';
+    if (localStorage.weike) {
+      token = JSON.parse(localStorage.weike).token;
+      if (token) {
+        let { loginWithToken } = this.props.actions;
+        loginWithToken();
+      }
     }
   }
 

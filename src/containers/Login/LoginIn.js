@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Icon, Button, message, Radio } from 'antd';
+import { Button, message, Spin } from 'antd';
+
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
 
@@ -8,9 +9,8 @@ import RoleInput from 'components/FDInput/RoleInput';
 import NameInput from 'components/FDInput/NameInput';
 import ImgCodeInput from 'components/FDInput/ImgCodeInput';
 import PWInput from 'components/FDInput/PWInput';
-import STYLE from './style';
 
-const RadioGroup = Radio.Group;
+import STYLE from './style';
 
 class LoginIn extends React.Component {
 
@@ -26,6 +26,7 @@ class LoginIn extends React.Component {
       verifyCode: false,
     },
     role: 'student',
+    loading: false,
   };
 
   toParent = (value, success) => {
@@ -43,10 +44,11 @@ class LoginIn extends React.Component {
   upForm = () => {
     let { form, success, role } = this.state;
     if (!_.findKey(success, item => item === false)) {
+      this.setState({ loaing: true });
       let { actions: { studentLogin, teacherLogin }, data } = this.props;
       let { captchaCode } = data.login;
       let login = role === 'student' ? studentLogin : teacherLogin;
-      login({ form, captchaCode });
+      login({ form, captchaCode }).then(r => this.setState({ loading: false }));
     } else {
       message.destroy();
       message.error('请正确填写个人信息');
@@ -62,26 +64,27 @@ class LoginIn extends React.Component {
   }
 
   render() {
-    let { role } = this.state;
-    let { login } = this.props.data;
+    let { role, loading } = this.state;
     let imgCodeShow = this.state.success.username && this.state.success.password;
     return (
-      <div className={STYLE.loginIn}>
-        <h1>登录校园威客</h1>
-        <form>
-          <RoleInput role={role} toParent={this.toParent} />
-          <NameInput toParent={this.toParent} />
-          <PWInput toParent={this.toParent} />
-          <ImgCodeInput height={imgCodeShow} toParent={this.toParent} />
-          <div className={STYLE.button}>
-            <Button type="primary" htmlType="submit" onClick={this.upForm}>登录</Button>
-          </div>
-        </form>
-        <span>
+     <Spin spinning={loading}>
+       <div className={STYLE.loginIn}>
+         <h1>登录校园威客</h1>
+         <form>
+           <RoleInput role={role} toParent={this.toParent} />
+           <NameInput toParent={this.toParent} />
+           <PWInput toParent={this.toParent} />
+           <ImgCodeInput height={imgCodeShow} toParent={this.toParent} />
+           <div className={STYLE.button}>
+             <Button type="primary" htmlType="submit" onClick={this.upForm}>登录</Button>
+           </div>
+         </form>
+         <span>
           <Link to="/login/changePW">忘记密码?</Link>
           <Link to="/login/register">去注册</Link>
         </span>
-      </div>
+       </div>
+     </Spin>
     );
   }
 }

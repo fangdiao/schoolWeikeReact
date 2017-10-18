@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, message } from 'antd';
+import { Button, message, Spin } from 'antd';
 import _ from 'lodash';
+import { hashHistory } from 'react-router';
 
 import RoleInput from 'components/FDInput/RoleInput';
 import NameInput from 'components/FDInput/NameInput';
@@ -8,7 +9,6 @@ import MailInput from 'components/FDInput/MailInput';
 import MailCodeInput from 'components/FDInput/MailCodeInput';
 import PWInput from 'components/FDInput/PWInput';
 
-import { jump } from 'utils/helper';
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
 
@@ -32,6 +32,7 @@ class ChangePW extends React.Component {
       newPassword: false,
     },
     role: 'student',
+    loaing: false,
   };
 
   toParent = (value, success) => {
@@ -47,16 +48,19 @@ class ChangePW extends React.Component {
   };
 
   upPW = () => {
-    let { form: { password, newPassword, username, verifyCode }, success, role } = this.state;
+    let { form: { password, newPassword, username, verifyCode }, success, role, loaing } = this.state;
     if (!_.filter(success, item => item === false).length) {
       if (password === newPassword) {
+        this.setState({ loading: true });
         let { studentChangePW, teacherChangePW } = this.props.actions;
         let form = { password, username, verifyCode };
         let changePW = role === 'student' ? studentChangePW : teacherChangePW;
         changePW(form).then(r => {
+          this.setState({ loading: false });
           let { ifSuccess, msg } = r.payload;
           if (ifSuccess) {
-            jump('/login/loginIn', '密码修改成功，请登录');
+            message.success('密码修改成功，请登录');
+            hashHistory.push('/login/loginIn');
           } else {
             message.destroy();
             message.error(msg);
@@ -74,41 +78,43 @@ class ChangePW extends React.Component {
   };
 
   render() {
-    let { form, success: { username, email, verifyCode }, role, ifSuccess } = this.state;
+    let { form, success: { username, email, verifyCode }, role } = this.state;
     let style = username && email && verifyCode ?
       { height: '120px' } : { height: '0', overflow: 'hidden' };
     return (
-      <div className={STYLE.changePW}>
-        <h1>修改密码</h1>
-        <form>
-          <RoleInput role={role} toParent={this.toParent} />
-          <NameInput toParent={this.toParent} />
-          <MailInput toParent={this.toParent} />
-          <MailCodeInput
-            role={role}
-            username={form.username}
-            email={form.email}
-            toParent={this.toParent}
-            height={email && username}
-            type="password"
-          />
-          <div style={style}>
-            <PWInput
-              placeholder="新密码"
+      <Spin spinning={loading}>
+        <div className={STYLE.changePW}>
+          <h1>修改密码</h1>
+          <form>
+            <RoleInput role={role} toParent={this.toParent} />
+            <NameInput toParent={this.toParent} />
+            <MailInput toParent={this.toParent} />
+            <MailCodeInput
+              role={role}
+              username={form.username}
+              email={form.email}
+              toParent={this.toParent}
+              height={email && username}
               type="password"
-              ref={ele => this.password = ele}
-              toParent={this.toParent} />
-            <PWInput
-              type="newPassword"
-              ref={ele => this.newPassword = ele}
-              placeholder="确认密码"
-              toParent={this.toParent} />
-          </div>
-          <div className={STYLE.button}>
-            <Button type="primary" htmlType="submit" onClick={this.upPW}>提交</Button>
-          </div>
-        </form>
-      </div>
+            />
+            <div style={style}>
+              <PWInput
+                placeholder="新密码"
+                type="password"
+                ref={ele => this.password = ele}
+                toParent={this.toParent} />
+              <PWInput
+                type="newPassword"
+                ref={ele => this.newPassword = ele}
+                placeholder="确认密码"
+                toParent={this.toParent} />
+            </div>
+            <div className={STYLE.button}>
+              <Button type="primary" htmlType="submit" onClick={this.upPW}>提交</Button>
+            </div>
+          </form>
+        </div>
+      </Spin>
     );
   }
 }

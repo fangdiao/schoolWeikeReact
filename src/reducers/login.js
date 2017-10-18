@@ -18,7 +18,8 @@ export default handleActions({
         let { completed } = action.payload.data;
         let path = completed ? '/dist' : '/user/info';
         let user = action.payload.data;
-        localStorage.weike = JSON.stringify(user);
+        let { token } = user
+        localStorage.weike = JSON.stringify({ token });
         state = { ...state, user };
         hashHistory.push(path);
         return state;
@@ -27,18 +28,25 @@ export default handleActions({
 
     return state;
   },
-
-  //localstorage自动登录
-  LOGIN_WITH_STORAGE: (state, action) => {
+  //token登录
+  LOGIN_WITH_TOKEN: (state, action) => {
     if (!action.error) {
-      let user = action.payload;
-      state = { ...state, user };
-      return state;
+      let { ifSuccess, msg } = action.payload;
+      if (!ifSuccess) {
+        message.destroy();
+        message.error(msg);
+      } else {
+        let { completed } = action.payload.data;
+        let path = completed ? '/dist' : '/user/info';
+        let user = action.payload.data;
+        state = { ...state, user };
+        hashHistory.push(path);
+        return state;
+      }
     }
 
     return state;
   },
-
   //退出登录
   LOG_OUT: (state, action) => {
     if (!action.error) {
@@ -71,7 +79,6 @@ export default handleActions({
         let completed = true;
         let { user } = state;
         user = { ...user, image, skills, completed };
-        localStorage.weike = JSON.stringify(user);
         state = { ...state, user };
         hashHistory('/');
         return state;
@@ -94,7 +101,6 @@ export default handleActions({
         let { image, skills } = action.meta;
         let { user } = state;
         user = { ...user, image, skills };
-        localStorage.weike = JSON.stringify(user);
         state = { ...state, user };
         return state;
       } else {

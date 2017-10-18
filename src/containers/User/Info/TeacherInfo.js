@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Spin } from 'antd';
 
 import Qq from 'components/FDInfo/Qq';
 import Sex from 'components/FDInfo/Sex';
@@ -8,10 +8,9 @@ import Name from './item/Name';
 import Submit from './item/Submit';
 import FDImageEditor from 'components/FDImageEditor';
 
-import FDLoadingWrapper from 'components/FDLoadingWrapper';
-
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
+
 import STYLE from './style';
 
 class TeacherInfo extends React.Component {
@@ -51,28 +50,27 @@ class TeacherInfo extends React.Component {
 
   render() {
     let { username } = this.props.data.user;
-    let { qq, academy, sex, eduBackgroud, university, rank } = this.state.form;
+    let { form: { qq, academy, sex, university, rank }, loading } = this.state;
     return (
       <form>
-        <Row>
-          <Col span={4}>
-            <FDImageEditor toParent={this.toParent} />
-          </Col>
-          <Col span={20}>
-            <div className={STYLE.text}>
-              <Name username={username} />
-              <Sex toParent={this.toParent} sex={{sex}} />
-              <DropDown type={{rank}} title="职称" toParent={this.toParent} />
-              <DropDown type={{university}} title="学校" toParent={this.toParent} />
-              <DropDown type={{academy}} title="学院" toParent={this.toParent} />
-              <Qq qq={qq} toParent={this.toParent} title="QQ" />
-              <Submit toParent={this.toParent} form={this.state.form} />
-            </div>
-          </Col>
-        </Row>
-        {
-          this.state.loading ? <FDLoadingWrapper tip="正在加载个人信息"/> : null
-        }
+        <Spin loading={loading}>
+          <Row>
+            <Col span={4}>
+              <FDImageEditor toParent={this.toParent} />
+            </Col>
+            <Col span={20}>
+              <div className={STYLE.text}>
+                <Name username={username} />
+                <Sex toParent={this.toParent} sex={{sex}} />
+                <DropDown type={{rank}} title="职称" toParent={this.toParent} />
+                <DropDown type={{university}} title="学校" toParent={this.toParent} />
+                <DropDown type={{academy}} title="学院" toParent={this.toParent} />
+                <Qq qq={qq} toParent={this.toParent} title="QQ" />
+                <Submit toParent={this.toParent} form={this.state.form} />
+              </div>
+            </Col>
+          </Row>
+        </Spin>
       </form>
     )
   }

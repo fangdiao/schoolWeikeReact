@@ -5,7 +5,7 @@ import { requestLoginIn } from 'utils/helper';
 
 export default {
   //localstorage自动登录
-  'loginWithStorage': createAction('LOGIN_WITH_STORAGE'),
+  'loginWithToken': createAction('LOGIN_WITH_TOKEN', reqData => request('/WeiKe/loginByToken', reqData, 'post', true), reqData => reqData),
   //学生登录
   'studentLogin': createAction('LOGIN', reqData => requestLoginIn('/weike/student/login', reqData), reqData => reqData),
   //老师登录

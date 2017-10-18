@@ -6,7 +6,8 @@ import moment from 'moment';
 import qs from 'query-string';
 import { hashHistory } from 'react-router';
 
-const ADDRESS = '182.150.37.74:88';
+// const ADDRESS = '182.150.37.74:88';
+const ADDRESS = '';
 
 //页面跳转
 export const jump = path => {
@@ -18,8 +19,6 @@ let weike = localStorage.weike;
 export const checker = (nextState, replace, cb = () => {}) => {
   if (!weike) {
     replace(`/login/loginIn`);
-  } else {
-    cb();
   }
 };
 

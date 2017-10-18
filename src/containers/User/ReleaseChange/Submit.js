@@ -5,8 +5,6 @@ import _ from 'lodash';
 
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
-import FDLoadingWrapper from 'components/FDLoadingWrapper';
-import { jump } from 'utils/helper';
 
 import STYLE from './style';
 
@@ -69,9 +67,6 @@ class Submit extends React.Component {
     return (
       <div className={classnames(STYLE.submit, STYLE.item)}>
         <Button onClick={this.onClick} type="primary">{completed?'保存修改':'提交表单'}</Button>
-        {
-          this.state.loading ? <FDLoadingWrapper tip="正在提交表单" /> : null
-        }
       </div>
     )
   }

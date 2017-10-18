@@ -1,5 +1,4 @@
 import React from 'react';
-// import { checker } from 'utils/helper';
 
 import home from './home';
 import details from './details';
@@ -9,12 +8,14 @@ import login from './login';
 import Frame from 'containers/Frame';
 import Home from 'containers/Home';
 
-let weike = localStorage.weike;
+let token = '';
+if (localStorage.weike) {
+  token = JSON.parse(localStorage.weike).token;
+}
+
 const checker = (nextState, replace, cb = () => {}) => {
-  if (!weike) {
+  if (!token) {
     replace(`/login/loginIn`);
-  } else {
-    cb();
   }
 };
 
@@ -22,7 +23,7 @@ const routes = {
   path: "/",
   indexRoute: {
     component: Home,
-    // onEnter: checker,
+    onEnter: checker,
   },
   component: Frame,
   childRoutes: [

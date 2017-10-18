@@ -22,10 +22,9 @@ class Join extends React.Component {
   }
 
   componentWillMount() {
-    let {data: {user: {username, joinProject: {joinFailed}}}, proApplyingPerson, applySuccessPerson, projectName} = this.props;
+    let {data: {user: { username } }, proApplyingPerson, applySuccessPerson } = this.props;
     let isJoin = proApplyingPerson.filter(item => item === username).length > 0;
     let isJoinSuccess = applySuccessPerson.filter(item => item === username).length > 0;
-    let isJoinFail = joinFailed.filter(item => item === projectName).length > 0;
     let join = '';
     switch (true) {
       case isJoin:
@@ -33,9 +32,6 @@ class Join extends React.Component {
         break;
       case isJoinSuccess:
         join = '成功申请';
-        break;
-      case isJoinFail:
-        join = '申请失败';
         break;
     }
     this.setState({ join });

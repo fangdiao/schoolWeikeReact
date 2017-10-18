@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ddbc8ebb-20ce-445b-b5a2-cbf20dbf14bd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDInfo/Qq.js" afterPath="$PROJECT_DIR$/src/components/FDInfo/Qq.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDInfo/SortInput.js" afterPath="$PROJECT_DIR$/src/components/FDInfo/SortInput.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDInfo/Time.js" afterPath="$PROJECT_DIR$/src/components/FDInfo/Time.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDProject/index.js" afterPath="$PROJECT_DIR$/src/components/FDProject/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Frame/Header/Status/index.js" afterPath="$PROJECT_DIR$/src/containers/Frame/Header/Status/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/login.js" afterPath="$PROJECT_DIR$/src/reducers/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/helper.js" afterPath="$PROJECT_DIR$/src/utils/helper.js" />
-    </list>
+    <list default="true" id="ddbc8ebb-20ce-445b-b5a2-cbf20dbf14bd" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -66,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/src/utils/helper.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding>
                 <element signature="e#1#27#0" expanded="true" />
               </folding>
@@ -427,12 +418,12 @@
       <workItem from="1507861669666" duration="230000" />
       <workItem from="1507861916094" duration="41000" />
       <workItem from="1507907068065" duration="57361000" />
-      <workItem from="1508133019633" duration="50151000" />
+      <workItem from="1508133019633" duration="50215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110017000" />
+    <option name="totallyTimeSpent" value="110081000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -949,7 +940,7 @@
     <entry file="file://$PROJECT_DIR$/src/utils/helper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding>
             <element signature="e#1#27#0" expanded="true" />
           </folding>

@@ -22,12 +22,13 @@ class SeeUser extends React.Component {
 
   agree = (projectApplicant) => {
     let { actions, projectName } = this.props;
-    let { applySuccessPerson } = this.state;
+    let { applySuccessPerson, proApplyingPerson } = this.state;
     actions.agree({ projectAbout: projectName , projectApplicant }).then(r => {
       let { ifSuccess } = r.payload;
       if (ifSuccess) {
         applySuccessPerson = [ ...applySuccessPerson, projectApplicant ];
-        this.setState({ applySuccessPerson });
+        proApplyingPerson = proApplyingPerson.filter(item => item !== projectApplicant);
+        this.setState({ applySuccessPerson, proApplyingPerson });
         message.success('同意成功');
       } else {
         message.error('操作失败');

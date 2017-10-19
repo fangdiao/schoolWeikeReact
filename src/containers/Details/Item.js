@@ -9,10 +9,10 @@ export default class extends React.Component {
    return (
      <div className={STYLE.userDetItem}>
        <Row>
-         <Col span={8}>
+         <Col span={6}>
            <h3>{type}</h3>
          </Col>
-         <Col span={16}>
+         <Col span={16} offset={2}>
            <p>{text}</p>
          </Col>
        </Row>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Spin } from 'antd';
+import { isEmpty } from 'lodash';
 
 import CurdBox from 'components/FDCurd/CurdBox';
 import RangeCurd from 'components/FDCurd/RangeCurd';
@@ -21,7 +22,7 @@ class Home extends React.Component {
     let { search } = this.props.actions;
     search({ keyWords: query }).then(r => {
       let { data } = r.payload;
-      if (data) {
+      if (!isEmpty(data)) {
         this.setState({ hasResult: true, loading: false });
       } else {
         this.setState({ hasResult: false, loading: false });
@@ -40,6 +41,7 @@ class Home extends React.Component {
 
   getProject = (pathname, query) => {
     let { actions: { indexProjects, recommend } } = this.props;
+    this.setState({ hasResult: true });
     const getRes = (r) => {
       let { ifSuccess } = r.payload;
       if (ifSuccess) {

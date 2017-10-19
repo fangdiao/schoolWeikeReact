@@ -3,11 +3,13 @@ import { Spin, Row, Col } from 'antd';
 
 import Attention from 'components/FDProject/Attention';
 import Join from 'components/FDProject/Join';
+
 import homeActions from 'actions/home';
 import { connect } from 'utils/helper';
 import Item from './Item';
+import Skill from './Skill';
 
-import './style';
+import STYLE from './style';
 
 class ProDetails extends React.Component {
 
@@ -40,18 +42,18 @@ class ProDetails extends React.Component {
       projectEnd,
     } = projectDetails;
     return (
-      <div className="FDProDetails">
+      <div className={STYLE.proDetails}>
         <Spin spinning={loading}>
           {
             loading ? null : (
               <Row>
                 <Col span={20}>
-                  <div className="details">
+                  <div className={STYLE.detailsBox}>
                     <h1>{projectName}</h1>
                     <Item title="类型" text={projectKind} />
                     <Item title="发布人" text={projectConnector} />
                     <Item title="联系方式" text={email} />
-                    <Item title="要求" text={projectNeed} type="skill"/>
+                    <Skill skills={projectNeed} />
                     <Item title="人数" text={numNeed} />
                     <Item title="简介" text={projectProfile} />
                     <Item title="开始时间" text={projectStart} />
@@ -59,7 +61,7 @@ class ProDetails extends React.Component {
                   </div>
                 </Col>
                 <Col span={3} offset={1}>
-                  <div className="FDProDetails-button">
+                  <div className={STYLE.proDetButton}>
                     <div>
                       <Attention projectConnector={projectConnector} projectName={projectName} followPros={followPros} />
                     </div>

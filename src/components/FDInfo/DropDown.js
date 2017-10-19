@@ -24,12 +24,13 @@ export default class extends React.Component {
     let { type, title } = this.props;
     let key = Object.keys(type)[0];
     let map = DROP_DONW[key];
+    console.log(type[key])
     return (
       <div className="FDInfo" ref={ele => this.dropdown = ele}>
         <span className="title">{title}</span>
-        <Select style={{width: 160}} onChange={this.onChange} value={type[key]} getPopupContainer={() => this.dropdown}>
+        <Select style={{width: 160}} onChange={this.onChange} value={String(type[key])} getPopupContainer={() => this.dropdown}>
           {
-            map.map(item => <Option key={item} value={item}>{item}</Option>)
+            map.map((item, index) => <Option key={index} value={String(item)}>{item}</Option>)
           }
         </Select>
       </div>

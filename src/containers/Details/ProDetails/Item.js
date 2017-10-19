@@ -1,17 +1,17 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import './style';
+import STYLE from './style';
 
 export default class Item extends React.Component {
   render() {
     let { text, title }  = this.props;
     return (
-      <div className="FDProDetails-item">
+      <div className={STYLE.proDetailsItem}>
         <Row>
-          <Col span={8}>
+          <Col span={6}>
             <h3>{title}</h3>
           </Col>
-          <Col span={16}>
+          <Col span={18}>
             <p>{text}</p>
           </Col>
         </Row>

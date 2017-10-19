@@ -1,6 +1,6 @@
-import ProDetails from 'components/FDProDetails';
-import Student from 'containers/UserDetails/Student';
-import Teacher from 'containers/UserDetails/Teacher';
+import ProDetails from 'containers/Details/ProDetails';
+import Student from 'containers/Details/Student';
+import Teacher from 'containers/Details/Teacher';
 
 export default {
   path: "/details",

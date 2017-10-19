@@ -1,10 +1,9 @@
-@import '../../layouts/less/variable.less';
+@import '../../../layouts/less/variable.less';
 
-@prefix: FDProDetails;
 
-.@{prefix} {
+.proDetails {
   padding: 20px 50px;
-  .details {
+  .detailsBox {
     min-height: 600px;
     padding: 40px;
     border-radius: 3px;
@@ -12,25 +11,42 @@
     box-shadow: 0 2px 6px #ddd;
     background-color: @white;
     > h1 {
+      font-size: 30px;
       padding-bottom: 20px;
       color: @blue;
+      text-align: right;
     }
   }
 }
-.@{prefix}-item {
+.proDetailsItem {
   border-top: 1px solid @gray;
   padding-bottom: 20px;
   padding-top: 20px;
   h3 {
     font-size: 18px;
-    color: @grayDark;
+    color: @dark;
+    text-align: right;
+    padding-right: 30px;
   }
   p {
     font-size: 16px;
+    padding-left: 30px;
+  }
+  span {
+    display: inline-block;
+    margin-top: 4px;
+    padding-top: 10px;
+    user-select: none;
+    padding: 2px 14px;
+    background-color: @hoverColor;
+    font-size: 14px;
+    border-radius: 3px;
+    margin-right: 10px;
+    color: @blue;
   }
 }
 
-.@{prefix}-button {
+.proDetButton {
   > div {
     width: 100%;
     box-shadow: -2px 2px 10px #ddd;

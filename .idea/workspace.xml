@@ -2,62 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddbc8ebb-20ce-445b-b5a2-cbf20dbf14bd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.075d5d7911325d76c2d3.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.0d4e1de7573d3d9d5aa7.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.12e073e5e528de7b9ca1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.13dde427b72ee49cc520.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.27604eae17267ab41843.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.34f426265d7c2dd547a5.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.394c571f085cb37101e6.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.4b45eedbe237571d01a4.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.5a34f0d57d5bd4840ccb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.718374d33edb7850b40e.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.785d01e097a2a17dff06.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.7ef403ae8e9d25177fd9.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.da880d9f0d65b2cba04c.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.f16fe9253a9010de03eb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.f88cf6733987be55b247.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.075d5d7911325d76c2d3.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.0d4e1de7573d3d9d5aa7.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.12e073e5e528de7b9ca1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.13dde427b72ee49cc520.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.27604eae17267ab41843.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.34f426265d7c2dd547a5.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.394c571f085cb37101e6.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.4b45eedbe237571d01a4.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.5a34f0d57d5bd4840ccb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.718374d33edb7850b40e.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.785d01e097a2a17dff06.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.7ef403ae8e9d25177fd9.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.da880d9f0d65b2cba04c.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.f16fe9253a9010de03eb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.f88cf6733987be55b247.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/FDLoadingWrapper/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/FDLoadingWrapper/style.less" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/fonts/iconfont.eot" afterPath="$PROJECT_DIR$/dist/fonts/iconfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/fonts/iconfont.ttf" afterPath="$PROJECT_DIR$/dist/fonts/iconfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/fonts/iconfont.woff" afterPath="$PROJECT_DIR$/dist/fonts/iconfont.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/fonts/iconfont.svg" afterPath="$PROJECT_DIR$/dist/fonts/iconfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="$PROJECT_DIR$/dist/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/userProjects.js" afterPath="$PROJECT_DIR$/src/actions/userProjects.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDCurd/RangeCurd.js" afterPath="$PROJECT_DIR$/src/components/FDCurd/RangeCurd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDInfo/DropDown.js" afterPath="$PROJECT_DIR$/src/components/FDInfo/DropDown.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDProject/index.js" afterPath="$PROJECT_DIR$/src/components/FDProject/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDSkills/index.js" afterPath="$PROJECT_DIR$/src/components/FDSkills/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FDSkills/style.less" afterPath="$PROJECT_DIR$/src/components/FDSkills/style.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/Login/LoginIn.js" afterPath="$PROJECT_DIR$/src/containers/Login/LoginIn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Message/MessageItem.js" afterPath="$PROJECT_DIR$/src/containers/User/Message/MessageItem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Projects/Attention/index.js" afterPath="$PROJECT_DIR$/src/containers/User/Projects/Attention/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Projects/Joing/ItemBox.js" afterPath="$PROJECT_DIR$/src/containers/User/Projects/Joing/ItemBox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Projects/Joing/style.less" afterPath="$PROJECT_DIR$/src/containers/User/Projects/Joing/style.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Projects/Release/Item.js" afterPath="$PROJECT_DIR$/src/containers/User/Projects/Release/Item.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Projects/Release/style.less" afterPath="$PROJECT_DIR$/src/containers/User/Projects/Release/style.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/Projects/index.js" afterPath="$PROJECT_DIR$/src/containers/User/Projects/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/ReleaseChange/Submit.js" afterPath="$PROJECT_DIR$/src/containers/User/ReleaseChange/Submit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/User/ReleaseChange/index.js" afterPath="$PROJECT_DIR$/src/containers/User/ReleaseChange/index.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/css/index.a4d71.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/css/vendors.be2ad.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/fonts/iconfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/fonts/iconfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/fonts/iconfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/fonts/iconfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/index.166eb7254b100cba1b9b.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/js/vendors.166eb7254b100cba1b9b.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/helper.js" afterPath="$PROJECT_DIR$/src/utils/helper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -106,10 +60,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="helper.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/helper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-784">
+            <state relative-caret-position="-743">
               <caret line="80" column="38" lean-forward="false" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
               <folding />
             </state>
@@ -195,7 +159,6 @@
         <option value="$PROJECT_DIR$/src/components/FDProject/Attention.js" />
         <option value="$PROJECT_DIR$/src/components/FDProject/index.js" />
         <option value="$PROJECT_DIR$/src/components/FDCurd/RangeCurd.js" />
-        <option value="$PROJECT_DIR$/src/utils/helper.js" />
         <option value="$PROJECT_DIR$/src/containers/User/Projects/Attention/index.js" />
         <option value="$PROJECT_DIR$/src/containers/User/Projects/Joing/ItemBox.js" />
         <option value="$PROJECT_DIR$/src/containers/User/Projects/index.js" />
@@ -203,6 +166,7 @@
         <option value="$PROJECT_DIR$/src/components/FDSkills/index.js" />
         <option value="$PROJECT_DIR$/src/components/FDSkills/style.less" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/src/utils/helper.js" />
       </list>
     </option>
   </component>
@@ -268,25 +232,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="FDSkills" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="schoolWeikeReact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="schoolWeikeReact" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="schoolWeikeReact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="schoolWeikeReact" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-              <item name="less" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="schoolWeikeReact" type="b2602c69:ProjectViewProjectNode" />
-              <item name="schoolWeikeReact" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="schoolWeikeReact" type="b2602c69:ProjectViewProjectNode" />
@@ -447,12 +392,12 @@
       <workItem from="1507861916094" duration="41000" />
       <workItem from="1507907068065" duration="57361000" />
       <workItem from="1508133019633" duration="50726000" />
-      <workItem from="1508323407891" duration="15208000" />
+      <workItem from="1508323407891" duration="15500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125800000" />
+    <option name="totallyTimeSpent" value="126092000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -885,14 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/helper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="124" column="20" lean-forward="true" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/FDCurd/RangeCurd.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -957,9 +894,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/helper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-784">
+        <state relative-caret-position="-743">
           <caret line="80" column="38" lean-forward="false" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
           <folding />
         </state>

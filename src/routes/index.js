@@ -1,4 +1,5 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 import home from './home';
 import details from './details';
@@ -18,7 +19,6 @@ const checker = (nextState, replace, cb = () => {}) => {
     replace(`/login/loginIn`);
   }
 };
-
 const routes = {
   path: "/",
   indexRoute: {

@@ -9,7 +9,7 @@ import MailInput from 'components/FDInput/MailInput';
 import MailCodeInput from 'components/FDInput/MailCodeInput';
 import PWInput from 'components/FDInput/PWInput';
 
-import { connect } from 'utils/helper';
+import { connect, jump } from 'utils/helper';
 import loginActions from 'actions/login';
 
 import STYLE from './style';
@@ -32,7 +32,7 @@ class ChangePW extends React.Component {
       newPassword: false,
     },
     role: 'student',
-    loaing: false,
+    loading: false,
   };
 
   toParent = (value, success) => {
@@ -59,8 +59,7 @@ class ChangePW extends React.Component {
           this.setState({ loading: false });
           let { ifSuccess, msg } = r.payload;
           if (ifSuccess) {
-            message.success('密码修改成功，请登录');
-            hashHistory.push('/login/loginIn');
+            jump(`/login/loginIn`, `修改密码成功，前往登录`);
           } else {
             message.destroy();
             message.error(msg);
@@ -78,7 +77,7 @@ class ChangePW extends React.Component {
   };
 
   render() {
-    let { form, success: { username, email, verifyCode }, role } = this.state;
+    let { form, success: { username, email, verifyCode }, role, loading } = this.state;
     let style = username && email && verifyCode ?
       { height: '120px' } : { height: '0', overflow: 'hidden' };
     return (

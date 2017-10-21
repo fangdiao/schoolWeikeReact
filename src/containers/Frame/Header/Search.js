@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon } from 'antd';
+import { isEmpty } from 'lodash';
 import { hashHistory } from 'react-router';
 
 import STYLE from './style';
@@ -14,7 +15,6 @@ export default class Search extends React.Component {
   onclick = () => {
     let { keyWords } = this.state;
     if (keyWords) {
-      console.log(keyWords);
       hashHistory.push(`/dist/search/${keyWords}`);
     }
   }
@@ -28,12 +28,17 @@ export default class Search extends React.Component {
 
   render() {
     let {keyWords} = this.state;
+    let { user } = this.props;
     return (
       <div className={STYLE.search}>
-        <span>
-          <input type="primary" onKeyUp={this.onKeyUp} value={keyWords} onChange={(e) => this.setState({keyWords: e.target.value})}/>
-          <Icon type="search" onClick={this.onclick}/>
-        </span>
+        {
+          isEmpty(user) ? null : (
+            <span>
+              <input type="primary" onKeyUp={this.onKeyUp} value={keyWords} onChange={(e) => this.setState({keyWords: e.target.value})}/>
+              <Icon type="search" onClick={this.onclick}/>
+            </span>
+          )
+        }
       </div>
     )
   }

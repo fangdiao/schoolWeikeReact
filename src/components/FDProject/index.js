@@ -36,7 +36,7 @@ export default class Home extends React.Component {
     } = projectDetails;
     return (
       <div className="FDProject-project">
-        <h3>{projectKind}</h3>
+        <h3>{`项目类型: projectKind`}</h3>
         <Publisher {...personData} />
         <h1>{projectName}</h1>
         <ProjectProfile projectProfile={projectProfile} />

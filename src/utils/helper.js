@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { message } from 'antd';
 import { connect as rrConnect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import qs from 'query-string';
@@ -9,8 +10,10 @@ const ADDRESS = 'http://182.150.37.74:88';
 // const ADDRESS = '';
 
 //页面跳转
-export const jump = path => {
-  hashHistory.push(path);
+export const jump = (path, msg) => {
+  message.success(msg);
+  const toPath = () => hashHistory.push(path);
+  setTimeout(toPath, 1000);
 };
 
 //用户信息检查
@@ -33,18 +36,22 @@ export const connect = (dataMaker = () => {}, actions = () => {}) => Component =
 
 //以下三个request函数待再次封装，有点乱
 
-export const request = (url, body = '', method = 'get', token = false) => {
+export const request = (url, body = '', method = 'get', token = false, isImg = false) => {
   if (body && method === 'get') {
     url = `${url}?${qs.stringify(body)}`;
   }
-  // url = body && method === 'get' ? `${url}?username=${body.username}&email=${body.email}` : url;
-  token = token ? `Bearer ${ JSON.parse(localStorage.weike).token }` : false;
-  let headers = token ?
-    { 'Content-Type': 'application/json;charset=UTF-8', 'Accept': 'application/json', 'Authorization': token } :
-    { 'Content-Type': 'application/json;charset=UTF-8' };
-  body = body ? JSON.stringify(body) : body;
-  let params = body && method === 'post' ? { method, headers, body } :
-    { method, headers };
+  let headers = { 'Content-Type': 'application/json;charset=UTF-8' };
+  if (token) {
+    token = `Bearer ${ JSON.parse(localStorage.weike).token }`;
+    headers =  { ...headers, 'Accept': 'application/json', 'Authorization': token };
+    //图片添加Content-Type:application/x-www-form-urlencoded
+    if (/uploadImage/g.test(url)) {
+      headers = { 'Authorization': token };
+    } else {
+      body = body ? JSON.stringify(body) : body;
+    }
+  }
+  let params = body && method === 'post' ? { method, headers, body } : { method, headers };
 
   return new Promise((resolve, reject) => {
     fetch(ADDRESS + url, params).then(r => r.json())
@@ -122,6 +129,5 @@ export const range = (array, type) => {
       });
       break;
   }
-  console.log(array)
   return array;
 }

@@ -26,7 +26,7 @@ export default class ProjectProfile extends React.Component {
   }
 
   render() {
-    let { projectProfile, over } = this.state;
+    let { over } = this.state;
     return (
       <p>
         <span>{this.state.projectProfile}</span>

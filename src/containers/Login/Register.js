@@ -3,7 +3,7 @@ import { Link, hashHistory } from 'react-router';
 import { Button, message, Spin } from 'antd';
 import _ from 'lodash';
 
-import { connect } from 'utils/helper';
+import { connect, jump } from 'utils/helper';
 import loginActions from 'actions/login';
 
 import RoleInput from 'components/FDInput/RoleInput';
@@ -66,8 +66,7 @@ class Register extends React.Component {
         actions.teacherRegister(form).then(r => {
           this.setState({ loading: false });
           if (r.payload.ifSuccess) {
-            message.success('注册成功请登录');
-            hashHistory.push('/login/loginIn');
+            jump(`/login/loginIn`, `注册成功请登录`);
           }
         });
       }

@@ -19,6 +19,7 @@ class MessageItem extends  React.Component {
 
   render() {
     let { createDate, content, fromName, projectAbout } = this.props;
+    console.log(this.props)
     return (
       <div className={STYLE.messageItem}>
        <Row>
@@ -30,7 +31,11 @@ class MessageItem extends  React.Component {
                  <i className="iconfont icon-file-text-o"></i>{projectAbout}
                </Link>
              </span>
-             <span><i className="iconfont icon-user"></i>{`来自: ${fromName}`}</span>
+             <span>
+               <Link to={`/details/user/${fromName}`} target="_blank">
+                 <i className="iconfont icon-user"></i>{`来自: ${fromName}`}
+               </Link>
+             </span>
            </p>
            <p>{content}</p>
          </Col>

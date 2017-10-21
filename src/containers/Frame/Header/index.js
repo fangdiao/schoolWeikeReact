@@ -1,21 +1,25 @@
 import React from 'react';
+import { Row, Col } from 'antd';
+
+import { connect } from 'utils/helper';
+import loginActions from 'actions/login';
 import Logo from './Logo'
 import Search from './Search';
 import Status from './Status';
-import { Row, Col } from 'antd';
 import './style.less';
 
-export default class Header extends React.Component {
+class Header extends React.Component {
   render() {
+    let { user } = this.props.data;
     return (
       <header className="reset">
         <div className="container">
           <Row>
             <Col span={3}>
-              <Logo />
+              <Logo user={user} />
             </Col>
             <Col span={7} offset={7}>
-              <Search />
+              <Search user={user} />
             </Col>
             <Col span={7}>
               <Status />
@@ -26,3 +30,5 @@ export default class Header extends React.Component {
     )
   }
 }
+export default connect(state => state.login, loginActions)(Header);
+

@@ -16,12 +16,9 @@ export default handleActions({
         message.error(msg);
       } else {
         let user = action.payload.data;
-        let { completed } = user;
-        let path = completed ? '/dist' : '/user/info';
         let { token } = user
         localStorage.weike = JSON.stringify({ token });
         state = { ...state, user };
-        hashHistory.push(path);
         return state;
       }
     }

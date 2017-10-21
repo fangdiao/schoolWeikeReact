@@ -50,7 +50,7 @@ class Student extends React.Component {
                 <Row>
                   <Col span={6}>
                     <div className={STYLE.userHead}>
-                      <Avatar size="large" icon="user" shape="square"/>
+                      <Avatar size="large" icon="user" shape="square" src={image?image:''}/>
                     </div>
                   </Col>
                   <Col span={18}>

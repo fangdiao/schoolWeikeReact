@@ -10,12 +10,18 @@
   border: 1px solid @gray;
   box-shadow: 0px 2px 6px #ddd;
   background-color: @white;
+  h1 {
+    font-size: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
 
   h3 {
     color: @grayDark;
+    padding-bottom: 6px;
   }
 
-  p {
+  > p {
     font-size: 15px;
     line-height: 1.7em;
     color: @dark;
@@ -23,29 +29,25 @@
     & > span:nth-child(2) {
       color: @grayDark;
       cursor: pointer;
+      display: inline-block;
     }
   }
 }
 
 .@{prefix}-publisher {
-  padding-top: 8px;
-  padding-bottom: 8px;
-
   & > span {
     vertical-align: middle;
     margin-right: 10px;
-  }
-
-  & > span:nth-child(n+1) {
     font-size: 16px;
     font-weight: bold;
   }
 
   & > span:nth-child(2) {
-    color: @blue;
+    color: @dark;
   }
   & > span:nth-child(3) {
     color: @dark + #111;
+    font-weight: normal;
   }
 
 }

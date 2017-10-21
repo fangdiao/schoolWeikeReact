@@ -30,6 +30,10 @@ class ReleaseChange extends React.Component {
     role: '',
   }
 
+  releaseButton = (loading) => {
+    this.setState({ loading });
+  }
+
   toParent = (value) => {
     if (Object.keys(value)[0] === 'skills') {
       return this.setState({ form: { ...this.state.form, projectNeed: value['skills'] } });
@@ -92,7 +96,7 @@ class ReleaseChange extends React.Component {
           <Skills skills={projectNeed} title="技能" toParent={this.toParent} />
           <DropDown type={{numNeed}} title="人数" toParent={this.toParent} />
           <Textarea title="项目简介" type={{projectProfile}} toParent={this.toParent} />
-          <Submit projectName={oldProjectName} form={this.state.form} />
+          <Submit releaseButton={this.releaseButton} projectName={oldProjectName} form={this.state.form} />
         </form>
       </Spin>
     )

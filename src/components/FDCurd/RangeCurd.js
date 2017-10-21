@@ -12,6 +12,7 @@ class Range extends React.Component {
 
   range = (e) => {
     let type = e.target.dataset.range;
+    console.log(type)
     this.setState({ type },() => {
       let { actions } = this.props;
       actions.range({ type });
@@ -20,7 +21,7 @@ class Range extends React.Component {
 
   render() {
     let { type } = this.state;
-    let className = "background-select";
+    let className = "background-select background-hover";
     return (
       <ul className="FDCurd-range" onClick={this.range}>
         <li><h3>排序</h3></li>

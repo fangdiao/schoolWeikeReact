@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import { Button, message, Spin } from 'antd';
 
-import { connect } from 'utils/helper';
+import { connect, jump } from 'utils/helper';
 import loginActions from 'actions/login';
 
 import RoleInput from 'components/FDInput/RoleInput';
@@ -49,9 +49,13 @@ class LoginIn extends React.Component {
       let { captchaCode } = data.login;
       let login = role === 'student' ? studentLogin : teacherLogin;
       login({ form, captchaCode }).then(r => {
-        let { ifSuccess } = r.payload;
+        let { ifSuccess, data: { completed } } = r.payload;
         if (!ifSuccess) {
           this.setState({ loading: false });
+        } else {
+          let path = completed ? `/dist` : `/user/info`;
+          let msg = completed ? `登录成功, 即将眺望首页` : `登录成功,未填写个人信息,前往填写个人信息`;
+          jump(path, msg)
         }
       });
     } else {

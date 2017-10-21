@@ -23,15 +23,26 @@ const data = [{
       { value: 'Webpack.js' },
     ]
   },{
-    value: '后端开发',
+    value: '后端相关',
     children: [
       { value: 'java' },
       { value: 'Spring' },
-      { value: 'Spring boot' },
+      { value: 'SpringMVC' },
+      { value: 'SpringBoot' },
+      { value: 'Struct2' },
       { value: 'PHP' },
       { value: 'Python' },
       { value: 'C#' },
       { value: 'C++' },
+      { value: 'Gradle' },
+      { value: 'Maven' },
+      { value: 'Ant' },
+      { value: 'Nginx' },
+      { value: 'Apache' },
+      { value: 'JBoss' },
+      { value: 'WebLogic' },
+      { value: 'Mybatis' },
+      { value: 'Hibernate' },
     ]
   },{
     value: '数据库',
@@ -40,6 +51,8 @@ const data = [{
       { value: 'MongoDB' },
       { value: 'Oracel' },
       { value: 'SQL Server' },
+      { value: 'Redis' },
+      { value: 'PostgreSQL' },
     ]
   },{
     value: 'UI设计',
@@ -54,6 +67,13 @@ const data = [{
       { value: 'Android' },
       { value: 'Unity 3D' },
       { value: 'Cocos2d-x' },
+    ]
+  },{
+    value: '版本控制工具',
+    children: [
+      { value: 'Git' },
+      { value: 'SVN' },
+      { value: 'CVS' },
     ]
   }]
 },{
@@ -95,11 +115,11 @@ export default class FDSkills extends React.Component {
     if (skills.filter(o => o === language).length) {
       skills = skills.filter(o => o !== language);
     } else {
-      if (skills.length <= 8) {
+      if (skills.length <= 11) {
         skills = [ ...skills, language ];
       } else {
         message.destroy();
-        message.error('最多选取九个');
+        message.error('最多选取12个');
       }
     }
     toParent({ skills });

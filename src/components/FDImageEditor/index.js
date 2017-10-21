@@ -1,15 +1,51 @@
 import React from 'react';
-
+import { connect } from 'utils/helper';
+import loginActions from 'actions/login';
 import Wrapper from './Wrapper';
 
 import './style';
 
-export default class FDImageEditor extends React.Component {
+class FDImageEditor extends React.Component {
 
   state = {
     imageFile: '',
     visible: false,
     imagePreview: ''
+  }
+
+
+  getBolb = (b64Data, contentType, sliceSize) => {
+    b64Data = b64Data.substr(22);
+    contentType = contentType || '';
+    sliceSize = sliceSize || 512;
+    var byteCharacters = atob(b64Data);
+    var byteArrays = [];
+
+    for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      var byteNumbers = new Array(slice.length);
+      for (var i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      var byteArray = new Uint8Array(byteNumbers);
+
+      byteArrays.push(byteArray);
+    }
+
+    var blob = new Blob(byteArrays, {type: contentType});
+    return blob;
+  }
+
+  upImg = (compressed) => {
+    let { studentUpImg } = this.props.actions
+    var fileBlob = this.getBolb(compressed, "image/jpeg");
+    var fd = new FormData();
+    fd.append("image", fileBlob);
+    console.log(fileBlob);
+    console.log(fd);
+    studentUpImg(fd).then(r => console.log(r));
   }
 
   close = () => {
@@ -18,7 +54,7 @@ export default class FDImageEditor extends React.Component {
   }
 
   getImage = (imagePreview) => {
-    console.log(imagePreview.length)
+    this.upImg(imagePreview);
     let { toParent } = this.props;
     this.fileInput.value = '';
     this.setState({ imageFile: '', imagePreview, visible: false }, () => toParent({ image: imagePreview }));
@@ -30,6 +66,7 @@ export default class FDImageEditor extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     let { imageFile, visible, imagePreview } = this.state;
     return (
       <div className="FDImageEditor-preview">
@@ -49,3 +86,5 @@ export default class FDImageEditor extends React.Component {
     )
   }
 }
+export default connect(state => state.login, loginActions)(FDImageEditor);
+

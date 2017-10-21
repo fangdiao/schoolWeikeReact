@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Slider } from 'antd';
+import { Button } from 'antd';
 import AvatarEditor from 'react-avatar-editor';
 
 export default class Wrapper extends React.Component {
@@ -32,7 +32,7 @@ export default class Wrapper extends React.Component {
     imgCanvas.width = 150;
     imgCanvas.height = 150;
     imgCanvas.getContext('2d').drawImage(canvas, 80, 80, 320, 320, 0, 0, 150, 150);
-    let imagePreview = imgCanvas.toDataURL('image/png', 0.5);
+    let imagePreview = imgCanvas.toDataURL('image/png', 0.1);
     getImage(imagePreview);
   }
 
@@ -57,8 +57,6 @@ export default class Wrapper extends React.Component {
             rotate={rotate}
           />
           <div className="range">
-            {/* <Slider onChange={this.range} defaultValue={1} min="1" max="3" step="0.01"/> */}
-
             <input onChange={this.range} type="range" min="1" max="3" step="0.01" defaultValue="1"/>
           </div>
           <div className="rotate">

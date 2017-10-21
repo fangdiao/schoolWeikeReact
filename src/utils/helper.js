@@ -44,14 +44,14 @@ export const request = (url, body = '', method = 'get', token = false, isImg = f
   if (token) {
     token = `Bearer ${ JSON.parse(localStorage.weike).token }`;
     headers =  { ...headers, 'Accept': 'application/json', 'Authorization': token };
-    //图片添加Content-Type:application/x-www-form-urlencoded
-    if (/uploadImage/g.test(url)) {
-      headers = { 'Authorization': token };
+    if (isImg) {
+      headers = { 'Authorization': token, 'enctype': 'multipart/form-data' };
     } else {
       body = body ? JSON.stringify(body) : body;
     }
   }
   let params = body && method === 'post' ? { method, headers, body } : { method, headers };
+  console.log(params)
 
   return new Promise((resolve, reject) => {
     fetch(ADDRESS + url, params).then(r => r.json())

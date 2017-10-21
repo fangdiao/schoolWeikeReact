@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
-import { Button, message, Spin } from 'antd';
+import { Link } from 'react-router';
+import { Button, message } from 'antd';
 
 import { connect, jump } from 'utils/helper';
 import loginActions from 'actions/login';
@@ -41,21 +41,24 @@ class LoginIn extends React.Component {
     }
   };
 
+
+
   upForm = () => {
     let { form, success, role } = this.state;
     if (!_.findKey(success, item => item === false)) {
-      this.setState({ loaing: true });
+      this.setState({ loading: true });
       let { actions: { studentLogin, teacherLogin }, data } = this.props;
       let { captchaCode } = data.login;
       let login = role === 'student' ? studentLogin : teacherLogin;
       login({ form, captchaCode }).then(r => {
-        let { ifSuccess, data: { completed } } = r.payload;
-        if (!ifSuccess) {
-          this.setState({ loading: false });
-        } else {
+        let { ifSuccess, data } = r.payload;
+        if (ifSuccess) {
+          let { completed } = data;
           let path = completed ? `/dist` : `/user/info`;
-          let msg = completed ? `登录成功, 即将眺望首页` : `登录成功,未填写个人信息,前往填写个人信息`;
-          jump(path, msg)
+          let msg = completed ? `登录成功, 即将前往首页` : `登录成功,未填写个人信息,前往填写个人信息`;
+          jump(path, msg);
+        } else {
+          this.setState({ loading: false });
         }
       });
     } else {
@@ -68,6 +71,13 @@ class LoginIn extends React.Component {
     this.setState({ role: e.target.value });
   };
 
+  onKeyUp = e => {
+    if (e.keyCode === 13) {
+      this.upForm();
+    }
+    return;
+  }
+
   componentWillUnmount() {
     message.destroy();
   }
@@ -76,24 +86,22 @@ class LoginIn extends React.Component {
     let { role, loading, success: { username, password } } = this.state;
     let imgCodeShow = username && password;
     return (
-     <Spin spinning={loading}>
-       <div className={STYLE.loginIn}>
-         <h1>登录校园威客</h1>
-         <form>
-           <RoleInput role={role} toParent={this.toParent} />
-           <NameInput toParent={this.toParent} />
-           <PWInput toParent={this.toParent} />
-           <ImgCodeInput height={imgCodeShow} toParent={this.toParent} />
-           <div className={STYLE.button}>
-             <Button type="primary" htmlType="submit" onClick={this.upForm}>登录</Button>
-           </div>
-         </form>
-         <span>
-          <Link to="/login/changePW">忘记密码?</Link>
-          <Link to="/login/register">去注册</Link>
-        </span>
-       </div>
-     </Spin>
+     <div className={STYLE.loginIn} onKeyUp={this.onKeyUp}>
+       <h1>登录校园威客</h1>
+       <form>
+         <RoleInput role={role} toParent={this.toParent} />
+         <NameInput toParent={this.toParent} />
+         <PWInput toParent={this.toParent} />
+         <ImgCodeInput height={imgCodeShow} toParent={this.toParent} />
+         <div className={STYLE.button}>
+           <Button loading={loading} type="primary" onClick={this.upForm}>登录</Button>
+         </div>
+       </form>
+       <span>
+        <Link to="/login/changePW">忘记密码?</Link>
+        <Link to="/login/register">去注册</Link>
+      </span>
+     </div>
     );
   }
 }

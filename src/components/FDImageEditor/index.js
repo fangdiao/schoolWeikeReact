@@ -1,4 +1,7 @@
 import React from 'react';
+import { message } from 'antd';
+import classnames from 'classnames';
+
 import { connect } from 'utils/helper';
 import loginActions from 'actions/login';
 import Wrapper from './Wrapper';
@@ -13,39 +16,17 @@ class FDImageEditor extends React.Component {
     imagePreview: ''
   }
 
-
-  getBolb = (b64Data, contentType, sliceSize) => {
-    b64Data = b64Data.substr(22);
-    contentType = contentType || '';
-    sliceSize = sliceSize || 512;
-    var byteCharacters = atob(b64Data);
-    var byteArrays = [];
-
-    for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-      var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-      var byteNumbers = new Array(slice.length);
-      for (var i = 0; i < slice.length; i++) {
-        byteNumbers[i] = slice.charCodeAt(i);
-      }
-
-      var byteArray = new Uint8Array(byteNumbers);
-
-      byteArrays.push(byteArray);
-    }
-
-    var blob = new Blob(byteArrays, {type: contentType});
-    return blob;
-  }
-
-  upImg = (compressed) => {
+  upImg = (b) => {
     let { studentUpImg } = this.props.actions
-    var fileBlob = this.getBolb(compressed, "image/jpeg");
     var fd = new FormData();
-    fd.append("image", fileBlob);
-    console.log(fileBlob);
-    console.log(fd);
-    studentUpImg(fd).then(r => console.log(r));
+    fd.append("image", b, "image.png");
+    studentUpImg(fd).then(r => {
+      let { ifSuccess, msg } = r.payload;
+      if (ifSuccess) {
+        message.success('修改图片成功');
+        this.getImage(msg);
+      }
+    });
   }
 
   close = () => {
@@ -53,11 +34,10 @@ class FDImageEditor extends React.Component {
     this.setState({ imageFile: '', visible: false });
   }
 
-  getImage = (imagePreview) => {
-    this.upImg(imagePreview);
+  getImage = (msg) => {
     let { toParent } = this.props;
     this.fileInput.value = '';
-    this.setState({ imageFile: '', imagePreview, visible: false }, () => toParent({ image: imagePreview }));
+    this.setState({ imageFile: '', imagePreview: msg, visible: false }, () => toParent({ image: msg }));
   }
 
   onChange = (e) => {
@@ -65,11 +45,18 @@ class FDImageEditor extends React.Component {
     this.setState({ imageFile, visible: true });
   }
 
+  componentWillReceiveProps(nextProps) {
+    let preImagePreview = this.props.imagePreview;
+    let { imagePreview } = nextProps;
+    if (imagePreview !== preImagePreview) {
+      this.setState({ imagePreview });
+    }
+  }
+
   render() {
-    console.log(this.props)
     let { imageFile, visible, imagePreview } = this.state;
     return (
-      <div className="FDImageEditor-preview">
+      <div className={classnames('FDImageEditor-preview', {['FDImageEditor-hover']: imagePreview})}>
         {
           imagePreview ? <img src={imagePreview} /> : null
         }
@@ -80,7 +67,7 @@ class FDImageEditor extends React.Component {
         </div>
         <input ref={ele => this.fileInput = ele} accept="image/*" onChange={this.onChange} type="file" />
         {
-          visible ? <Wrapper close={this.close} imageFile={imageFile} getImage={this.getImage} /> : null
+          visible ? <Wrapper upImg={this.upImg} close={this.close} imageFile={imageFile} getImage={this.getImage} /> : null
         }
       </div>
     )

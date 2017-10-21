@@ -1,5 +1,6 @@
 import React from 'react';
 import { Spin, Row, Col } from 'antd';
+import moment from 'moment';
 
 import Attention from 'components/FDProject/Attention';
 import Join from 'components/FDProject/Join';
@@ -56,8 +57,8 @@ class ProDetails extends React.Component {
                     <Skill skills={projectNeed} />
                     <Item title="人数" text={numNeed} />
                     <Item title="简介" text={projectProfile} />
-                    <Item title="开始时间" text={projectStart} />
-                    <Item title="结束时间" text={projectEnd} />
+                    <Item title="开始时间" text={moment(projectStart).format('YYYY-MM-DD')} />//
+                    <Item title="结束时间" text={moment(projectEnd).format('YYYY-MM-DD')} />
                   </div>
                 </Col>
                 <Col span={3} offset={1}>

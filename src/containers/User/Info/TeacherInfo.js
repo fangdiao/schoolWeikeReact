@@ -53,7 +53,7 @@ class TeacherInfo extends React.Component {
     let { form: { qq, academy, sex, university, rank }, loading } = this.state;
     return (
       <form>
-        <Spin loading={loading}>
+        <Spin spinning={loading}>
           <Row>
             <Col span={4}>
               <FDImageEditor toParent={this.toParent} />

@@ -21,7 +21,7 @@ class StudentInfo extends React.Component {
   //默认值
   state = {
     form: {
-      image: '11',
+      image: '',
       sex: '男',
       eduBackgroud: '本科',
       university: '西南石油大学',
@@ -47,8 +47,7 @@ class StudentInfo extends React.Component {
         if (ifSuccess) {
           let omit = ['id', 'username', 'level', 'email'];
           let form = _.omit(data, omit);
-          let loading = false;
-          this.setState({ ...this.state, form, loading });
+          this.setState({ ...this.state, form, loading: false });
         }
       };
       actions.studentPersonalData().then(r => callback(r))
@@ -70,7 +69,8 @@ class StudentInfo extends React.Component {
         leaveUniversity,
         skills,
         experience,
-        selfFeel
+        selfFeel,
+        image,
       },
       loading,
     } = this.state;
@@ -79,7 +79,7 @@ class StudentInfo extends React.Component {
         <Spin spinning={loading}>
           <Row>
             <Col span={4}>
-              <FDImageEditor toParent={this.toParent} />
+              <FDImageEditor imagePreview={image} toParent={this.toParent} />
             </Col>
             <Col span={20}>
               <div className={STYLE.text}>

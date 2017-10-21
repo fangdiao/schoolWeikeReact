@@ -26,14 +26,14 @@ export default class Wrapper extends React.Component {
   }
 
   save = () => {
-    let { getImage } = this.props;
+    let { upImg } = this.props;
     let canvas = this.editor.canvas;
     let imgCanvas = document.createElement('canvas');
     imgCanvas.width = 150;
     imgCanvas.height = 150;
     imgCanvas.getContext('2d').drawImage(canvas, 80, 80, 320, 320, 0, 0, 150, 150);
-    let imagePreview = imgCanvas.toDataURL('image/png', 0.1);
-    getImage(imagePreview);
+    let imagePreview = imgCanvas.toDataURL('image/png', 0.9);
+    imgCanvas.toBlob(b => upImg(b, imagePreview),'image.png', .9);
   }
 
   render() {

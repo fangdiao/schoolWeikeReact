@@ -16,8 +16,8 @@ module.exports = {
     vendors: [
       // 通用CSS
       path.join(path.join(__dirname, 'src'), 'layouts/less/common.less'),
-      // path.join(path.join(__dirname, 'src'), 'layouts/iconfont/iconfont.css'),
-
+      path.join(path.join(__dirname, 'src'), 'layouts/iconfont/iconfont.less'),
+      path.join(path.join(__dirname, 'src'), 'layouts/iconfont/iconfont.js'),
       // 通用三方代码
       'react',
       'react-dom',
@@ -41,18 +41,6 @@ module.exports = {
     path: path.resolve(__dirname,"dist"),              //输出的打包文件相对于这个路径
     filename: "js/[name].[hash].js", //打包后的JS文件名字
     chunkFilename:"js/[name].[hash].js"     //chunk生成配置
-  },
-  devServer:{
-    contentBase: path.join(__dirname, "asstes"),
-    inline:true,
-    compress: true,
-    port:3000,
-    hot:true,
-    proxy: {
-      "*": {
-        target: "http://182.150.37.74:88",
-      }
-    }
   },
   module: {
     rules: [
@@ -111,6 +99,10 @@ module.exports = {
       inject: "body",                  //js文件放在body
       chunks: ["index", "vendors"],      //需要加入的js文件
       title: "index",
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+      '__DEV__': false
     }),
     new webpack.optimize.UglifyJsPlugin({
       comments: false,

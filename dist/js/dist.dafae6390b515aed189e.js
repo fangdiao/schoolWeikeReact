@@ -1,0 +1,1 @@
+webpackJsonp([2],{739:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var u=n(579),o=function(e){return e&&e.__esModule?e:{default:e}}(u);t.default=[{path:"search/:query",component:o.default},{path:"recommend",component:o.default}]}});

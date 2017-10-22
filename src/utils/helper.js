@@ -51,8 +51,6 @@ export const request = (url, body = '', method = 'get', token = false, isImg = f
     }
   }
   let params = body && method === 'post' ? { method, headers, body } : { method, headers };
-  console.log(params)
-
   return new Promise((resolve, reject) => {
     fetch(ADDRESS + url, params).then(r => r.json())
     .then(responseData => {

@@ -16,7 +16,7 @@ export default handleActions({
         message.error(msg);
       } else {
         let user = action.payload.data;
-        let { token } = user
+        let { token } = user;
         localStorage.weike = JSON.stringify({ token });
         state = { ...state, user };
         return state;

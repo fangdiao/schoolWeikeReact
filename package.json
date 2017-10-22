@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --inline --hot --progress --content-base . --history-api-fallback",
-    "build": "webpack --progress --color"
+    "build": "cross-env NODE_ENV=production webpack --progress --color"
   },
   "repository": {
     "type": "git",

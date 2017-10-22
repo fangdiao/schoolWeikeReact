@@ -8,35 +8,17 @@ import Header from './Header';
 
 class Frame extends React.Component {
 
-  tokenCheck = () => {
-    let token = '';
-    let { pathname } = this.props.location;
-    if (localStorage.weike) {
-      token = JSON.parse(localStorage.weike).token;
-      if (!token) {
-        if (!/\/login/g.test(pathname)) {
-          hashHistory.push(`/login/loginIn`);
-        }
-      }
-    }
-  }
-
-  componentDidMount() {
+  componentWillMount() {
     document.title = '校园威客平台';
     let token = '';
     let { user } = this.props.data;
-    let { pathname } = this.props.location;
-    if (pathname === '/') {
-      hashHistory.push('/dist');
-    }
-    if (localStorage.weike) {
+    if (!!localStorage.weike) {
       token = JSON.parse(localStorage.weike).token;
       if (token && isEmpty(user)) {
         let { loginWithToken } = this.props.actions;
         loginWithToken();
       }
     }
-    setInterval(this.tokenCheck, 500);
   }
 
   render() {

@@ -1,9 +1,18 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
-import { Button, message } from 'antd';
+import {
+  Link,
+  hashHistory
+} from 'react-router';
+import {
+  Button,
+  message
+} from 'antd';
 import _ from 'lodash';
 
-import { connect, jump } from 'utils/helper';
+import {
+  connect,
+  jump
+} from 'utils/helper';
 import loginActions from 'actions/login';
 
 import RoleInput from 'components/FDInput/RoleInput';
@@ -37,38 +46,85 @@ class Register extends React.Component {
     let key = Object.keys(value)[0];
     if (key !== 'role') {
       this.setState({
-        form: { ...this.state.form, ...value },
-        success: { ...this.state.success, ...success },
+        form: { ...this.state.form,
+          ...value
+        },
+        success: { ...this.state.success,
+          ...success
+        },
       });
     } else {
-      this.setState({ ...this.state, ...value });
+      this.setState({ ...this.state,
+        ...value
+      });
     }
   };
 
   upForm = () => {
-    let { form: { username, password, verifyCode, email }, success, role } = this.state;
+    let {
+      form: {
+        username,
+        password,
+        verifyCode,
+        email
+      },
+      success,
+      role
+    } = this.state;
     if (!_.findKey(success, item => item === false)) {
-      let { actions } = this.props;
-      this.setState({ loading: true });
+      let {
+        actions
+      } = this.props;
+      this.setState({
+        loading: true
+      });
       if (role === 'student') {
-        let studentInfo = { username, password, email };
-        let form = { verifyCode, studentInfo };
+        let studentInfo = {
+          username,
+          password,
+          email
+        };
+        let form = {
+          verifyCode,
+          studentInfo
+        };
         actions.studentRegister(form).then(r => {
-          if (r.payload.ifSuccess) {
+          let {
+            ifSuccess,
+            msg
+          } = r.payload;
+          if (ifSuccess) {
             message.success('注册成功请登录');
             hashHistory.push('/login/loginIn');
           } else {
-            this.setState({ loading: false });
+            message.error(msg);
+            this.setState({
+              loading: false
+            });
           }
         });
       } else {
-        let teacherInfo = { username, password, email };
-        let form = { verifyCode, teacherInfo };
+        let teacherInfo = {
+          username,
+          password,
+          email
+        };
+        let form = {
+          verifyCode,
+          teacherInfo
+        };
         actions.teacherRegister(form).then(r => {
-          if (r.payload.ifSuccess) {
+          let {
+            ifSuccess,
+            msg
+          } = r.payload;
+          if (ifSuccess) {
             jump(`/login/loginIn`, `注册成功请登录`);
           } else {
-            this.setState({ loading: false });
+            message.error(msg);
+            this.setState({
+              loading: false
+            });
           }
         });
       }
@@ -84,7 +140,12 @@ class Register extends React.Component {
   }
 
   render() {
-    let { form, success, role, loading } = this.state;
+    let {
+      form,
+      success,
+      role,
+      loading
+    } = this.state;
     return (
       <div className={STYLE.register}>
         <h1>欢迎来到校园威客</h1>

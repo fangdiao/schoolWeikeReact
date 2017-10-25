@@ -107,7 +107,7 @@ class ChangePW extends React.Component {
               toParent={this.toParent} />
           </div>
           <div className={STYLE.button}>
-            <Button loading={loading} type="primary" htmlType="submit" onClick={this.upPW}>提交</Button>
+            <Button loading={loading} type="primary" onClick={this.upPW}>提交</Button>
           </div>
         </form>
       </div>

@@ -162,7 +162,7 @@ class Register extends React.Component {
           />
           <PWInput toParent={this.toParent} />
           <div className={STYLE.button}>
-            <Button loading={loading} type="primary" htmlType="submit" onClick={this.upForm}>注册</Button>
+            <Button loading={loading} type="primary" onClick={this.upForm}>注册</Button>
           </div>
         </form>
         <span>

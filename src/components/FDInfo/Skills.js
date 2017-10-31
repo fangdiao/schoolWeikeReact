@@ -10,7 +10,7 @@ export default class extends React.Component {
     return (
       <div className="FDInfo" ref={ele => this.skills = ele}>
         <span className="title">{title}</span>
-        <FDSkills skills={skills} toParent={toParent} width={400} />
+        <FDSkills skills={skills} toParent={toParent} width="73%" />
       </div>
     )
   }

@@ -13,29 +13,6 @@ module.exports = {
   context:path.resolve(__dirname,"src"),
   entry: {
     index: "./index.js",
-    vendors: [
-      // 通用CSS
-      path.join(path.join(__dirname, 'src'), 'layouts/less/common.less'),
-      // path.join(path.join(__dirname, 'src'), 'layouts/iconfont/iconfont.css'),
-
-      // 通用三方代码
-      'react',
-      'react-dom',
-      'react-redux',
-      'react-router',
-      'react-router-redux',
-
-      'classnames',
-      'querystring',
-      'lodash',
-
-      'redux',
-      'redux-actions',
-      'redux-promise',
-      'redux-thunk',
-
-      'es6-promise',
-    ],
   },
   output: {
     path: path.resolve(__dirname,"dist"),              //输出的打包文件相对于这个路径
@@ -109,12 +86,5 @@ module.exports = {
       title: "index",
     }),
     new ExtractTextPlugin(`css/[name].[chunkhash:5].css`, {allChunks: true}),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: function () {
-          return [autoprefixer];
-        }
-      }
-    })
   ]
 }

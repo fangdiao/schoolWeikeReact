@@ -16,12 +16,6 @@ module.exports = {
     vendors: [
       // 通用CSS
       path.join(path.join(__dirname, 'src'), 'layouts/less/common.less'),
-      path.join(path.join(__dirname, 'src'), 'layouts/iconfont/iconfont.less'),
-      path.join(path.join(__dirname, 'src'), 'layouts/iconfont/iconfont.js'),
-      path.join(path.join(__dirname, 'src'), 'layouts/iconfont/iconfont.eot'),
-      path.join(path.join(__dirname, 'src'), 'layouts/iconfont/iconfont.svg'),
-      path.join(path.join(__dirname, 'src'), 'layouts/iconfont/iconfont.ttf'),
-      path.join(path.join(__dirname, 'src'), 'layouts/iconfont/iconfont.woff'),
       // 通用三方代码
       'react',
       'react-dom',
@@ -37,8 +31,6 @@ module.exports = {
       'redux-actions',
       'redux-promise',
       'redux-thunk',
-
-      'es6-promise',
     ],
   },
   output: {
@@ -113,12 +105,5 @@ module.exports = {
       warnings: false
     }),
     new ExtractTextPlugin(`css/[name].[chunkhash:5].css`, {allChunks: true}),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: function () {
-          return [autoprefixer];
-        }
-      }
-    })
   ]
 }

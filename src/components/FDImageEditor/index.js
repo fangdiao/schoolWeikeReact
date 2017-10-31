@@ -16,10 +16,10 @@ class FDImageEditor extends React.Component {
     imagePreview: ''
   }
 
-  upImg = (b) => {
+  upImg = (bolb) => {
     let { studentUpImg } = this.props.actions
     var fd = new FormData();
-    fd.append("image", b, "image.png");
+    fd.append("image", bolb, "image.png");
     studentUpImg(fd).then(r => {
       let { ifSuccess, msg } = r.payload;
       if (ifSuccess) {
